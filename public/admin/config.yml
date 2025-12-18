@@ -1,0 +1,76 @@
+# Producción - conectado con GitHub via Netlify
+backend:
+  name: git-gateway
+  branch: main
+
+# Para desarrollo local, usar test-repo:
+# backend:
+#   name: test-repo
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "es"
+
+collections:
+  - name: "publicaciones"
+    label: "Publicaciones"
+    label_singular: "Publicación"
+    folder: "content/publications"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Autores", name: "authors", widget: "string", hint: "Separar con comas" }
+      - { label: "Fecha de Publicación", name: "date", widget: "datetime" }
+      - { label: "Tipo", name: "type", widget: "select", options: ["Artículo", "Libro", "Capítulo de Libro", "Paper", "Tesis", "Otro"] }
+      - { label: "Revista/Editorial", name: "publication", widget: "string", required: false }
+      - { label: "Resumen", name: "summary", widget: "text", required: false }
+      - { label: "Link/URL", name: "url", widget: "string", required: false, hint: "Link al PDF o página de la publicación" }
+      - { label: "DOI", name: "doi", widget: "string", required: false }
+      - { label: "Palabras Clave", name: "keywords", widget: "list", required: false }
+      - { label: "Imagen de Portada", name: "image", widget: "image", required: false }
+      - { label: "Destacada", name: "featured", widget: "boolean", default: false, hint: "Mostrar en la página principal" }
+
+  - name: "eventos"
+    label: "Eventos"
+    label_singular: "Evento"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Nombre del Evento", name: "title", widget: "string" }
+      - { label: "Fecha y Hora", name: "date", widget: "datetime" }
+      - { label: "Lugar", name: "location", widget: "string" }
+      - { label: "Tipo", name: "type", widget: "select", options: ["Seminario", "Taller", "Conferencia", "Webinar", "Curso", "Otro"] }
+      - { label: "Descripción", name: "description", widget: "markdown" }
+      - { label: "Link de Registro", name: "registration_url", widget: "string", required: false }
+      - { label: "Imagen", name: "image", widget: "image", required: false }
+
+  - name: "noticias"
+    label: "Noticias"
+    label_singular: "Noticia"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Resumen", name: "excerpt", widget: "text" }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+      - { label: "Imagen", name: "image", widget: "image", required: false }
+      - { label: "Autor", name: "author", widget: "string", required: false }
+
+  - name: "equipo"
+    label: "Equipo"
+    label_singular: "Miembro del Equipo"
+    folder: "content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Cargo/Rol", name: "role", widget: "string" }
+      - { label: "Biografía", name: "bio", widget: "markdown", required: false }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Foto", name: "photo", widget: "image", required: false }
+      - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Para ordenar en la página" }
