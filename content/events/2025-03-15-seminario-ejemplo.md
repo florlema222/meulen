@@ -1,6 +1,6 @@
 ---
 title: "Seminario: Derechos de la Naturaleza en América Latina"
-date: 2025-03-15T18:00:00.000Z
+date: 2026-02-15T18:00:00.000Z
 location: "Facultad de Ciencias Jurídicas - UNL, Santa Fe"
 type: "Seminario"
 description: |

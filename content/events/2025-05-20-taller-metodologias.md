@@ -1,6 +1,6 @@
 ---
 title: "Taller: Metodologías de Investigación en Conflictos Socioecológicos"
-date: 2025-05-20T14:00:00.000Z
+date: 2026-04-20T14:00:00.000Z
 location: "Modalidad virtual - Zoom"
 type: "Taller"
 description: |

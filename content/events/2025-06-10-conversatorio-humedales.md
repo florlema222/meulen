@@ -1,6 +1,6 @@
 ---
 title: "Conversatorio: Protección Jurídica de Humedales en Argentina"
-date: 2025-06-10T18:30:00.000Z
+date: 2026-05-10T18:30:00.000Z
 location: "FCJS-UNL y transmisión en vivo"
 type: "Conferencia"
 description: |

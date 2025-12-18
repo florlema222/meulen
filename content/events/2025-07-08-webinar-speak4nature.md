@@ -1,6 +1,6 @@
 ---
 title: "Webinar Internacional Speak4Nature: Voces de la Naturaleza en el Derecho"
-date: 2025-07-08T15:00:00.000Z
+date: 2026-06-08T15:00:00.000Z
 location: "Plataforma virtual - Speak4Nature"
 type: "Webinar"
 description: |

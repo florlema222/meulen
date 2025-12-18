@@ -1,6 +1,6 @@
 ---
 title: "Seminario: Derechos de la Naturaleza en Constituciones Latinoamericanas"
-date: 2025-04-15T17:00:00.000Z
+date: 2026-03-20T17:00:00.000Z
 location: "Auditorio FCJS-UNL, Santa Fe"
 type: "Seminario"
 description: |
