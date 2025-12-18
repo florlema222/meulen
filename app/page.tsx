@@ -2,14 +2,17 @@ import Link from 'next/link'
 import { getAllPublications } from '@/lib/publications'
 import { getUpcomingEvents } from '@/lib/events'
 import { getRecentNews } from '@/lib/news'
+import { getAllCarouselSlides } from '@/lib/carousel'
 import PublicationCard from '@/components/PublicationCard'
 import EventCard from '@/components/EventCard'
 import NewsCard from '@/components/NewsCard'
+import HeroCarousel from '@/components/HeroCarousel'
 
 export default function Home() {
   const publications = getAllPublications()
   const upcomingEvents = getUpcomingEvents()
   const recentNews = getRecentNews(3)
+  const carouselSlides = getAllCarouselSlides()
 
   return (
     <div className="min-h-screen">
@@ -46,28 +49,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-meulen-cream via-meulen-beige to-meulen-brown-light py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center">
-            <div className="mb-8">
-              <div className="w-32 h-32 mx-auto bg-meulen-dark-brown rounded-full flex items-center justify-center">
-                <span className="text-4xl text-white font-playfair">M</span>
-              </div>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-playfair font-bold text-meulen-dark-brown mb-6">
-              Proyecto Meulen
-            </h1>
-            <p className="text-xl md:text-2xl text-meulen-dark-brown/80 max-w-3xl mx-auto leading-relaxed">
-              Investigamos justicias e injusticias socioecológicas con perspectiva latinoamericana e interdisciplinar.
-            </p>
-            <div className="mt-8 text-sm text-meulen-dark-brown/70">
-              <p>Facultad de Ciencias Jurídicas y Sociales</p>
-              <p>Universidad Nacional del Litoral</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Carousel Section */}
+      <HeroCarousel slides={carouselSlides} />
 
       {/* About Section */}
       <section id="nosotros" className="py-16 px-4 bg-white">

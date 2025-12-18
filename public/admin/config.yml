@@ -13,6 +13,19 @@ public_folder: "/images/uploads"
 locale: "es"
 
 collections:
+  - name: "carousel"
+    label: "Carousel Principal"
+    label_singular: "Slide"
+    folder: "content/carousel"
+    create: true
+    slug: "slide-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string", hint: "Texto principal del slide" }
+      - { label: "Subtítulo", name: "subtitle", widget: "string", required: false, hint: "Texto secundario (opcional)" }
+      - { label: "Imagen de Fondo", name: "image", widget: "image", hint: "Imagen de paisaje/naturaleza para el fondo" }
+      - { label: "Orden", name: "order", widget: "number", default: 1, hint: "1 = primero, 2 = segundo, etc." }
+      - { label: "Activo", name: "active", widget: "boolean", default: true, hint: "Desactivar para ocultar sin eliminar" }
+
   - name: "publicaciones"
     label: "Publicaciones"
     label_singular: "Publicación"
