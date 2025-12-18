@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { getAllPublications } from '@/lib/publications'
 import { getUpcomingEvents } from '@/lib/events'
 import { getRecentNews } from '@/lib/news'
@@ -19,10 +20,17 @@ export default function Home() {
       {/* Navigation */}
       <nav className="bg-meulen-dark-brown text-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-playfair font-bold">Proyecto Meulen</h1>
-            </div>
+          <div className="flex justify-between items-center h-20">
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src="/images/meulen-logo-outline.png"
+                alt="Proyecto Meulen"
+                width={180}
+                height={60}
+                className="h-12 w-auto brightness-0 invert"
+                priority
+              />
+            </Link>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-6">
                 <Link href="#nosotros" className="hover:text-meulen-beige transition px-3 py-2">
@@ -55,6 +63,15 @@ export default function Home() {
       {/* About Section */}
       <section id="nosotros" className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/images/meulen-logo-full.png"
+              alt="Proyecto Meulen Logo"
+              width={200}
+              height={200}
+              className="w-48 h-auto"
+            />
+          </div>
           <h2 className="text-4xl font-playfair font-bold text-meulen-dark-brown mb-8 text-center">
             Nosotros
           </h2>
@@ -273,7 +290,13 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-playfair text-xl font-bold mb-4">Proyecto Meulen</h3>
+              <Image
+                src="/images/meulen-logo-outline.png"
+                alt="Proyecto Meulen"
+                width={150}
+                height={50}
+                className="h-10 w-auto mb-4 brightness-0 invert"
+              />
               <p className="text-sm text-white/80">
                 Renovación de aportes jurídicos sobre el problema ecológico
               </p>
