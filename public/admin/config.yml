@@ -1,6 +1,7 @@
-# Producción - conectado con GitHub via Netlify
+# Producción - autenticación directa con GitHub
 backend:
-  name: git-gateway
+  name: github
+  repo: florlema222/meulen
   branch: main
 
 # Para desarrollo local, usar test-repo:
