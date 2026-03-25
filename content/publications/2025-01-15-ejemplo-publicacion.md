@@ -1,12 +1,14 @@
 ---
-title: "Ejemplo de Publicación - Justicia Ecológica en América Latina"
-authors: "María González, Juan Pérez"
+title: Ejemplo de Publicación - Justicia Ecológica en América Latina
+authors: María González, Juan Pérez
 date: 2025-01-15T10:00:00.000Z
-type: "Artículo"
-publication: "Revista de Derecho Ambiental"
-summary: "Este es un ejemplo de cómo se vería una publicación en el sitio web. Los administradores pueden agregar, editar o eliminar publicaciones desde el panel de administración."
-url: "https://ejemplo.com/articulo"
-doi: "10.1234/ejemplo.2025.001"
+type: Artículo
+publication: Revista de Derecho Ambiental
+summary: Este es un ejemplo de cómo se vería una publicación en el sitio web.
+  Los administradores pueden agregar, editar o eliminar publicaciones desde el
+  panel de administjhkhkhk.
+url: https://ejemplo.com/articulo
+doi: 10.1234/ejemplo.2025.001
 keywords:
   - justicia ecológica
   - América Latina
