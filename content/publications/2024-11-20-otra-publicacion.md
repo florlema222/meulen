@@ -14,7 +14,7 @@ keywords:
   - América Latina
   - derecho ambiental
 image: public/images/uploads/image-11-.png
-featured: false
+featured: true
 ---
 
 Este capítulo explora las tensiones entre desarrollo económico y protección ambiental en la región.
