@@ -13,7 +13,7 @@ keywords:
   - desigualdad
   - América Latina
   - derecho ambiental
-image: public/images/uploads/image-11-.png
+image: ""
 featured: true
 ---
 
