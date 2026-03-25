@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BidLogic — Process Flows</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #1a1a2e;
+  --surface: #222240;
+  --surface-2: #2a2a4a;
+  --surface-3: #323254;
+  --border: #3d3d5c;
+  --border-light: #4a4a6a;
+  --text: #eeeef2;
+  --text-dim: #a0a0b8;
+  --text-muted: #6e6e8a;
+  --accent: #c8f542;
+
+  --ol-accent: #3b82f6;
+  --ol-bg: #1e2d4d;
+  --ol-glow: rgba(59,130,246,0.15);
+
+  --bl-accent: #c8f542;
+  --bl-bg: #252e18;
+  --bl-glow: rgba(200,245,66,0.12);
+
+  --ns-accent: #2dd4bf;
+  --ns-bg: #1a3330;
+  --ns-glow: rgba(45,212,191,0.12);
+
+  --green: #4ade80; --green-bg: #1a3520; --green-border: #2a5030;
+  --red: #f87171; --red-bg: #351a1a; --red-border: #503030;
+  --yellow: #fbbf24; --yellow-bg: #352e1a; --yellow-border: #504828;
+  --purple: #a78bfa; --purple-bg: #2a1e40; --purple-border: #3d2e55;
+  --blue: #60a5fa; --blue-bg: #1a2840; --blue-border: #2a3d5a;
+
+  --marker-bg: linear-gradient(135deg, #c8f542, #a3d635);
+  --marker-text: #111;
+  --marker-shadow: rgba(200,245,66,0.3);
+  --spine-top: rgba(200,245,66,0.4);
+  --spine-bottom: rgba(200,245,66,0.1);
+  --ol-card-border: rgba(59,130,246,0.2);
+  --bl-card-border: rgba(200,245,66,0.15);
+  --ns-card-border: rgba(45,212,191,0.2);
+  --ol-tag-bg: rgba(59,130,246,0.15);
+  --bl-tag-bg: rgba(200,245,66,0.12);
+  --ns-tag-bg: rgba(45,212,191,0.12);
+  --fork-auto-bg: rgba(200,245,66,0.03);
+  --fork-auto-border: rgba(200,245,66,0.12);
+  --fork-manual-bg: rgba(251,191,36,0.03);
+  --fork-manual-border: rgba(251,191,36,0.12);
+  --terminal-gradient: linear-gradient(135deg, #059669, #047857);
+  --terminal-shadow: rgba(5,150,105,0.3);
+}
+
+/* ═══ LIGHT THEME ═══ */
+html.light {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #f0f0f3;
+  --surface-3: #e8e8ec;
+  --border: #d4d4da;
+  --border-light: #c0c0c8;
+  --text: #1a1a2e;
+  --text-dim: #555568;
+  --text-muted: #888898;
+  --accent: #16a34a;
+
+  --ol-accent: #2563eb;
+  --ol-bg: #eff5ff;
+  --bl-accent: #16a34a;
+  --bl-bg: #f0faf0;
+  --ns-accent: #0d9488;
+  --ns-bg: #f0fafa;
+
+  --green: #16a34a; --green-bg: #dcfce7; --green-border: #a7f3d0;
+  --red: #dc2626; --red-bg: #fee2e2; --red-border: #fca5a5;
+  --yellow: #ca8a04; --yellow-bg: #fef9c3; --yellow-border: #fde68a;
+  --purple: #7c3aed; --purple-bg: #ede9fe; --purple-border: #c4b5fd;
+  --blue: #2563eb; --blue-bg: #dbeafe; --blue-border: #93c5fd;
+
+  --marker-bg: linear-gradient(135deg, #16a34a, #15803d);
+  --marker-text: #fff;
+  --marker-shadow: rgba(22,163,74,0.25);
+  --spine-top: rgba(22,163,74,0.35);
+  --spine-bottom: rgba(22,163,74,0.08);
+  --ol-card-border: rgba(37,99,235,0.2);
+  --bl-card-border: rgba(22,163,74,0.2);
+  --ns-card-border: rgba(13,148,136,0.2);
+  --ol-tag-bg: rgba(37,99,235,0.1);
+  --bl-tag-bg: rgba(22,163,74,0.1);
+  --ns-tag-bg: rgba(13,148,136,0.1);
+  --fork-auto-bg: rgba(22,163,74,0.04);
+  --fork-auto-border: rgba(22,163,74,0.15);
+  --fork-manual-bg: rgba(202,138,4,0.04);
+  --fork-manual-border: rgba(202,138,4,0.15);
+  --terminal-gradient: linear-gradient(135deg, #16a34a, #15803d);
+  --terminal-shadow: rgba(22,163,74,0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══ HEADER ═══ */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 36px 40px 0;
+}
+.header-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.header-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.header-title em { font-style: normal; color: var(--accent); }
+.header-right {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+.header-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+/* Theme toggle */
+.theme-toggle {
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+.theme-toggle::after {
+  content: '🌙';
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+html.light .theme-toggle::after {
+  content: '☀️';
+  transform: translateX(22px);
+}
+.tabs { display: flex; gap: 0; }
+.tab {
+  padding: 12px 28px;
+  cursor: pointer;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ═══ CONTENT ═══ */
+.content { display: none; }
+.content.active { display: block; }
+
+.page-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* ═══ LEGEND ═══ */
+.legend {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin-bottom: 44px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+.legend-dot.ol { background: var(--ol-accent); }
+.legend-dot.bl { background: var(--bl-accent); }
+.legend-dot.ns { background: var(--ns-accent); }
+
+/* ═══ TIMELINE ═══ */
+.timeline {
+  position: relative;
+  padding-left: 60px;
+}
+/* vertical spine */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--spine-top), var(--spine-bottom) 90%, transparent);
+}
+
+/* ═══ STEP NODE ═══ */
+.step {
+  position: relative;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.45s ease forwards;
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+/* step number circle on spine */
+.step-marker {
+  position: absolute;
+  left: -60px;
+  top: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--marker-bg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--marker-text);
+  z-index: 2;
+  box-shadow: 0 0 16px var(--marker-shadow);
+}
+
+/* step title */
+.step-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-top: 10px;
+  color: var(--text);
+  letter-spacing: -0.2px;
+}
+
+/* ═══ SYSTEM CARDS ═══ */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sys-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid;
+  position: relative;
+}
+
+.sys-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sys-card.ol {
+  background: var(--ol-bg);
+  border-color: var(--ol-card-border);
+}
+.sys-card.ol .sys-tag {
+  background: var(--ol-tag-bg);
+  color: var(--ol-accent);
+}
+
+.sys-card.bl {
+  background: var(--bl-bg);
+  border-color: var(--bl-card-border);
+}
+.sys-card.bl .sys-tag {
+  background: var(--bl-tag-bg);
+  color: var(--bl-accent);
+}
+
+.sys-card.ns {
+  background: var(--ns-bg);
+  border-color: var(--ns-card-border);
+}
+.sys-card.ns .sys-tag {
+  background: var(--ns-tag-bg);
+  color: var(--ns-accent);
+}
+
+.sys-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.sys-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+}
+.sys-text strong { font-weight: 600; }
+
+/* ═══ FLOW CONNECTORS ═══ */
+.connector {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 4px 0 4px 0;
+  padding-left: 6px;
+  height: 28px;
+}
+
+.conn-line {
+  flex: 1;
+  height: 1px;
+  position: relative;
+}
+.conn-line::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: var(--border-light);
+  opacity: 0.7;
+}
+
+.conn-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.conn-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.conn-arrow {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ═══ STATUS PILLS ═══ */
+.statuses {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.st {
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.st.pending { background: var(--surface-3); color: var(--text-dim); }
+.st.processing { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+.st.action { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+.st.ready { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+.st.submitted { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+.st.done { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.st.sent { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.st-arrow { color: var(--text-muted); font-size: 10px; align-self: center; padding: 0 1px; }
+
+/* ═══ FORK ═══ */
+.fork-indicator {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 36px 0 24px;
+  position: relative;
+}
+.fork-indicator::before,
+.fork-indicator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+.fork-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+  white-space: nowrap;
+  padding: 6px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.fork-icon {
+  font-size: 14px;
+  margin-right: 6px;
+}
+
+.fork-paths {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: -60px;
+  padding-left: 60px;
+  position: relative;
+}
+
+.fork-path {
+  border-radius: 14px;
+  padding: 22px 24px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.45s ease forwards;
+}
+.fork-path.auto-path {
+  background: var(--fork-auto-bg);
+  border: 1px solid var(--fork-auto-border);
+}
+.fork-path.manual-path {
+  background: var(--fork-manual-bg);
+  border: 1px solid var(--fork-manual-border);
+}
+
+.fork-path-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.fork-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.fork-badge.auto {
+  background: var(--bl-tag-bg);
+  color: var(--bl-accent);
+}
+.fork-badge.manual {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+  border: 1px solid var(--yellow-border);
+}
+
+.fork-path .cards { gap: 6px; }
+
+/* Conditions checklist */
+.conditions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-top: 6px;
+}
+.cond {
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cond::before {
+  content: '✓';
+  font-size: 9px;
+  color: var(--bl-accent);
+}
+
+/* ═══ TERMINAL ═══ */
+.terminal {
+  text-align: center;
+  padding: 28px 0 8px;
+}
+.terminal-pill {
+  display: inline-block;
+  background: var(--terminal-gradient);
+  color: white;
+  padding: 14px 48px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 28px var(--terminal-shadow);
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popIn 0.4s ease forwards;
+}
+@keyframes popIn { to { opacity: 1; transform: scale(1); } }
+
+/* ═══ RECLASS TAB ═══ */
+.ai-banners { display: flex; gap: 14px; margin-bottom: 24px; }
+.ai-banner {
+  flex: 1; padding: 13px 20px; border-radius: 10px;
+  text-align: center; font-weight: 600; font-size: 13px;
+}
+.ai-banner.pos { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.ai-banner.neg { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+.reclass-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rc-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 22px; border-left: 3px solid;
+  opacity: 0; transform: translateY(12px);
+  animation: fadeUp 0.4s ease forwards;
+}
+.rc-card.border-red { border-left-color: var(--red); }
+.rc-card.border-green { border-left-color: var(--green); }
+.rc-card.border-purple { border-left-color: var(--purple); }
+.rc-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+.rc-card .rc-sub { font-size: 12px; color: var(--text-dim); margin-bottom: 16px; }
+.rc-step { display: flex; align-items: flex-start; gap: 10px; }
+.rc-icon {
+  width: 28px; height: 28px; border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; flex-shrink: 0;
+}
+.rc-icon.act { background: var(--surface-3); }
+.rc-icon.ok { background: var(--green-bg); border: 1px solid var(--green-border); }
+.rc-icon.warn { background: var(--red-bg); border: 1px solid var(--red-border); }
+.rc-icon.undo { background: var(--purple-bg); border: 1px solid var(--purple-border); }
+.rc-step-text strong { font-size: 12px; display: block; margin-bottom: 1px; }
+.rc-step-text span { font-size: 11px; color: var(--text-dim); }
+.rc-line { width: 2px; height: 10px; background: var(--border); margin: 3px 0 3px 13px; }
+
+.qr-table {
+  margin-top: 24px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  opacity: 0; transform: translateY(12px);
+  animation: fadeUp 0.4s ease forwards;
+}
+.qr-table h3 { padding: 16px 20px 0; font-size: 14px; font-weight: 600; }
+.qr-table table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+.qr-table th {
+  text-align: left; padding: 7px 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--text-muted); border-bottom: 1px solid var(--border); font-weight: 500;
+}
+.qr-table td { padding: 10px 20px; border-bottom: 1px solid var(--border); color: var(--text-dim); }
+.qr-table tr:last-child td { border-bottom: none; }
+.qr-table td:first-child { font-weight: 600; color: var(--text); }
+
+@media print {
+  body { background: #fff; color: #111; }
+  .tabs { display: none; }
+  .content { display: block !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-title">Bid<em>Logic</em> — Process Flows</div>
+      <div class="header-right">
+        <div class="header-meta">USATCO &middot; March 20, 2026</div>
+        <div class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode"></div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('main',this)">Main Processing Flow</div>
+      <div class="tab" onclick="switchTab('reclass',this)">Corrections</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ MAIN FLOW ════════════════ -->
+<div id="main" class="content active">
+  <div class="page-wrap">
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot ol"></div> Outlook</div>
+      <div class="legend-item"><div class="legend-dot bl"></div> BidLogic</div>
+      <div class="legend-item"><div class="legend-dot ns"></div> NetSuite</div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- ── STEP 1: Email Arrives ── -->
+      <div class="step" style="animation-delay:.05s">
+        <div class="step-marker">1</div>
+        <div class="step-title">Email Arrives</div>
+        <div class="cards">
+          <div class="sys-card ol">
+            <div class="sys-tag">Outlook</div>
+            <div class="sys-body">
+              <div class="sys-text">New email in inbox. <strong>Not moved, not flagged, not deleted.</strong> Stays in the inbox.</div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--ol-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">email metadata →</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+          </div>
+          <div class="sys-card bl">
+            <div class="sys-tag">BidLogic</div>
+            <div class="sys-body">
+              <div class="sys-text">Email stored for processing.</div>
+              <div class="statuses">
+                <div class="st pending">Email: Pending</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 2: AI Classification ── -->
+      <div class="step" style="animation-delay:.12s">
+        <div class="step-marker">2</div>
+        <div class="step-title">AI Classification</div>
+        <div class="cards">
+          <div class="sys-card ol">
+            <div class="sys-tag">Outlook</div>
+            <div class="sys-body">
+              <div class="sys-text">Full email content + attachments downloaded.</div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--ol-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">content + attachments →</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+          </div>
+          <div class="sys-card bl">
+            <div class="sys-tag">BidLogic</div>
+            <div class="sys-body">
+              <div class="sys-text">AI decides: New RFQ? Follow-up? Not an RFQ?</div>
+              <div class="statuses">
+                <div class="st done">Email: Classified</div>
+                <div class="st processing">RFQ: Processing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: Line Item Extraction ── -->
+      <div class="step" style="animation-delay:.19s">
+        <div class="step-marker">3</div>
+        <div class="step-title">Line Item Extraction</div>
+        <div class="cards">
+          <div class="sys-card bl">
+            <div class="sys-tag">BidLogic</div>
+            <div class="sys-body">
+              <div class="sys-text">AI extracts part numbers, quantities, and descriptions from email and attachments.</div>
+              <div class="statuses">
+                <div class="st done">Email: Extracted</div>
+                <div class="st processing">RFQ: Processing</div>
+                <div class="st-arrow">→</div>
+                <div class="st action">Action Required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 4: Item Matching + Pricing ── -->
+      <div class="step" style="animation-delay:.26s">
+        <div class="step-marker">4</div>
+        <div class="step-title">Item Matching + Pricing</div>
+        <div class="cards">
+          <div class="sys-card bl">
+            <div class="sys-tag">BidLogic</div>
+            <div class="sys-body">
+              <div class="sys-text">Each line item matched to a product by SKU. Price pulled based on customer's level:</div>
+              <div class="statuses">
+                <div class="st ready">List Price</div>
+                <div class="st-arrow">or</div>
+                <div class="st sent">Distributor Price</div>
+              </div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">← SKU lookup + pricing →</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--ns-accent)"></div>
+          </div>
+          <div class="sys-card ns">
+            <div class="sys-tag">NetSuite</div>
+            <div class="sys-body">
+              <div class="sys-text">Inventory searched for SKU matches. Pricing fetched from customer's price level.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 5: Auto-Reply ── -->
+      <div class="step" style="animation-delay:.33s">
+        <div class="step-marker">5</div>
+        <div class="step-title">Auto-Reply</div>
+        <div class="cards">
+          <div class="sys-card bl">
+            <div class="sys-tag">BidLogic</div>
+            <div class="sys-body">
+              <div class="sys-text">Acknowledgment email sent to customer with summary of extracted items.</div>
+              <div class="statuses">
+                <div class="st sent">Auto-reply: Sent</div>
+              </div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">← sends reply</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--ol-accent)"></div>
+          </div>
+          <div class="sys-card ol">
+            <div class="sys-tag">Outlook</div>
+            <div class="sys-body">
+              <div class="sys-text">Reply sent from the sales rep's Outlook account. Appears in <strong>Sent Items</strong>, grouped in the same conversation thread. Original email is <strong>marked as read</strong> automatically.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <!-- ═══ FORK ═══ -->
+    <div class="fork-indicator">
+      <span class="fork-label"><span class="fork-icon">⑥</span> What happens next depends on whether auto-quoting (VSA) is enabled</span>
+    </div>
+
+    <div class="fork-paths">
+
+      <!-- PATH A: VSA Auto-Quoting -->
+      <div class="fork-path auto-path" style="animation-delay:.42s">
+        <div class="fork-path-title">
+          <span class="fork-badge auto">Automatic</span>
+          Auto-Quoting (VSA)
+        </div>
+        <div class="cards">
+          <div class="sys-card bl">
+            <div class="sys-tag">BidLogic</div>
+            <div class="sys-body">
+              <div class="sys-text">Checks eligibility, then auto-creates estimate and sends quote:</div>
+              <div class="conditions">
+                <span class="cond">All items matched</span>
+                <span class="cond">Customer known</span>
+                <span class="cond">Total under $1k</span>
+                <span class="cond">Inventory in stock</span>
+              </div>
+              <div class="statuses" style="margin-top:10px">
+                <div class="st action">Action Required</div>
+                <div class="st-arrow">→</div>
+                <div class="st done">Quote Sent</div>
+              </div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">← inventory + estimate →</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--ns-accent)"></div>
+          </div>
+          <div class="sys-card ns">
+            <div class="sys-tag">NetSuite</div>
+            <div class="sys-body">
+              <div class="sys-text">Inventory availability checked. Estimate created (e.g. QUO007837).</div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">← quote email</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--ol-accent)"></div>
+          </div>
+          <div class="sys-card ol">
+            <div class="sys-tag">Outlook</div>
+            <div class="sys-body">
+              <div class="sys-text">Quote sent to customer. Sales rep receives a <strong>CC copy in their inbox</strong>, in the same conversation thread as the original email.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATH B: Manual -->
+      <div class="fork-path manual-path" style="animation-delay:.48s">
+        <div class="fork-path-title">
+          <span class="fork-badge manual">Manual</span>
+          Sales Rep Path
+        </div>
+        <div class="cards">
+          <div class="sys-card bl">
+            <div class="sys-tag">BidLogic</div>
+            <div class="sys-body">
+              <div class="sys-text">Sales rep completes missing info: match items, assign customer, set location + price level. Submit.</div>
+              <div class="statuses">
+                <div class="st action">Action Required</div>
+                <div class="st-arrow">→</div>
+                <div class="st ready">Ready for Review</div>
+                <div class="st-arrow">→</div>
+                <div class="st submitted">Submitted</div>
+                <div class="st-arrow">→</div>
+                <div class="st done">Quote Sent</div>
+              </div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">← customer + estimate + verify →</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--ns-accent)"></div>
+          </div>
+          <div class="sys-card ns">
+            <div class="sys-tag">NetSuite</div>
+            <div class="sys-body">
+              <div class="sys-text">Customer searched or created. Estimate created on submit. Quote verification checks sent emails.</div>
+            </div>
+          </div>
+          <div class="connector">
+            <div class="conn-dot" style="background:var(--ol-accent)"></div>
+            <div class="conn-line"></div>
+            <div class="conn-label">verify quote was sent</div>
+            <div class="conn-line"></div>
+            <div class="conn-dot" style="background:var(--bl-accent)"></div>
+          </div>
+          <div class="sys-card ol">
+            <div class="sys-tag">Outlook</div>
+            <div class="sys-body">
+              <div class="sys-text">System checks email thread to verify when quote was sent.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /fork-paths -->
+
+    <div class="terminal" style="animation-delay:.55s">
+      <div class="terminal-pill">QUOTE SENT</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════ CORRECTIONS ════════════════ -->
+<div id="reclass" class="content">
+  <div class="page-wrap">
+
+    <div style="margin-bottom: 32px;">
+      <div style="font-size:20px; font-weight:600; margin-bottom:4px;">Correcting AI Decisions</div>
+      <div style="font-size:13px; color:var(--text-dim);">Two different screens, two different levels of correction</div>
+    </div>
+
+    <!-- ═══ SECTION 1: REVIEW EMAILS ═══ -->
+    <div class="section-block" style="margin-bottom: 40px; opacity:0; transform:translateY(12px); animation: fadeUp 0.45s ease forwards; animation-delay:.05s">
+      <div class="section-header" style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+        <div style="background:var(--ol-bg); border:1px solid rgba(59,130,246,0.2); color:var(--ol-accent); padding:5px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Screen</div>
+        <div style="font-size:17px; font-weight:700;">Review Emails</div>
+      </div>
+      <div style="font-size:12px; color:var(--text-dim); margin-bottom:20px; padding-left:2px;">Corrects the <strong style="color:var(--text)">AI classification</strong> — was this email correctly identified as an RFQ or not?</div>
+
+      <div class="reclass-grid">
+        <div class="rc-card border-green" style="animation-delay:.1s">
+          <h3 style="color:var(--green)">Mark as RFQ</h3>
+          <div class="rc-sub">The AI missed it — this IS a real RFQ</div>
+          <div class="rc-step"><div class="rc-icon act">👤</div><div class="rc-step-text"><strong>Click "Mark as RFQ"</strong><span>On emails showing as "Non-RFQ"</span></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon ok">📄</div><div class="rc-step-text"><strong>A brand new RFQ is created</strong><span>Content and attachments are downloaded fresh</span></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon ok">🤖</div><div class="rc-step-text"><strong>Full pipeline runs automatically</strong><span>Line items extracted, matching starts, etc.</span></div></div>
+          <div style="margin-top:14px; padding:10px 12px; background:var(--green-bg); border:1px solid var(--green-border); border-radius:8px;">
+            <div style="font-size:11px; font-weight:600; color:var(--green); margin-bottom:4px;">When to use</div>
+            <div style="font-size:11px; color:var(--text-dim); line-height:1.5;">A customer sent a quote request but BidLogic didn't recognize it as one. You see it in the "Non-RFQ" tab and know it should be processed.</div>
+          </div>
+        </div>
+
+        <div class="rc-card border-red" style="animation-delay:.13s">
+          <h3 style="color:var(--red)">Mark as non-RFQ</h3>
+          <div class="rc-sub">The AI was wrong — this is NOT an RFQ</div>
+          <div class="rc-step"><div class="rc-icon act">👤</div><div class="rc-step-text"><strong>Click "Mark as non-RFQ"</strong><span>On emails showing as "RFQ"</span></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon warn">📧</div><div class="rc-step-text"><strong>Email reclassified as "Not an RFQ"</strong><span>AI learns from this correction</span></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon warn">🚫</div><div class="rc-step-text"><strong>Associated RFQ is automatically rejected</strong><span>Removed from your dashboard</span></div></div>
+          <div style="margin-top:14px; padding:10px 12px; background:var(--red-bg); border:1px solid var(--red-border); border-radius:8px;">
+            <div style="font-size:11px; font-weight:600; color:var(--red); margin-bottom:4px;">When to use</div>
+            <div style="font-size:11px; color:var(--text-dim); line-height:1.5;">The email is spam, an internal message, or a general inquiry — not a real quote request. Also use this if the AI badly misread the email and extracted wrong data — demoting and re-promoting reprocesses everything from scratch.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; padding:14px 18px; background:var(--surface); border:1px solid var(--border); border-radius:10px; opacity:0; transform:translateY(12px); animation: fadeUp 0.45s ease forwards; animation-delay:.16s">
+        <div style="font-size:12px; font-weight:600; color:var(--yellow); margin-bottom:6px;">Pro tip: Reprocessing a badly extracted RFQ</div>
+        <div style="font-size:12px; color:var(--text-dim); line-height:1.6;">If the AI extracted the wrong line items from an email, you can fix it: <strong style="color:var(--text)">Mark as non-RFQ</strong> (removes the bad RFQ) → then <strong style="color:var(--text)">Mark as RFQ</strong> again (creates a fresh RFQ and reprocesses everything from the beginning).</div>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 2: RFQ DETAIL ═══ -->
+    <div class="section-block" style="margin-bottom: 40px; opacity:0; transform:translateY(12px); animation: fadeUp 0.45s ease forwards; animation-delay:.2s">
+      <div class="section-header" style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+        <div style="background:var(--bl-bg); border:1px solid rgba(200,245,66,0.15); color:var(--bl-accent); padding:5px 12px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Screen</div>
+        <div style="font-size:17px; font-weight:700;">RFQ Detail Page</div>
+      </div>
+      <div style="font-size:12px; color:var(--text-dim); margin-bottom:20px; padding-left:2px;">Manages the <strong style="color:var(--text)">RFQ itself</strong> — the email was correctly identified, but you want to control what happens with this specific quote request.</div>
+
+      <div class="reclass-grid">
+        <div class="rc-card border-red" style="animation-delay:.23s">
+          <h3 style="color:var(--red)">Reject RFQ</h3>
+          <div class="rc-sub">Don't want to process this quote request</div>
+          <div class="rc-step"><div class="rc-icon act">👤</div><div class="rc-step-text"><strong>Click "Reject RFQ" on the detail page</strong><span>Add a reason if you want</span></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon warn">🚫</div><div class="rc-step-text"><strong>RFQ moves to "Rejected" tab</strong><span>Hidden from your active queue, processing stops</span></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon ok">↩️</div><div class="rc-step-text"><strong>Can be restored later if needed</strong></div></div>
+          <div style="margin-top:14px; padding:10px 12px; background:var(--red-bg); border:1px solid var(--red-border); border-radius:8px;">
+            <div style="font-size:11px; font-weight:600; color:var(--red); margin-bottom:4px;">When to use</div>
+            <div style="font-size:11px; color:var(--text-dim); line-height:1.5;">The email IS a quote request, but you don't want to act on it — duplicate request, customer you don't serve, not worth quoting, or you already handled it outside BidLogic.</div>
+          </div>
+        </div>
+
+        <div class="rc-card border-purple" style="animation-delay:.26s">
+          <h3 style="color:var(--purple)">Restore RFQ</h3>
+          <div class="rc-sub">Undo a rejection — bring it back</div>
+          <div class="rc-step"><div class="rc-icon act">👤</div><div class="rc-step-text"><strong>Click "Restore" in the Rejected tab</strong></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon undo">🔄</div><div class="rc-step-text"><strong>Status is recalculated</strong><span>Based on what info was already filled in</span></div></div>
+          <div class="rc-line"></div>
+          <div class="rc-step"><div class="rc-icon ok">✓</div><div class="rc-step-text"><strong>RFQ returns to your dashboard</strong><span>Shows up in the right tab automatically</span></div></div>
+          <div style="margin-top:14px; padding:10px 12px; background:var(--purple-bg); border:1px solid var(--purple-border); border-radius:8px;">
+            <div style="font-size:11px; font-weight:600; color:var(--purple); margin-bottom:4px;">When to use</div>
+            <div style="font-size:11px; color:var(--text-dim); line-height:1.5;">You rejected an RFQ by mistake, or circumstances changed and you now want to process it. All previously filled info is preserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ KEY DIFFERENCE ═══ -->
+    <div class="qr-table" style="animation-delay:.3s">
+      <h3>Key Difference</h3>
+      <table>
+        <thead><tr><th>Scenario</th><th>Go to</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>Email is not a quote request at all</td><td>Review Emails</td><td>Mark as non-RFQ</td></tr>
+          <tr><td>AI extracted wrong data, need to reprocess</td><td>Review Emails</td><td>Mark as non-RFQ → then Mark as RFQ</td></tr>
+          <tr><td>AI missed a real RFQ</td><td>Review Emails</td><td>Mark as RFQ</td></tr>
+          <tr><td>It's a real RFQ but I don't want to quote it</td><td>RFQ Detail</td><td>Reject RFQ</td></tr>
+          <tr><td>I rejected by mistake</td><td>RFQ Detail (Rejected tab)</td><td>Restore RFQ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleTheme() {
+  document.documentElement.classList.toggle('light');
+}
+function switchTab(id, el) {
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  // re-trigger animations
+  document.getElementById(id).querySelectorAll('.step, .fork-path, .rc-card, .section-block, .terminal-pill, .qr-table').forEach((n, i) => {
+    n.style.animation = 'none';
+    n.offsetHeight;
+    n.style.animation = 'fadeUp 0.45s ease forwards';
+    n.style.animationDelay = `${i * 0.04}s`;
+  });
+}
+</script>
+
+</body>
+</html>
