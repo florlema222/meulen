@@ -14,15 +14,15 @@ locale: "es"
 
 collections:
   - name: "carousel"
-    label: "Carousel Principal"
-    label_singular: "Slide"
+    label: "Nosotros - Imágenes de Fondo"
+    label_singular: "Imagen"
     folder: "content/carousel"
     create: true
     slug: "slide-{{slug}}"
     fields:
-      - { label: "Título", name: "title", widget: "string", hint: "Texto principal del slide" }
-      - { label: "Subtítulo", name: "subtitle", widget: "string", required: false, hint: "Texto secundario (opcional)" }
-      - { label: "Imagen de Fondo", name: "image", widget: "image", hint: "Imagen de paisaje/naturaleza para el fondo" }
+      - { label: "Título", name: "title", widget: "string", hint: "Nombre descriptivo de la imagen (no se muestra en el sitio)" }
+      - { label: "Subtítulo", name: "subtitle", widget: "string", required: false, hint: "Descripción opcional (no se muestra en el sitio)" }
+      - { label: "Imagen de Fondo", name: "image", widget: "image", hint: "Foto del equipo para la sección Nosotros" }
       - { label: "Orden", name: "order", widget: "number", default: 1, hint: "1 = primero, 2 = segundo, etc." }
       - { label: "Activo", name: "active", widget: "boolean", default: true, hint: "Desactivar para ocultar sin eliminar" }
 
@@ -87,3 +87,20 @@ collections:
       - { label: "Email", name: "email", widget: "string", required: false }
       - { label: "Foto", name: "photo", widget: "image", required: false }
       - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Para ordenar en la página" }
+
+  - name: "acampes"
+    label: "Acampes (Extensión)"
+    label_singular: "Acampe"
+    folder: "content/acampes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Latitud", name: "lat", widget: "number", value_type: "float", hint: "Ej: -31.6333 (usar Google Maps para obtener coordenadas)" }
+      - { label: "Longitud", name: "lng", widget: "number", value_type: "float", hint: "Ej: -60.7 (usar Google Maps para obtener coordenadas)" }
+      - { label: "Descripción", name: "description", widget: "text", required: false }
+      - label: "Fotos"
+        name: "photos"
+        widget: "list"
+        required: false
+        field: { label: "Foto", name: "photo", widget: "image" }

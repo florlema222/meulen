@@ -54,5 +54,5 @@ export function getAllEvents(): Event[] {
 export function getUpcomingEvents(): Event[] {
   const allEvents = getAllEvents()
   const now = new Date()
-  return allEvents.filter(event => new Date(event.date) >= now)
+  return allEvents.filter(event => new Date(event.date) >= now).slice(0, 4)
 }

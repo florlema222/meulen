@@ -19,3 +19,43 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Section depth — soft inset shadows for recessed feel */
+.section-inset {
+  box-shadow:
+    inset 0 8px 20px -8px rgba(61, 47, 31, 0.08),
+    inset 0 -8px 20px -8px rgba(61, 47, 31, 0.08);
+}
+
+/* Elevated section — raised paper effect */
+.section-elevated {
+  box-shadow:
+    0 -4px 20px -4px rgba(61, 47, 31, 0.06),
+    0 4px 20px -4px rgba(61, 47, 31, 0.06);
+}
+
+/* Decorative divider */
+.section-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #C4A57B40,
+    #8B735540,
+    #C4A57B40,
+    transparent
+  );
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border: 1px solid #C4A57B80;
+  background: #F5E6D3;
+}

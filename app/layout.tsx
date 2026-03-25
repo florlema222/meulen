@@ -26,6 +26,12 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossOrigin=""
+        />
       </head>
       <body className="font-cormorant antialiased">
         {children}

@@ -1,10 +1,16 @@
+'use client'
+
 import type { NewsItem } from '@/lib/news'
 
 export default function NewsCard({ news }: { news: NewsItem }) {
   return (
-    <div className="bg-white border border-meulen-brown-light/30 rounded-lg p-6 hover:shadow-lg transition">
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-xs text-meulen-dark-brown/60">
+    <div className="group bg-white/90 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:-translate-y-1"
+      style={{ boxShadow: '0 2px 12px rgba(61, 47, 31, 0.06)' }}
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 30px rgba(61, 47, 31, 0.12)' }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 12px rgba(61, 47, 31, 0.06)' }}
+    >
+      <div className="flex items-center gap-2 mb-3 text-xs text-meulen-dark-brown/50">
+        <span>
           {new Date(news.date).toLocaleDateString('es-AR', {
             year: 'numeric',
             month: 'long',
@@ -12,23 +18,27 @@ export default function NewsCard({ news }: { news: NewsItem }) {
           })}
         </span>
         {news.author && (
-          <span className="text-xs text-meulen-dark-brown/70">
-            Por {news.author}
-          </span>
+          <>
+            <span className="text-meulen-beige">·</span>
+            <span>Por {news.author}</span>
+          </>
         )}
       </div>
 
-      <h3 className="text-xl font-playfair font-bold text-meulen-dark-brown mb-3">
+      <h3 className="text-lg font-playfair font-bold text-meulen-dark-brown mb-3 leading-snug group-hover:text-meulen-brown transition-colors">
         {news.title}
       </h3>
 
-      <p className="text-sm text-meulen-dark-brown/80 mb-4">
+      <p className="text-sm text-meulen-dark-brown/70 mb-4 leading-relaxed line-clamp-3">
         {news.excerpt}
       </p>
 
-      <button className="text-sm text-meulen-brown hover:text-meulen-dark-brown font-medium">
-        Leer más →
-      </button>
+      <span className="inline-flex items-center gap-1 text-sm text-meulen-brown font-medium group-hover:gap-2 transition-all">
+        Leer más
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </span>
     </div>
   )
 }
