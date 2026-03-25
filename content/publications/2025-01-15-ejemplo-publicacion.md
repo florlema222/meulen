@@ -6,13 +6,13 @@ type: Artículo
 publication: Revista de Derecho Ambiental
 summary: Este es un ejemplo de cómo se vería una publicación en el sitio web.
   Los administradores pueden agregar, editar o eliminar publicaciones desde el
-  panel de administjhkhkhk.
+  panel de adminis
 url: https://ejemplo.com/articulo
 doi: 10.1234/ejemplo.2025.001
 keywords:
   - justicia ecológica
   - América Latina
-  - derecho ambiental
+  - derecho ambie
 featured: true
 ---
 
