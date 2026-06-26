@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import { getDictionary, type Locale } from '@/lib/i18n'
 
-export default function StaticHero() {
+export default function StaticHero({ locale }: { locale: Locale }) {
+  const t = getDictionary(locale)
+
   return (
     <section className="relative overflow-hidden py-20 md:py-24 px-4" style={{ boxShadow: '0 8px 30px -8px rgba(61, 47, 31, 0.12)' }}>
 
@@ -21,11 +24,11 @@ export default function StaticHero() {
             Proyecto Meulen
           </h1>
           <p className="text-xl md:text-2xl text-meulen-dark-brown/80 max-w-3xl mx-auto leading-relaxed">
-            Investigamos justicias e injusticias socioecol&oacute;gicas con perspectiva latinoamericana e interdisciplinar.
+            {t.hero.tagline}
           </p>
           <div className="mt-5 text-sm text-meulen-dark-brown/70">
-            <p>Facultad de Ciencias Jur&iacute;dicas y Sociales</p>
-            <p>Universidad Nacional del Litoral</p>
+            <p>{t.hero.faculty}</p>
+            <p>{t.hero.university}</p>
           </div>
         </div>
       </div>

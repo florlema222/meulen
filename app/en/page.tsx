@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import HomePage from '@/components/HomePage'
 import { getDictionary } from '@/lib/i18n'
 
-const t = getDictionary('es')
+const t = getDictionary('en')
 
 export const metadata: Metadata = {
   title: t.meta.title,
   description: t.meta.description,
   alternates: {
-    canonical: '/',
+    canonical: '/en/',
     languages: {
       'es-AR': '/',
       en: '/en/',
@@ -19,5 +19,5 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <HomePage locale="es" />
+  return <HomePage locale="en" />
 }

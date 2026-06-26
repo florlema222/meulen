@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import type { Acampe } from '@/lib/acampes'
+import { getDictionary, type Locale } from '@/lib/i18n'
 
 // Fix Leaflet default marker icon issue with bundlers
 const defaultIcon = new L.Icon({
@@ -20,7 +21,8 @@ const defaultIcon = new L.Icon({
 const SANTA_FE_CENTER: [number, number] = [-30.7, -60.5]
 const SANTA_FE_ZOOM = 7
 
-export default function ExtensionMap({ acampes }: { acampes: Acampe[] }) {
+export default function ExtensionMap({ acampes, locale }: { acampes: Acampe[]; locale: Locale }) {
+  const t = getDictionary(locale)
   useEffect(() => {
     // Ensure Leaflet CSS is loaded
     L.Icon.Default.mergeOptions({
@@ -70,7 +72,7 @@ export default function ExtensionMap({ acampes }: { acampes: Acampe[] }) {
       </div>
       {acampes.length === 0 && (
         <p className="text-center text-meulen-dark-brown/60 mt-4 text-sm">
-          Las localidades visitadas aparecerán aquí una vez que se agreguen desde el panel de administración.
+          {t.extension.mapEmpty}
         </p>
       )}
     </div>

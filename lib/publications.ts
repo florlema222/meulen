@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { defaultLocale, pickLocalized, type Locale } from './i18n'
 
 const publicationsDirectory = path.join(process.cwd(), 'content/publications')
 
@@ -19,7 +20,7 @@ export interface Publication {
   content: string
 }
 
-export function getAllPublications(): Publication[] {
+export function getAllPublications(locale: Locale = defaultLocale): Publication[] {
   try {
     if (!fs.existsSync(publicationsDirectory)) {
       return []
@@ -35,9 +36,12 @@ export function getAllPublications(): Publication[] {
         const { data, content } = matter(fileContents)
 
         return {
+          ...data,
           slug,
           content,
-          ...data,
+          // Translatable fields fall back to Spanish when missing.
+          title: pickLocalized(data, 'title', locale),
+          summary: pickLocalized(data, 'summary', locale),
         } as Publication
       })
 
@@ -54,7 +58,7 @@ export function getAllPublications(): Publication[] {
   }
 }
 
-export function getFeaturedPublications(): Publication[] {
-  const allPublications = getAllPublications()
+export function getFeaturedPublications(locale: Locale = defaultLocale): Publication[] {
+  const allPublications = getAllPublications(locale)
   return allPublications.filter(pub => pub.featured)
 }

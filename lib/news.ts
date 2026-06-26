@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { defaultLocale, pickLocalized, type Locale } from './i18n'
 
 const newsDirectory = path.join(process.cwd(), 'content/news')
 
@@ -14,7 +15,7 @@ export interface NewsItem {
   author?: string
 }
 
-export function getAllNews(): NewsItem[] {
+export function getAllNews(locale: Locale = defaultLocale): NewsItem[] {
   try {
     if (!fs.existsSync(newsDirectory)) {
       return []
@@ -30,9 +31,12 @@ export function getAllNews(): NewsItem[] {
         const { data, content } = matter(fileContents)
 
         return {
+          ...data,
           slug,
           body: content,
-          ...data,
+          // Translatable fields fall back to Spanish when missing.
+          title: pickLocalized(data, 'title', locale),
+          excerpt: pickLocalized(data, 'excerpt', locale),
         } as NewsItem
       })
 
@@ -49,7 +53,7 @@ export function getAllNews(): NewsItem[] {
   }
 }
 
-export function getRecentNews(limit: number = 3): NewsItem[] {
-  const allNews = getAllNews()
+export function getRecentNews(limit: number = 3, locale: Locale = defaultLocale): NewsItem[] {
+  const allNews = getAllNews(locale)
   return allNews.slice(0, limit)
 }
