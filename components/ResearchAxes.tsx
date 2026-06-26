@@ -1,35 +1,27 @@
 import Image from 'next/image'
+import { getDictionary, type Locale } from '@/lib/i18n'
 
-export default function ResearchAxes() {
-  const axes = [
-    {
-      title: 'Derechos de la Naturaleza',
-      description:
-        'Analizamos el "giro ecocéntrico" y el reconocimiento de ecosistemas y animales como sujetos de derecho.',
-      icon: '/images/icons/hoja.png',
-    },
-    {
-      title: 'Derecho a un Ambiente Sano',
-      description:
-        'Estudiamos la implementación del Acuerdo de Escazú y el fortalecimiento del acceso a la justicia ambiental.',
-      icon: '/images/icons/rio.png',
-    },
-    {
-      title: 'Derecho del Extractivismo',
-      description:
-        'Indagamos en las regulaciones que viabilizan la explotación de recursos y generan resistencias sociales en los territorios.',
-      icon: '/images/icons/lupa.png',
-    },
-  ]
+const AXIS_ICONS = [
+  '/images/icons/hoja.png',
+  '/images/icons/rio.png',
+  '/images/icons/lupa.png',
+]
+
+export default function ResearchAxes({ locale }: { locale: Locale }) {
+  const t = getDictionary(locale)
+  const axes = t.whatWeDo.axes.map((axis, index) => ({
+    ...axis,
+    icon: AXIS_ICONS[index],
+  }))
 
   return (
     <section id="que-hacemos" className="py-16 px-4 bg-white/70 section-elevated">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-playfair font-bold text-meulen-dark-brown mb-4 text-center">
-          Qué Hacemos
+          {t.whatWeDo.title}
         </h2>
         <p className="text-lg text-meulen-dark-brown/80 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
-          Investigamos las tensiones y diálogos entre tres grandes ejes o &ldquo;entramados&rdquo; que definen la realidad ecológica actual:
+          {t.whatWeDo.intro}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto mb-16">

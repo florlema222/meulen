@@ -1,8 +1,10 @@
 'use client'
 
 import type { NewsItem } from '@/lib/news'
+import { getDictionary, dateLocale, type Locale } from '@/lib/i18n'
 
-export default function NewsCard({ news }: { news: NewsItem }) {
+export default function NewsCard({ news, locale }: { news: NewsItem; locale: Locale }) {
+  const t = getDictionary(locale)
   return (
     <div className="group bg-white/90 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:-translate-y-1"
       style={{ boxShadow: '0 2px 12px rgba(61, 47, 31, 0.06)' }}
@@ -11,7 +13,7 @@ export default function NewsCard({ news }: { news: NewsItem }) {
     >
       <div className="flex items-center gap-2 mb-3 text-xs text-meulen-dark-brown/50">
         <span>
-          {new Date(news.date).toLocaleDateString('es-AR', {
+          {new Date(news.date).toLocaleDateString(dateLocale[locale], {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
@@ -20,7 +22,7 @@ export default function NewsCard({ news }: { news: NewsItem }) {
         {news.author && (
           <>
             <span className="text-meulen-beige">·</span>
-            <span>Por {news.author}</span>
+            <span>{t.news.by} {news.author}</span>
           </>
         )}
       </div>
@@ -34,7 +36,7 @@ export default function NewsCard({ news }: { news: NewsItem }) {
       </p>
 
       <span className="inline-flex items-center gap-1 text-sm text-meulen-brown font-medium group-hover:gap-2 transition-all">
-        Leer más
+        {t.news.readMore}
         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>

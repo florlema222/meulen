@@ -44,6 +44,24 @@ collections:
       - { label: "Palabras Clave", name: "keywords", widget: "list", required: false }
       - { label: "Imagen de Portada", name: "image", widget: "image", required: false }
       - { label: "Destacada", name: "featured", widget: "boolean", default: false, hint: "Mostrar en la página principal" }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Title (English)", name: "title", widget: "string", required: false }
+          - { label: "Summary (English)", name: "summary", widget: "text", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Título (Português)", name: "title", widget: "string", required: false }
+          - { label: "Resumo (Português)", name: "summary", widget: "text", required: false }
 
   - name: "eventos"
     label: "Eventos"
@@ -59,6 +77,26 @@ collections:
       - { label: "Descripción", name: "description", widget: "markdown" }
       - { label: "Link de Registro", name: "registration_url", widget: "string", required: false }
       - { label: "Imagen", name: "image", widget: "image", required: false }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Event Name (English)", name: "title", widget: "string", required: false }
+          - { label: "Location (English)", name: "location", widget: "string", required: false }
+          - { label: "Description (English)", name: "description", widget: "markdown", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Nome do Evento (Português)", name: "title", widget: "string", required: false }
+          - { label: "Local (Português)", name: "location", widget: "string", required: false }
+          - { label: "Descrição (Português)", name: "description", widget: "markdown", required: false }
 
   - name: "noticias"
     label: "Noticias"
@@ -73,6 +111,24 @@ collections:
       - { label: "Contenido", name: "body", widget: "markdown" }
       - { label: "Imagen", name: "image", widget: "image", required: false }
       - { label: "Autor", name: "author", widget: "string", required: false }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Title (English)", name: "title", widget: "string", required: false }
+          - { label: "Summary (English)", name: "excerpt", widget: "text", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Título (Português)", name: "title", widget: "string", required: false }
+          - { label: "Resumo (Português)", name: "excerpt", widget: "text", required: false }
 
   - name: "equipo"
     label: "Equipo"
@@ -104,3 +160,21 @@ collections:
         widget: "list"
         required: false
         field: { label: "Foto", name: "photo", widget: "image" }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Title (English)", name: "title", widget: "string", required: false }
+          - { label: "Description (English)", name: "description", widget: "text", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Título (Português)", name: "title", widget: "string", required: false }
+          - { label: "Descrição (Português)", name: "description", widget: "text", required: false }

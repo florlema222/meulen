@@ -1,8 +1,10 @@
 'use client'
 
 import type { Event } from '@/lib/events'
+import { getDictionary, dateLocale, localizeVocab, type Locale } from '@/lib/i18n'
 
-export default function EventCard({ event }: { event: Event }) {
+export default function EventCard({ event, locale }: { event: Event; locale: Locale }) {
+  const t = getDictionary(locale)
   const eventDate = new Date(event.date)
 
   return (
@@ -19,16 +21,16 @@ export default function EventCard({ event }: { event: Event }) {
               {eventDate.getDate()}
             </span>
             <span className="block text-xs text-meulen-brown uppercase tracking-wider mt-0.5">
-              {eventDate.toLocaleDateString('es-AR', { month: 'short' })}
+              {eventDate.toLocaleDateString(dateLocale[locale], { month: 'short' })}
             </span>
           </div>
           <div className="w-px h-8 bg-meulen-beige"></div>
           <span className="text-xs text-meulen-brown tracking-wide uppercase">
-            {event.type}
+            {localizeVocab(event.type, t.eventTypes, locale)}
           </span>
         </div>
         <span className="text-xs text-meulen-dark-brown/50">
-          {eventDate.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })} hs
+          {eventDate.toLocaleTimeString(dateLocale[locale], { hour: '2-digit', minute: '2-digit' })}{t.events.timeSuffix}
         </span>
       </div>
 
@@ -56,7 +58,7 @@ export default function EventCard({ event }: { event: Event }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-meulen-brown/10 text-meulen-brown text-sm rounded-full hover:bg-meulen-brown hover:text-white transition-colors font-medium"
           >
-            Inscribirse
+            {t.events.register}
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

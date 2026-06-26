@@ -1,8 +1,10 @@
 'use client'
 
 import type { Publication } from '@/lib/publications'
+import { getDictionary, dateLocale, localizeVocab, type Locale } from '@/lib/i18n'
 
-export default function PublicationCard({ publication }: { publication: Publication }) {
+export default function PublicationCard({ publication, locale }: { publication: Publication; locale: Locale }) {
+  const t = getDictionary(locale)
   return (
     <div className="group relative bg-white/90 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:-translate-y-1"
       style={{ boxShadow: '0 2px 12px rgba(61, 47, 31, 0.06)' }}
@@ -15,13 +17,13 @@ export default function PublicationCard({ publication }: { publication: Publicat
       <div className="pl-4">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xs font-medium text-meulen-brown tracking-wide uppercase">
-            {publication.type}
+            {localizeVocab(publication.type, t.publicationTypes, locale)}
           </span>
           {publication.featured && (
             <>
               <span className="text-meulen-beige">·</span>
               <span className="text-xs font-medium text-meulen-brown-light tracking-wide uppercase">
-                Destacada
+                {t.publications.featured}
               </span>
             </>
           )}
@@ -62,7 +64,7 @@ export default function PublicationCard({ publication }: { publication: Publicat
 
         <div className="flex items-center justify-between text-sm pt-3 border-t border-meulen-beige/50">
           <span className="text-meulen-dark-brown/50 text-xs">
-            {new Date(publication.date).toLocaleDateString('es-AR', {
+            {new Date(publication.date).toLocaleDateString(dateLocale[locale], {
               year: 'numeric',
               month: 'long',
               day: 'numeric'
@@ -75,7 +77,7 @@ export default function PublicationCard({ publication }: { publication: Publicat
               rel="noopener noreferrer"
               className="text-meulen-brown hover:text-meulen-dark-brown font-medium text-xs tracking-wide uppercase"
             >
-              Ver publicación →
+              {t.publications.view}
             </a>
           )}
         </div>

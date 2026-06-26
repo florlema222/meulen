@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { defaultLocale, pickLocalized, type Locale } from './i18n'
 
 const eventsDirectory = path.join(process.cwd(), 'content/events')
 
@@ -16,7 +17,7 @@ export interface Event {
   content: string
 }
 
-export function getAllEvents(): Event[] {
+export function getAllEvents(locale: Locale = defaultLocale): Event[] {
   try {
     if (!fs.existsSync(eventsDirectory)) {
       return []
@@ -32,9 +33,13 @@ export function getAllEvents(): Event[] {
         const { data, content } = matter(fileContents)
 
         return {
+          ...data,
           slug,
           content,
-          ...data,
+          // Translatable fields fall back to Spanish when missing.
+          title: pickLocalized(data, 'title', locale),
+          description: pickLocalized(data, 'description', locale),
+          location: pickLocalized(data, 'location', locale),
         } as Event
       })
 
@@ -51,8 +56,8 @@ export function getAllEvents(): Event[] {
   }
 }
 
-export function getUpcomingEvents(): Event[] {
-  const allEvents = getAllEvents()
+export function getUpcomingEvents(locale: Locale = defaultLocale): Event[] {
+  const allEvents = getAllEvents(locale)
   const now = new Date()
   return allEvents.filter(event => new Date(event.date) >= now).slice(0, 4)
 }

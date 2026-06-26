@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import type { CarouselSlide } from '@/lib/carousel'
+import { getDictionary, type Locale } from '@/lib/i18n'
 
-export default function TeamCarousel({ slides }: { slides: CarouselSlide[] }) {
+export default function TeamCarousel({ slides, locale }: { slides: CarouselSlide[]; locale: Locale }) {
+  const t = getDictionary(locale)
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -51,13 +53,13 @@ export default function TeamCarousel({ slides }: { slides: CarouselSlide[] }) {
             className="mx-auto w-28 h-auto mb-8"
           />
           <h2 className="text-4xl font-playfair font-bold text-white mb-8">
-            Nosotros
+            {t.about.title}
           </h2>
           <p className="text-lg text-white/90 leading-relaxed mb-6">
-            Meulen es un grupo interdisciplinario de investigación con sede en el Centro de Investigaciones de la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral (UNL). Bajo la dirección de la Dra. María Valeria Berros y el Dr. Nicolás Cordini, nuestro equipo ha consolidado una trayectoria dedicada a la renovación y profundización de los aportes jurídicos sobre la crisis ecológica en clave latinoamericana.
+            {t.about.p1}
           </p>
           <p className="text-lg text-white/90 leading-relaxed">
-            Nuestro equipo está integrado por profesionales de la antropología, historia, ciencia política, sociología y diversas áreas del derecho, unidos por la necesidad de analizar las innovaciones jurídicas que emergen en nuestra región ante la crisis ambiental global.
+            {t.about.p2}
           </p>
         </div>
       </div>

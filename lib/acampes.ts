@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { defaultLocale, pickLocalized, type Locale } from './i18n'
 
 const acampesDirectory = path.join(process.cwd(), 'content/acampes')
 
@@ -13,7 +14,7 @@ export interface Acampe {
   photos: string[]
 }
 
-export function getAllAcampes(): Acampe[] {
+export function getAllAcampes(locale: Locale = defaultLocale): Acampe[] {
   try {
     if (!fs.existsSync(acampesDirectory)) {
       return []
@@ -32,6 +33,9 @@ export function getAllAcampes(): Acampe[] {
           photos: [],
           ...data,
           slug,
+          // Translatable fields fall back to Spanish when missing.
+          title: pickLocalized(data, 'title', locale),
+          description: pickLocalized(data, 'description', locale),
         } as unknown as Acampe
       })
 
