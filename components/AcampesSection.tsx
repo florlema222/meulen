@@ -17,16 +17,9 @@ function CampCard({ camp }: { camp: Acampe }) {
 
   return (
     <article className="bg-white/85 rounded-2xl p-5 shadow-sm">
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4">
-        <h3 className="font-playfair text-xl font-bold text-meulen-dark-brown">
-          {camp.title}
-        </h3>
-        {camp.date && (
-          <span className="text-sm font-semibold text-white bg-meulen-brown rounded-full px-3 py-0.5">
-            {camp.date}
-          </span>
-        )}
-      </div>
+      <h3 className="font-playfair text-xl font-bold text-meulen-dark-brown mb-4">
+        {camp.title}
+      </h3>
       <div className="grid grid-cols-3 gap-2 mb-4">
         {slots.map((photo, i) =>
           photo ? (
@@ -71,34 +64,24 @@ export default function AcampesSection({ locale }: { locale: Locale }) {
           {t.quehacemos.extension.acampesEmpty}
         </p>
       ) : (
-        <>
-          {/* Línea histórica — chronological dates/places */}
-          <div className="mb-12">
-            <h3 className="text-xs uppercase tracking-wide text-meulen-brown/80 mb-4">
-              {t.quehacemos.extension.timeline}
-            </h3>
-            <ol className="flex gap-6 overflow-x-auto pb-3 border-t-2 border-meulen-brown/20 pt-5">
-              {chronological.map((camp) => (
-                <li key={camp.slug} className="relative flex-shrink-0 min-w-[7rem]">
-                  <span className="absolute -top-[1.65rem] left-0 w-3 h-3 rounded-full bg-meulen-brown ring-2 ring-meulen-cream" />
-                  {camp.date && (
-                    <p className="font-playfair font-bold text-meulen-dark-brown">
-                      {camp.date}
-                    </p>
-                  )}
-                  <p className="text-sm text-meulen-dark-brown/70">{camp.title}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          {/* Camp cards — most recent first */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[...chronological].reverse().map((camp) => (
-              <CampCard key={camp.slug} camp={camp} />
-            ))}
-          </div>
-        </>
+        /* Línea histórica — vertical rail on the left with the year markers;
+           each camp card sits alongside it, ordered chronologically. */
+        <ol
+          aria-label={t.quehacemos.extension.timeline}
+          className="relative ml-14 md:ml-24 border-l-2 border-meulen-brown/25 space-y-12 pt-2"
+        >
+          {chronological.map((camp) => (
+            <li key={camp.slug} className="relative pl-6 md:pl-10">
+              <span className="absolute -left-[9px] top-3 w-4 h-4 rounded-full bg-meulen-brown ring-4 ring-meulen-cream" />
+              {camp.date && (
+                <span className="absolute right-full mr-4 md:mr-6 top-1 font-playfair font-bold text-lg md:text-xl text-meulen-dark-brown whitespace-nowrap">
+                  {camp.date}
+                </span>
+              )}
+              <CampCard camp={camp} />
+            </li>
+          ))}
+        </ol>
       )}
     </div>
   )
