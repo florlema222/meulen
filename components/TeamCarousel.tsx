@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import type { CarouselSlide } from '@/lib/carousel'
-import { getDictionary, type Locale } from '@/lib/i18n'
+import { getDictionary, localeHref, type Locale } from '@/lib/i18n'
 
 export default function TeamCarousel({ slides, locale }: { slides: CarouselSlide[]; locale: Locale }) {
   const t = getDictionary(locale)
+  const teamHref = `${localeHref(locale)}equipo/`
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -61,6 +63,15 @@ export default function TeamCarousel({ slides, locale }: { slides: CarouselSlide
           <p className="text-lg text-white/90 leading-relaxed">
             {t.about.p2}
           </p>
+          <Link
+            href={teamHref}
+            className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-white/90 text-meulen-dark-brown font-medium hover:bg-white transition-colors"
+          >
+            {t.team.cta}
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
 

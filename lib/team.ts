@@ -1,20 +1,23 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { defaultLocale, pickLocalized, type Locale } from './i18n'
 
 const teamDirectory = path.join(process.cwd(), 'content/team')
+
+/** "Responsables" (people in charge) vs "Equipo" (rest of the team). */
+export type TeamCategory = 'Responsables' | 'Equipo'
 
 export interface TeamMember {
   slug: string
   name: string
-  role: string
-  bio?: string
-  email?: string
+  category: TeamCategory
+  description?: string
   photo?: string
   order: number
 }
 
-export function getAllTeamMembers(): TeamMember[] {
+export function getAllTeamMembers(locale: Locale = defaultLocale): TeamMember[] {
   try {
     if (!fs.existsSync(teamDirectory)) {
       return []
@@ -30,8 +33,10 @@ export function getAllTeamMembers(): TeamMember[] {
         const { data } = matter(fileContents)
 
         return {
-          slug,
           ...data,
+          slug,
+          // Translatable field falls back to Spanish when missing.
+          description: pickLocalized(data, 'description', locale),
         } as TeamMember
       })
       .sort((a, b) => (a.order || 0) - (b.order || 0))

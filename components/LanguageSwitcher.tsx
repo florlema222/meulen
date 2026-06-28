@@ -1,8 +1,18 @@
 import Link from 'next/link'
 import { locales, localeLabels, localeHref, type Locale } from '@/lib/i18n'
 
-/** ES · EN · PT links; the active locale is highlighted and non-clickable. */
-export default function LanguageSwitcher({ locale }: { locale: Locale }) {
+/**
+ * ES · EN · PT links; the active locale is highlighted and non-clickable.
+ * `subpath` keeps the visitor on the same page when switching language
+ * (e.g. "equipo/" stays on the team page). Empty for the home page.
+ */
+export default function LanguageSwitcher({
+  locale,
+  subpath = '',
+}: {
+  locale: Locale
+  subpath?: string
+}) {
   return (
     <div className="flex items-center gap-1 text-sm" aria-label="Language">
       {locales.map((loc, index) => (
@@ -14,7 +24,7 @@ export default function LanguageSwitcher({ locale }: { locale: Locale }) {
             </span>
           ) : (
             <Link
-              href={localeHref(loc)}
+              href={`${localeHref(loc)}${subpath}`}
               className="text-meulen-brown hover:text-meulen-dark-brown transition"
             >
               {localeLabels[loc]}

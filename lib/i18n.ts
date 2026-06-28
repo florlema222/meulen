@@ -105,6 +105,14 @@ export interface Dictionary {
     readMore: string
     by: string
   }
+  team: {
+    title: string
+    leadership: string
+    members: string
+    cta: string
+    empty: string
+    metaDescription: string
+  }
   footer: {
     navigation: string
     contact: string
@@ -124,7 +132,7 @@ export interface Dictionary {
 
 const es: Dictionary = {
   nav: {
-    nosotros: 'Nosotros',
+    nosotros: 'Quiénes Somos',
     queHacemos: 'Qué Hacemos',
     publicaciones: 'Publicaciones',
     eventos: 'Eventos',
@@ -137,7 +145,7 @@ const es: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'Nosotros',
+    title: 'Quiénes Somos',
     p1: 'Meulen es un grupo interdisciplinario de investigación con sede en el Centro de Investigaciones de la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral (UNL). Bajo la dirección de la Dra. María Valeria Berros y el Dr. Nicolás Cordini, nuestro equipo ha consolidado una trayectoria dedicada a la renovación y profundización de los aportes jurídicos sobre la crisis ecológica en clave latinoamericana.',
     p2: 'Nuestro equipo está integrado por profesionales de la antropología, historia, ciencia política, sociología y diversas áreas del derecho, unidos por la necesidad de analizar las innovaciones jurídicas que emergen en nuestra región ante la crisis ambiental global.',
   },
@@ -190,6 +198,14 @@ const es: Dictionary = {
     readMore: 'Leer más',
     by: 'Por',
   },
+  team: {
+    title: 'Quiénes Somos',
+    leadership: 'Responsables',
+    members: 'Equipo',
+    cta: 'Conocé al equipo',
+    empty: 'El equipo se publicará próximamente.',
+    metaDescription: 'Conocé al equipo del Proyecto Meulen.',
+  },
   footer: {
     navigation: 'Navegación',
     contact: 'Contacto',
@@ -208,7 +224,7 @@ const es: Dictionary = {
 
 const en: Dictionary = {
   nav: {
-    nosotros: 'About Us',
+    nosotros: 'Who We Are',
     queHacemos: 'What We Do',
     publicaciones: 'Publications',
     eventos: 'Events',
@@ -221,7 +237,7 @@ const en: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'About Us',
+    title: 'Who We Are',
     p1: 'Meulen is an interdisciplinary research group based at the Research Centre of the Faculty of Legal and Social Sciences of the Universidad Nacional del Litoral (UNL). Under the direction of Dr. María Valeria Berros and Dr. Nicolás Cordini, our team has built a track record dedicated to renewing and deepening legal contributions on the ecological crisis from a Latin American standpoint.',
     p2: 'Our team brings together professionals from anthropology, history, political science, sociology and various fields of law, united by the need to analyze the legal innovations emerging in our region in response to the global environmental crisis.',
   },
@@ -272,6 +288,14 @@ const en: Dictionary = {
     readMore: 'Read more',
     by: 'By',
   },
+  team: {
+    title: 'Who We Are',
+    leadership: 'Leadership',
+    members: 'Team',
+    cta: 'Meet the team',
+    empty: 'The team will be published soon.',
+    metaDescription: 'Meet the Proyecto Meulen team.',
+  },
   footer: {
     navigation: 'Navigation',
     contact: 'Contact',
@@ -304,7 +328,7 @@ const en: Dictionary = {
 
 const pt: Dictionary = {
   nav: {
-    nosotros: 'Sobre Nós',
+    nosotros: 'Quem Somos',
     queHacemos: 'O Que Fazemos',
     publicaciones: 'Publicações',
     eventos: 'Eventos',
@@ -317,7 +341,7 @@ const pt: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'Sobre Nós',
+    title: 'Quem Somos',
     p1: 'Meulen é um grupo interdisciplinar de pesquisa sediado no Centro de Pesquisas da Faculdade de Ciências Jurídicas e Sociais da Universidad Nacional del Litoral (UNL). Sob a direção da Dra. María Valeria Berros e do Dr. Nicolás Cordini, nossa equipe consolidou uma trajetória dedicada à renovação e ao aprofundamento das contribuições jurídicas sobre a crise ecológica em chave latino-americana.',
     p2: 'Nossa equipe é integrada por profissionais da antropologia, história, ciência política, sociologia e diversas áreas do direito, unidos pela necessidade de analisar as inovações jurídicas que emergem em nossa região diante da crise ambiental global.',
   },
@@ -368,6 +392,14 @@ const pt: Dictionary = {
     empty: 'Fique por dentro das novidades do Proyecto Meulen.',
     readMore: 'Ler mais',
     by: 'Por',
+  },
+  team: {
+    title: 'Quem Somos',
+    leadership: 'Responsáveis',
+    members: 'Equipe',
+    cta: 'Conheça a equipe',
+    empty: 'A equipe será publicada em breve.',
+    metaDescription: 'Conheça a equipe do Proyecto Meulen.',
   },
   footer: {
     navigation: 'Navegação',

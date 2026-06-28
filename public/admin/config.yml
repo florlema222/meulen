@@ -131,18 +131,33 @@ collections:
           - { label: "Resumo (Português)", name: "excerpt", widget: "text", required: false }
 
   - name: "equipo"
-    label: "Equipo"
+    label: "Quiénes Somos - Equipo"
     label_singular: "Miembro del Equipo"
     folder: "content/team"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Nombre", name: "name", widget: "string" }
-      - { label: "Cargo/Rol", name: "role", widget: "string" }
-      - { label: "Biografía", name: "bio", widget: "markdown", required: false }
-      - { label: "Email", name: "email", widget: "string", required: false }
-      - { label: "Foto", name: "photo", widget: "image", required: false }
-      - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Para ordenar en la página" }
+      - { label: "Categoría", name: "category", widget: "select", options: ["Responsables", "Equipo"], default: "Equipo", hint: "Responsables = personas a cargo; Equipo = resto del equipo" }
+      - { label: "Descripción", name: "description", widget: "text", required: false, hint: "Títulos y afiliaciones, ej: Abogada UNL, Becaria Doctoral de CONICET" }
+      - { label: "Foto", name: "photo", widget: "image", required: false, hint: "Si se deja vacío, se muestran las iniciales" }
+      - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Para ordenar dentro de cada grupo (menor primero)" }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Description (English)", name: "description", widget: "text", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Descrição (Português)", name: "description", widget: "text", required: false }
 
   - name: "acampes"
     label: "Acampes (Extensión)"
