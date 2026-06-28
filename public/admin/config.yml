@@ -44,6 +44,7 @@ collections:
       - { label: "Palabras Clave", name: "keywords", widget: "list", required: false }
       - { label: "Imagen de Portada", name: "image", widget: "image", required: false }
       - { label: "Destacada", name: "featured", widget: "boolean", default: false, hint: "Mostrar en la página principal" }
+      - { label: "Sub-eje temático", name: "theme", widget: "select", required: false, options: ["Justicia ecológica y derechos de la naturaleza", "Derecho Ambiental", "Extractivismos", "Pueblos Indígenas", "Género y desigualdades territoriales"], hint: "Agrupa la publicación dentro de Investigación > Producciones del equipo" }
       - label: "Traducción al inglés (opcional)"
         name: "en"
         widget: "object"
@@ -142,6 +143,96 @@ collections:
       - { label: "Descripción", name: "description", widget: "text", required: false, hint: "Títulos y afiliaciones, ej: Abogada UNL, Becaria Doctoral de CONICET" }
       - { label: "Foto", name: "photo", widget: "image", required: false, hint: "Si se deja vacío, se muestran las iniciales" }
       - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Para ordenar dentro de cada grupo (menor primero)" }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Description (English)", name: "description", widget: "text", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Descrição (Português)", name: "description", widget: "text", required: false }
+
+  - name: "proyectos"
+    label: "Qué Hacemos - Proyectos de Investigación"
+    label_singular: "Proyecto"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Ámbito", name: "scope", widget: "select", options: ["Nacional", "Internacional"], default: "Nacional", hint: "Define en qué grupo aparece el proyecto" }
+      - { label: "Período", name: "period", widget: "string", required: false, hint: "Ej: 2025-2027" }
+      - { label: "Financiamiento / Resolución", name: "funding", widget: "string", required: false, hint: "Ej: Resolución CS Nro. 829/2024 · Universidad Nacional del Litoral" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false }
+      - { label: "Imagen", name: "image", widget: "image", required: false }
+      - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Para ordenar dentro de cada grupo (menor primero, cronológico)" }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Title (English)", name: "title", widget: "string", required: false }
+          - { label: "Summary (English)", name: "summary", widget: "text", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Título (Português)", name: "title", widget: "string", required: false }
+          - { label: "Resumo (Português)", name: "summary", widget: "text", required: false }
+
+  - name: "seminarios"
+    label: "Qué Hacemos - Seminarios"
+    label_singular: "Seminario"
+    folder: "content/seminars"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Desde (año)", name: "since", widget: "string", required: false, hint: "Ej: 2016. Dejar vacío si no aplica" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Menor primero" }
+      - label: "Traducción al inglés (opcional)"
+        name: "en"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Description (English)", name: "description", widget: "text", required: false }
+      - label: "Traducción al portugués (opcional)"
+        name: "pt"
+        widget: "object"
+        collapsed: true
+        required: false
+        hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
+        fields:
+          - { label: "Descrição (Português)", name: "description", widget: "text", required: false }
+
+  - name: "cursos"
+    label: "Qué Hacemos - Cursos Virtuales"
+    label_singular: "Curso"
+    folder: "content/courses"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Dirección académica", name: "director", widget: "string", required: false, hint: "Ej: María Valeria Berros (FCJS-UNL)" }
+      - { label: "Carga horaria", name: "hours", widget: "string", required: false, hint: "Ej: 120 horas · 3 meses" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Menor primero" }
       - label: "Traducción al inglés (opcional)"
         name: "en"
         widget: "object"

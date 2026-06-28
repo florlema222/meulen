@@ -61,9 +61,35 @@ export interface Dictionary {
   nav: {
     nosotros: string
     queHacemos: string
+    investigacion: string
+    extension: string
+    formacion: string
     publicaciones: string
     eventos: string
     noticias: string
+  }
+  quehacemos: {
+    investigacion: {
+      title: string
+      metaDescription: string
+      tabProyectos: string
+      tabProducciones: string
+      nacionales: string
+      internacionales: string
+      produccionesEmpty: string
+    }
+    extension: {
+      title: string
+      metaDescription: string
+      institutions: string
+    }
+    formacion: {
+      title: string
+      metaDescription: string
+      tabSeminarios: string
+      tabCursos: string
+      since: string
+    }
   }
   hero: {
     tagline: string
@@ -128,15 +154,52 @@ export interface Dictionary {
   publicationTypes: Record<string, string>
   /** Maps the Spanish event-type vocabulary to the active locale. */
   eventTypes: Record<string, string>
+  /** Maps the Spanish thematic sub-axis ("sub-eje") vocabulary to the active locale. */
+  publicationThemes: Record<string, string>
 }
+
+/** Canonical (Spanish) ordering of the publication thematic sub-axes. */
+export const publicationThemeOrder = [
+  'Justicia ecológica y derechos de la naturaleza',
+  'Derecho Ambiental',
+  'Extractivismos',
+  'Pueblos Indígenas',
+  'Género y desigualdades territoriales',
+] as const
 
 const es: Dictionary = {
   nav: {
     nosotros: 'Quiénes Somos',
     queHacemos: 'Qué Hacemos',
+    investigacion: 'Investigación',
+    extension: 'Extensión',
+    formacion: 'Formación',
     publicaciones: 'Publicaciones',
     eventos: 'Eventos',
     noticias: 'Noticias',
+  },
+  quehacemos: {
+    investigacion: {
+      title: 'Investigación',
+      metaDescription: 'Líneas, proyectos y producciones de investigación del Proyecto Meulen.',
+      tabProyectos: 'Proyectos de investigación',
+      tabProducciones: 'Producciones del equipo',
+      nacionales: 'Nacionales',
+      internacionales: 'Internacionales',
+      produccionesEmpty: 'Las producciones del equipo se publicarán próximamente.',
+    },
+    extension: {
+      title: 'Extensión',
+      metaDescription: 'Extensión universitaria del Proyecto Meulen: el proyecto Acampe por una justicia ecológica.',
+      institutions: 'Instituciones y organizaciones participantes',
+    },
+    formacion: {
+      title: 'Formación',
+      metaDescription: 'Seminarios y cursos de formación permanente del Proyecto Meulen.',
+      tabSeminarios: 'Seminarios',
+      tabCursos: 'Cursos virtuales',
+      since: 'Desde',
+    },
   },
   hero: {
     tagline:
@@ -220,15 +283,42 @@ const es: Dictionary = {
   },
   publicationTypes: {},
   eventTypes: {},
+  publicationThemes: {},
 }
 
 const en: Dictionary = {
   nav: {
     nosotros: 'Who We Are',
     queHacemos: 'What We Do',
+    investigacion: 'Research',
+    extension: 'Outreach',
+    formacion: 'Training',
     publicaciones: 'Publications',
     eventos: 'Events',
     noticias: 'News',
+  },
+  quehacemos: {
+    investigacion: {
+      title: 'Research',
+      metaDescription: 'Research lines, projects and outputs of Proyecto Meulen.',
+      tabProyectos: 'Research projects',
+      tabProducciones: 'Team outputs',
+      nacionales: 'National',
+      internacionales: 'International',
+      produccionesEmpty: 'Team outputs will be published soon.',
+    },
+    extension: {
+      title: 'Outreach',
+      metaDescription: 'University outreach by Proyecto Meulen: the Camp for ecological justice project.',
+      institutions: 'Participating institutions and organizations',
+    },
+    formacion: {
+      title: 'Training',
+      metaDescription: 'Permanent seminars and courses by Proyecto Meulen.',
+      tabSeminarios: 'Seminars',
+      tabCursos: 'Online courses',
+      since: 'Since',
+    },
   },
   hero: {
     tagline:
@@ -324,15 +414,48 @@ const en: Dictionary = {
     'Curso': 'Course',
     'Otro': 'Other',
   },
+  publicationThemes: {
+    'Justicia ecológica y derechos de la naturaleza': 'Ecological justice and rights of nature',
+    'Derecho Ambiental': 'Environmental law',
+    'Extractivismos': 'Extractivisms',
+    'Pueblos Indígenas': 'Indigenous peoples',
+    'Género y desigualdades territoriales': 'Gender and territorial inequalities',
+  },
 }
 
 const pt: Dictionary = {
   nav: {
     nosotros: 'Quem Somos',
     queHacemos: 'O Que Fazemos',
+    investigacion: 'Pesquisa',
+    extension: 'Extensão',
+    formacion: 'Formação',
     publicaciones: 'Publicações',
     eventos: 'Eventos',
     noticias: 'Notícias',
+  },
+  quehacemos: {
+    investigacion: {
+      title: 'Pesquisa',
+      metaDescription: 'Linhas, projetos e produções de pesquisa do Proyecto Meulen.',
+      tabProyectos: 'Projetos de pesquisa',
+      tabProducciones: 'Produções da equipe',
+      nacionales: 'Nacionais',
+      internacionales: 'Internacionais',
+      produccionesEmpty: 'As produções da equipe serão publicadas em breve.',
+    },
+    extension: {
+      title: 'Extensão',
+      metaDescription: 'Extensão universitária do Proyecto Meulen: o projeto Acampamento por uma justiça ecológica.',
+      institutions: 'Instituições e organizações participantes',
+    },
+    formacion: {
+      title: 'Formação',
+      metaDescription: 'Seminários e cursos de formação permanente do Proyecto Meulen.',
+      tabSeminarios: 'Seminários',
+      tabCursos: 'Cursos virtuais',
+      since: 'Desde',
+    },
   },
   hero: {
     tagline:
@@ -428,6 +551,13 @@ const pt: Dictionary = {
     'Webinar': 'Webinar',
     'Curso': 'Curso',
     'Otro': 'Outro',
+  },
+  publicationThemes: {
+    'Justicia ecológica y derechos de la naturaleza': 'Justiça ecológica e direitos da natureza',
+    'Derecho Ambiental': 'Direito Ambiental',
+    'Extractivismos': 'Extrativismos',
+    'Pueblos Indígenas': 'Povos Indígenas',
+    'Género y desigualdades territoriales': 'Gênero e desigualdades territoriais',
   },
 }
 

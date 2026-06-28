@@ -26,6 +26,17 @@ Trilingual site with Spanish as default. UI strings are fully translated; per-it
 | News | `content/news/` | `lib/news.ts` |
 | Team | `content/team/` | `lib/team.ts` |
 | Acampes | `content/acampes/` | `lib/acampes.ts` |
+| Projects | `content/projects/` | `lib/projects.ts` |
+| Seminars | `content/seminars/` | `lib/seminars.ts` |
+| Courses | `content/courses/` | `lib/courses.ts` |
+
+## Secondary Pages
+Besides the home page and `/equipo` (team), the navbar "Qué Hacemos" item is a dropdown to three dedicated pages, each with ES/EN/PT route files and hreflang alternates:
+- `/investigacion` (`InvestigacionSection`) — Projects (Nacional/Internacional) + Producciones tabs
+- `/extension` (`ExtensionSection`) — outreach intro, Acampe project, participating institutions
+- `/formacion` (`FormacionSection`) — Seminars + Courses tabs
+
+`components/Subpage.tsx` provides shared chrome (HtmlLang + Navbar + topographic background + Footer); `components/Tabs.tsx` is a client component that renders server-rendered panels as "solapas". Long intro prose lives as Spanish constants in the section components (content with Spanish fallback on EN/PT); short structural labels live in `lib/i18n.ts` under `quehacemos`.
 
 ## Key Design Decisions
 - Leaflet map (`components/ExtensionMap.tsx`) requires `ssr: false` via wrapper component (`ExtensionMapWrapper.tsx`) because it accesses `window`
