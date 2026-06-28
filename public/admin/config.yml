@@ -257,7 +257,8 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Lugar", name: "title", widget: "string", hint: "Localidad del acampe, ej: Monte Vera" }
+      - { label: "Año", name: "date", widget: "string", required: false, hint: "Ej: 2024. Se usa para la línea histórica" }
       - { label: "Latitud", name: "lat", widget: "number", value_type: "float", hint: "Ej: -31.6333 (usar Google Maps para obtener coordenadas)" }
       - { label: "Longitud", name: "lng", widget: "number", value_type: "float", hint: "Ej: -60.7 (usar Google Maps para obtener coordenadas)" }
       - { label: "Descripción", name: "description", widget: "text", required: false }
@@ -265,6 +266,7 @@ collections:
         name: "photos"
         widget: "list"
         required: false
+        hint: "Se muestran hasta 3 fotos por acampe"
         field: { label: "Foto", name: "photo", widget: "image" }
       - label: "Traducción al inglés (opcional)"
         name: "en"

@@ -8,6 +8,8 @@ const acampesDirectory = path.join(process.cwd(), 'content/acampes')
 export interface Acampe {
   slug: string
   title: string
+  /** Year (or date) of the field camp, used for the timeline ordering. */
+  date?: string
   lat: number
   lng: number
   description?: string

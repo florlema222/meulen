@@ -82,6 +82,9 @@ export interface Dictionary {
       title: string
       metaDescription: string
       institutions: string
+      acampesTitle: string
+      timeline: string
+      acampesEmpty: string
     }
     formacion: {
       title: string
@@ -192,6 +195,9 @@ const es: Dictionary = {
       title: 'Extensión',
       metaDescription: 'Extensión universitaria del Proyecto Meulen: el proyecto Acampe por una justicia ecológica.',
       institutions: 'Instituciones y organizaciones participantes',
+      acampesTitle: 'Acampes realizados',
+      timeline: 'Línea histórica',
+      acampesEmpty: 'Los acampes se publicarán próximamente.',
     },
     formacion: {
       title: 'Formación',
@@ -311,6 +317,9 @@ const en: Dictionary = {
       title: 'Outreach',
       metaDescription: 'University outreach by Proyecto Meulen: the Camp for ecological justice project.',
       institutions: 'Participating institutions and organizations',
+      acampesTitle: 'Field camps held',
+      timeline: 'Timeline',
+      acampesEmpty: 'Field camps will be published soon.',
     },
     formacion: {
       title: 'Training',
@@ -448,6 +457,9 @@ const pt: Dictionary = {
       title: 'Extensão',
       metaDescription: 'Extensão universitária do Proyecto Meulen: o projeto Acampamento por uma justiça ecológica.',
       institutions: 'Instituições e organizações participantes',
+      acampesTitle: 'Acampamentos realizados',
+      timeline: 'Linha histórica',
+      acampesEmpty: 'Os acampamentos serão publicados em breve.',
     },
     formacion: {
       title: 'Formação',
