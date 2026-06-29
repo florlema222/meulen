@@ -1,22 +1,17 @@
-'use client'
-
 import type { NewsItem } from '@/lib/news'
-import { getDictionary, dateLocale, type Locale } from '@/lib/i18n'
+import { getDictionary, dateLocale, siteTimeZone, type Locale } from '@/lib/i18n'
 
 export default function NewsCard({ news, locale }: { news: NewsItem; locale: Locale }) {
   const t = getDictionary(locale)
   return (
-    <div className="group bg-white/90 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:-translate-y-1"
-      style={{ boxShadow: '0 2px 12px rgba(61, 47, 31, 0.06)' }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 30px rgba(61, 47, 31, 0.12)' }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 12px rgba(61, 47, 31, 0.06)' }}
-    >
+    <div className="group bg-white/90 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_12px_rgba(61,47,31,0.06)] hover:shadow-[0_8px_30px_rgba(61,47,31,0.12)]">
       <div className="flex items-center gap-2 mb-3 text-xs text-meulen-dark-brown/50">
         <span>
           {new Date(news.date).toLocaleDateString(dateLocale[locale], {
             year: 'numeric',
             month: 'long',
-            day: 'numeric'
+            day: 'numeric',
+            timeZone: siteTimeZone,
           })}
         </span>
         {news.author && (

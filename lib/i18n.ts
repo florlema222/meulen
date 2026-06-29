@@ -23,6 +23,14 @@ export const dateLocale: Record<Locale, string> = {
   pt: 'pt-BR',
 }
 
+/**
+ * Timezone the group lives in. Dates/times are formatted against this fixed
+ * zone so a build server (often UTC) and every viewer's browser render the
+ * same local time, regardless of where they are — events happen at a specific
+ * Santa Fe time.
+ */
+export const siteTimeZone = 'America/Argentina/Buenos_Aires'
+
 /** URL prefix for a locale ('' for the default locale, which lives at root). */
 export function localeHref(locale: Locale): string {
   return locale === defaultLocale ? '/' : `/${locale}/`
@@ -61,9 +69,39 @@ export interface Dictionary {
   nav: {
     nosotros: string
     queHacemos: string
+    investigacion: string
+    extension: string
+    formacion: string
     publicaciones: string
     eventos: string
     noticias: string
+  }
+  quehacemos: {
+    investigacion: {
+      title: string
+      metaDescription: string
+      tabProyectos: string
+      tabProducciones: string
+      nacionales: string
+      internacionales: string
+      produccionesEmpty: string
+      proximamente: string
+    }
+    extension: {
+      title: string
+      metaDescription: string
+      institutions: string
+      acampesTitle: string
+      timeline: string
+      acampesEmpty: string
+    }
+    formacion: {
+      title: string
+      metaDescription: string
+      tabSeminarios: string
+      tabCursos: string
+      since: string
+    }
   }
   hero: {
     tagline: string
@@ -105,6 +143,14 @@ export interface Dictionary {
     readMore: string
     by: string
   }
+  team: {
+    title: string
+    leadership: string
+    members: string
+    cta: string
+    empty: string
+    metaDescription: string
+  }
   footer: {
     navigation: string
     contact: string
@@ -120,15 +166,56 @@ export interface Dictionary {
   publicationTypes: Record<string, string>
   /** Maps the Spanish event-type vocabulary to the active locale. */
   eventTypes: Record<string, string>
+  /** Maps the Spanish thematic sub-axis ("sub-eje") vocabulary to the active locale. */
+  publicationThemes: Record<string, string>
 }
+
+/** Canonical (Spanish) ordering of the publication thematic sub-axes. */
+export const publicationThemeOrder = [
+  'Justicia ecológica y derechos de la naturaleza',
+  'Derecho Ambiental',
+  'Extractivismos',
+  'Pueblos Indígenas',
+  'Género y desigualdades territoriales',
+] as const
 
 const es: Dictionary = {
   nav: {
-    nosotros: 'Nosotros',
+    nosotros: 'Quiénes Somos',
     queHacemos: 'Qué Hacemos',
+    investigacion: 'Investigación',
+    extension: 'Extensión',
+    formacion: 'Formación',
     publicaciones: 'Publicaciones',
     eventos: 'Eventos',
     noticias: 'Noticias',
+  },
+  quehacemos: {
+    investigacion: {
+      title: 'Investigación',
+      metaDescription: 'Líneas, proyectos y producciones de investigación del Proyecto Meulen.',
+      tabProyectos: 'Proyectos de investigación',
+      tabProducciones: 'Producciones del equipo',
+      nacionales: 'Nacionales',
+      internacionales: 'Internacionales',
+      produccionesEmpty: 'Las producciones del equipo se publicarán próximamente.',
+      proximamente: 'Próximamente',
+    },
+    extension: {
+      title: 'Extensión',
+      metaDescription: 'Extensión universitaria del Proyecto Meulen: el proyecto Acampe por una justicia ecológica.',
+      institutions: 'Instituciones y organizaciones participantes',
+      acampesTitle: 'Acampes realizados',
+      timeline: 'Línea histórica',
+      acampesEmpty: 'Los acampes se publicarán próximamente.',
+    },
+    formacion: {
+      title: 'Formación',
+      metaDescription: 'Seminarios y cursos de formación permanente del Proyecto Meulen.',
+      tabSeminarios: 'Seminarios',
+      tabCursos: 'Cursos virtuales',
+      since: 'Desde',
+    },
   },
   hero: {
     tagline:
@@ -137,7 +224,7 @@ const es: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'Nosotros',
+    title: 'Quiénes Somos',
     p1: 'Meulen es un grupo interdisciplinario de investigación con sede en el Centro de Investigaciones de la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral (UNL). Bajo la dirección de la Dra. María Valeria Berros y el Dr. Nicolás Cordini, nuestro equipo ha consolidado una trayectoria dedicada a la renovación y profundización de los aportes jurídicos sobre la crisis ecológica en clave latinoamericana.',
     p2: 'Nuestro equipo está integrado por profesionales de la antropología, historia, ciencia política, sociología y diversas áreas del derecho, unidos por la necesidad de analizar las innovaciones jurídicas que emergen en nuestra región ante la crisis ambiental global.',
   },
@@ -190,12 +277,20 @@ const es: Dictionary = {
     readMore: 'Leer más',
     by: 'Por',
   },
+  team: {
+    title: 'Quiénes Somos',
+    leadership: 'Responsables',
+    members: 'Equipo',
+    cta: 'Conocé al equipo',
+    empty: 'El equipo se publicará próximamente.',
+    metaDescription: 'Conocé al equipo del Proyecto Meulen.',
+  },
   footer: {
     navigation: 'Navegación',
     contact: 'Contacto',
     social: 'Redes Sociales',
     location: 'FCJS - UNL\nSanta Fe, Argentina',
-    rights: '© 2025 Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
+    rights: '© {year} Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
   },
   meta: {
     title: 'Proyecto Meulen',
@@ -204,15 +299,46 @@ const es: Dictionary = {
   },
   publicationTypes: {},
   eventTypes: {},
+  publicationThemes: {},
 }
 
 const en: Dictionary = {
   nav: {
-    nosotros: 'About Us',
+    nosotros: 'Who We Are',
     queHacemos: 'What We Do',
+    investigacion: 'Research',
+    extension: 'Outreach',
+    formacion: 'Training',
     publicaciones: 'Publications',
     eventos: 'Events',
     noticias: 'News',
+  },
+  quehacemos: {
+    investigacion: {
+      title: 'Research',
+      metaDescription: 'Research lines, projects and outputs of Proyecto Meulen.',
+      tabProyectos: 'Research projects',
+      tabProducciones: 'Team outputs',
+      nacionales: 'National',
+      internacionales: 'International',
+      produccionesEmpty: 'Team outputs will be published soon.',
+      proximamente: 'Coming soon',
+    },
+    extension: {
+      title: 'Outreach',
+      metaDescription: 'University outreach by Proyecto Meulen: the Camp for ecological justice project.',
+      institutions: 'Participating institutions and organizations',
+      acampesTitle: 'Field camps held',
+      timeline: 'Timeline',
+      acampesEmpty: 'Field camps will be published soon.',
+    },
+    formacion: {
+      title: 'Training',
+      metaDescription: 'Permanent seminars and courses by Proyecto Meulen.',
+      tabSeminarios: 'Seminars',
+      tabCursos: 'Online courses',
+      since: 'Since',
+    },
   },
   hero: {
     tagline:
@@ -221,7 +347,7 @@ const en: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'About Us',
+    title: 'Who We Are',
     p1: 'Meulen is an interdisciplinary research group based at the Research Centre of the Faculty of Legal and Social Sciences of the Universidad Nacional del Litoral (UNL). Under the direction of Dr. María Valeria Berros and Dr. Nicolás Cordini, our team has built a track record dedicated to renewing and deepening legal contributions on the ecological crisis from a Latin American standpoint.',
     p2: 'Our team brings together professionals from anthropology, history, political science, sociology and various fields of law, united by the need to analyze the legal innovations emerging in our region in response to the global environmental crisis.',
   },
@@ -272,12 +398,20 @@ const en: Dictionary = {
     readMore: 'Read more',
     by: 'By',
   },
+  team: {
+    title: 'Who We Are',
+    leadership: 'Leadership',
+    members: 'Team',
+    cta: 'Meet the team',
+    empty: 'The team will be published soon.',
+    metaDescription: 'Meet the Proyecto Meulen team.',
+  },
   footer: {
     navigation: 'Navigation',
     contact: 'Contact',
     social: 'Social Media',
     location: 'FCJS - UNL\nSanta Fe, Argentina',
-    rights: '© 2025 Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
+    rights: '© {year} Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
   },
   meta: {
     title: 'Proyecto Meulen',
@@ -300,15 +434,52 @@ const en: Dictionary = {
     'Curso': 'Course',
     'Otro': 'Other',
   },
+  publicationThemes: {
+    'Justicia ecológica y derechos de la naturaleza': 'Ecological justice and rights of nature',
+    'Derecho Ambiental': 'Environmental law',
+    'Extractivismos': 'Extractivisms',
+    'Pueblos Indígenas': 'Indigenous peoples',
+    'Género y desigualdades territoriales': 'Gender and territorial inequalities',
+  },
 }
 
 const pt: Dictionary = {
   nav: {
-    nosotros: 'Sobre Nós',
+    nosotros: 'Quem Somos',
     queHacemos: 'O Que Fazemos',
+    investigacion: 'Pesquisa',
+    extension: 'Extensão',
+    formacion: 'Formação',
     publicaciones: 'Publicações',
     eventos: 'Eventos',
     noticias: 'Notícias',
+  },
+  quehacemos: {
+    investigacion: {
+      title: 'Pesquisa',
+      metaDescription: 'Linhas, projetos e produções de pesquisa do Proyecto Meulen.',
+      tabProyectos: 'Projetos de pesquisa',
+      tabProducciones: 'Produções da equipe',
+      nacionales: 'Nacionais',
+      internacionales: 'Internacionais',
+      produccionesEmpty: 'As produções da equipe serão publicadas em breve.',
+      proximamente: 'Em breve',
+    },
+    extension: {
+      title: 'Extensão',
+      metaDescription: 'Extensão universitária do Proyecto Meulen: o projeto Acampamento por uma justiça ecológica.',
+      institutions: 'Instituições e organizações participantes',
+      acampesTitle: 'Acampamentos realizados',
+      timeline: 'Linha histórica',
+      acampesEmpty: 'Os acampamentos serão publicados em breve.',
+    },
+    formacion: {
+      title: 'Formação',
+      metaDescription: 'Seminários e cursos de formação permanente do Proyecto Meulen.',
+      tabSeminarios: 'Seminários',
+      tabCursos: 'Cursos virtuais',
+      since: 'Desde',
+    },
   },
   hero: {
     tagline:
@@ -317,7 +488,7 @@ const pt: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'Sobre Nós',
+    title: 'Quem Somos',
     p1: 'Meulen é um grupo interdisciplinar de pesquisa sediado no Centro de Pesquisas da Faculdade de Ciências Jurídicas e Sociais da Universidad Nacional del Litoral (UNL). Sob a direção da Dra. María Valeria Berros e do Dr. Nicolás Cordini, nossa equipe consolidou uma trajetória dedicada à renovação e ao aprofundamento das contribuições jurídicas sobre a crise ecológica em chave latino-americana.',
     p2: 'Nossa equipe é integrada por profissionais da antropologia, história, ciência política, sociologia e diversas áreas do direito, unidos pela necessidade de analisar as inovações jurídicas que emergem em nossa região diante da crise ambiental global.',
   },
@@ -369,12 +540,20 @@ const pt: Dictionary = {
     readMore: 'Ler mais',
     by: 'Por',
   },
+  team: {
+    title: 'Quem Somos',
+    leadership: 'Responsáveis',
+    members: 'Equipe',
+    cta: 'Conheça a equipe',
+    empty: 'A equipe será publicada em breve.',
+    metaDescription: 'Conheça a equipe do Proyecto Meulen.',
+  },
   footer: {
     navigation: 'Navegação',
     contact: 'Contato',
     social: 'Redes Sociais',
     location: 'FCJS - UNL\nSanta Fe, Argentina',
-    rights: '© 2025 Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
+    rights: '© {year} Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
   },
   meta: {
     title: 'Proyecto Meulen',
@@ -396,6 +575,13 @@ const pt: Dictionary = {
     'Webinar': 'Webinar',
     'Curso': 'Curso',
     'Otro': 'Outro',
+  },
+  publicationThemes: {
+    'Justicia ecológica y derechos de la naturaleza': 'Justiça ecológica e direitos da natureza',
+    'Derecho Ambiental': 'Direito Ambiental',
+    'Extractivismos': 'Extrativismos',
+    'Pueblos Indígenas': 'Povos Indígenas',
+    'Género y desigualdades territoriales': 'Gênero e desigualdades territoriais',
   },
 }
 

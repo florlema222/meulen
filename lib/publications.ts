@@ -17,6 +17,8 @@ export interface Publication {
   doi?: string
   keywords?: string[]
   featured?: boolean
+  /** Thematic sub-axis ("sub-eje") used to group publications on the research page. */
+  theme?: string
   content: string
 }
 

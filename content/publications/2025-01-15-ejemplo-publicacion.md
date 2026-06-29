@@ -14,6 +14,7 @@ keywords:
   - América Latina
   - derecho ambie
 featured: true
+theme: "Justicia ecológica y derechos de la naturaleza"
 ---
 
 Este es el contenido completo de la publicación de ejemplo. Aquí se puede incluir el resumen extendido, abstract, o cualquier información adicional sobre la publicación.
