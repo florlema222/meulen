@@ -5,7 +5,7 @@ date: 2025-03-10T10:00:00.000Z
 type: "Artículo"
 publication: "Revista de Derecho Ambiental (ejemplo)"
 summary: "Publicación de ejemplo sobre el reconocimiento de los ecosistemas fluviales como sujetos de derecho."
-url: ""
+url: "https://drive.google.com/drive/folders/ejemplo-ecosistemas"
 doi: ""
 image: ""
 featured: false
