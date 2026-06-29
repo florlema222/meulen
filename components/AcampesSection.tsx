@@ -51,15 +51,12 @@ function CampCard({ camp }: { camp: Acampe }) {
 export default function AcampesSection({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)
   const acampes = getAllAcampes(locale)
-  const chronological = [...acampes].sort(byDateAsc)
+  // Newest first (top) down to oldest (bottom).
+  const ordered = [...acampes].sort(byDateAsc).reverse()
 
   return (
     <div className="mt-14">
-      <h2 className="font-playfair text-2xl font-bold text-meulen-dark-brown mb-6">
-        {t.quehacemos.extension.acampesTitle}
-      </h2>
-
-      {chronological.length === 0 ? (
+      {ordered.length === 0 ? (
         <p className="text-center text-meulen-dark-brown/60 py-8">
           {t.quehacemos.extension.acampesEmpty}
         </p>
@@ -70,7 +67,7 @@ export default function AcampesSection({ locale }: { locale: Locale }) {
           aria-label={t.quehacemos.extension.timeline}
           className="relative ml-14 md:ml-24 border-l-2 border-meulen-brown/25 space-y-12 pt-2"
         >
-          {chronological.map((camp) => (
+          {ordered.map((camp) => (
             <li key={camp.slug} className="relative pl-6 md:pl-10">
               <span className="absolute -left-[9px] top-3 w-4 h-4 rounded-full bg-meulen-brown ring-4 ring-meulen-cream" />
               {camp.date && (
