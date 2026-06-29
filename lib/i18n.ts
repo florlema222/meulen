@@ -290,7 +290,7 @@ const es: Dictionary = {
     contact: 'Contacto',
     social: 'Redes Sociales',
     location: 'FCJS - UNL\nSanta Fe, Argentina',
-    rights: '© 2025 Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
+    rights: '© {year} Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
   },
   meta: {
     title: 'Proyecto Meulen',
@@ -411,7 +411,7 @@ const en: Dictionary = {
     contact: 'Contact',
     social: 'Social Media',
     location: 'FCJS - UNL\nSanta Fe, Argentina',
-    rights: '© 2025 Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
+    rights: '© {year} Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
   },
   meta: {
     title: 'Proyecto Meulen',
@@ -553,7 +553,7 @@ const pt: Dictionary = {
     contact: 'Contato',
     social: 'Redes Sociais',
     location: 'FCJS - UNL\nSanta Fe, Argentina',
-    rights: '© 2025 Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
+    rights: '© {year} Proyecto Meulen - FCJS, Universidad Nacional del Litoral',
   },
   meta: {
     title: 'Proyecto Meulen',

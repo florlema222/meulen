@@ -124,7 +124,8 @@ export default function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-meulen-beige text-center text-sm text-meulen-dark-brown/50">
-          <p>{t.footer.rights}</p>
+          {/* Year is the build year, so it refreshes on each deploy/rebuild. */}
+          <p>{t.footer.rights.replace('{year}', String(new Date().getFullYear()))}</p>
         </div>
       </div>
     </footer>
