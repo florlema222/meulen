@@ -59,5 +59,9 @@ export function getAllEvents(locale: Locale = defaultLocale): Event[] {
 export function getUpcomingEvents(locale: Locale = defaultLocale): Event[] {
   const allEvents = getAllEvents(locale)
   const now = new Date()
-  return allEvents.filter(event => new Date(event.date) >= now).slice(0, 4)
+  return allEvents
+    .filter(event => new Date(event.date) >= now)
+    // Soonest upcoming first (getAllEvents is sorted newest-first).
+    .sort((a, b) => (a.date < b.date ? -1 : 1))
+    .slice(0, 4)
 }
