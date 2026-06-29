@@ -77,6 +77,7 @@ export interface Dictionary {
       nacionales: string
       internacionales: string
       produccionesEmpty: string
+      proximamente: string
     }
     extension: {
       title: string
@@ -190,6 +191,7 @@ const es: Dictionary = {
       nacionales: 'Nacionales',
       internacionales: 'Internacionales',
       produccionesEmpty: 'Las producciones del equipo se publicarán próximamente.',
+      proximamente: 'Próximamente',
     },
     extension: {
       title: 'Extensión',
@@ -312,6 +314,7 @@ const en: Dictionary = {
       nacionales: 'National',
       internacionales: 'International',
       produccionesEmpty: 'Team outputs will be published soon.',
+      proximamente: 'Coming soon',
     },
     extension: {
       title: 'Outreach',
@@ -452,6 +455,7 @@ const pt: Dictionary = {
       nacionales: 'Nacionais',
       internacionales: 'Internacionais',
       produccionesEmpty: 'As produções da equipe serão publicadas em breve.',
+      proximamente: 'Em breve',
     },
     extension: {
       title: 'Extensão',

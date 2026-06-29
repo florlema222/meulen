@@ -82,21 +82,12 @@ function ProduccionesPanel({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)
   const publications = getAllPublications(locale)
 
-  // Group by thematic sub-axis, keeping the canonical order and dropping empties.
-  const groups = publicationThemeOrder
-    .map((theme) => ({
-      theme,
-      items: publications.filter((p) => p.theme === theme),
-    }))
-    .filter((g) => g.items.length > 0)
-
-  if (groups.length === 0) {
-    return (
-      <p className="text-center text-meulen-dark-brown/60 py-8">
-        {t.quehacemos.investigacion.produccionesEmpty}
-      </p>
-    )
-  }
+  // Group by thematic sub-axis, keeping the canonical order. All sub-axes are
+  // shown even when empty so the intended structure is always visible.
+  const groups = publicationThemeOrder.map((theme) => ({
+    theme,
+    items: publications.filter((p) => p.theme === theme),
+  }))
 
   return (
     <div className="space-y-10">
@@ -105,28 +96,34 @@ function ProduccionesPanel({ locale }: { locale: Locale }) {
           <h3 className="text-xl font-playfair font-bold text-meulen-dark-brown mb-4">
             {localizeVocab(group.theme, t.publicationThemes, locale)}
           </h3>
-          <ul className="space-y-3">
-            {group.items.map((p) => (
-              <li key={p.slug} className="bg-white/85 rounded-lg p-4 shadow-sm">
-                {p.url ? (
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-meulen-dark-brown hover:text-meulen-brown transition"
-                  >
-                    {p.title}
-                  </a>
-                ) : (
-                  <span className="font-medium text-meulen-dark-brown">{p.title}</span>
-                )}
-                <p className="text-sm text-meulen-dark-brown/70 mt-1">
-                  {p.authors}
-                  {p.publication ? ` · ${p.publication}` : ''}
-                </p>
-              </li>
-            ))}
-          </ul>
+          {group.items.length > 0 ? (
+            <ul className="space-y-3">
+              {group.items.map((p) => (
+                <li key={p.slug} className="bg-white/85 rounded-lg p-4 shadow-sm">
+                  {p.url ? (
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-meulen-dark-brown hover:text-meulen-brown transition"
+                    >
+                      {p.title}
+                    </a>
+                  ) : (
+                    <span className="font-medium text-meulen-dark-brown">{p.title}</span>
+                  )}
+                  <p className="text-sm text-meulen-dark-brown/70 mt-1">
+                    {p.authors}
+                    {p.publication ? ` · ${p.publication}` : ''}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-sm italic text-meulen-dark-brown/50">
+              {t.quehacemos.investigacion.proximamente}
+            </p>
+          )}
         </div>
       ))}
     </div>
