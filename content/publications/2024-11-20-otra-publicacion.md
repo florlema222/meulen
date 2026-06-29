@@ -15,6 +15,7 @@ keywords:
   - derecho ambiental
 image: ""
 featured: true
+theme: "Derecho Ambiental"
 ---
 
 Este capítulo explora las tensiones entre desarrollo económico y protección ambiental en la región.
