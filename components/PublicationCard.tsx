@@ -1,16 +1,10 @@
-'use client'
-
 import type { Publication } from '@/lib/publications'
-import { getDictionary, dateLocale, localizeVocab, type Locale } from '@/lib/i18n'
+import { getDictionary, dateLocale, localizeVocab, siteTimeZone, type Locale } from '@/lib/i18n'
 
 export default function PublicationCard({ publication, locale }: { publication: Publication; locale: Locale }) {
   const t = getDictionary(locale)
   return (
-    <div className="group relative bg-white/90 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:-translate-y-1"
-      style={{ boxShadow: '0 2px 12px rgba(61, 47, 31, 0.06)' }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 30px rgba(61, 47, 31, 0.12)' }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 12px rgba(61, 47, 31, 0.06)' }}
-    >
+    <div className="group relative bg-white/90 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_12px_rgba(61,47,31,0.06)] hover:shadow-[0_8px_30px_rgba(61,47,31,0.12)]">
       {/* Left accent border */}
       <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-meulen-brown-light/50 group-hover:bg-meulen-brown transition-colors rounded-full"></div>
 
@@ -67,7 +61,8 @@ export default function PublicationCard({ publication, locale }: { publication: 
             {new Date(publication.date).toLocaleDateString(dateLocale[locale], {
               year: 'numeric',
               month: 'long',
-              day: 'numeric'
+              day: 'numeric',
+              timeZone: siteTimeZone,
             })}
           </span>
           {publication.url && (

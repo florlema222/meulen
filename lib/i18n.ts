@@ -23,6 +23,14 @@ export const dateLocale: Record<Locale, string> = {
   pt: 'pt-BR',
 }
 
+/**
+ * Timezone the group lives in. Dates/times are formatted against this fixed
+ * zone so a build server (often UTC) and every viewer's browser render the
+ * same local time, regardless of where they are — events happen at a specific
+ * Santa Fe time.
+ */
+export const siteTimeZone = 'America/Argentina/Buenos_Aires'
+
 /** URL prefix for a locale ('' for the default locale, which lives at root). */
 export function localeHref(locale: Locale): string {
   return locale === defaultLocale ? '/' : `/${locale}/`

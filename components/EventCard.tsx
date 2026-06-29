@@ -1,27 +1,26 @@
-'use client'
-
 import type { Event } from '@/lib/events'
-import { getDictionary, dateLocale, localizeVocab, type Locale } from '@/lib/i18n'
+import { getDictionary, dateLocale, localizeVocab, siteTimeZone, type Locale } from '@/lib/i18n'
 
 export default function EventCard({ event, locale }: { event: Event; locale: Locale }) {
   const t = getDictionary(locale)
   const eventDate = new Date(event.date)
+  // Format against a fixed timezone at build time so server and client agree
+  // (avoids hydration mismatches and keeps times consistent across viewers).
+  const day = eventDate.toLocaleDateString(dateLocale[locale], { day: 'numeric', timeZone: siteTimeZone })
+  const month = eventDate.toLocaleDateString(dateLocale[locale], { month: 'short', timeZone: siteTimeZone })
+  const time = eventDate.toLocaleTimeString(dateLocale[locale], { hour: '2-digit', minute: '2-digit', timeZone: siteTimeZone })
 
   return (
-    <div className="group relative bg-white/90 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1"
-      style={{ boxShadow: '0 2px 12px rgba(61, 47, 31, 0.06)' }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 30px rgba(61, 47, 31, 0.12)' }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 12px rgba(61, 47, 31, 0.06)' }}
-    >
+    <div className="group relative bg-white/90 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_12px_rgba(61,47,31,0.06)] hover:shadow-[0_8px_30px_rgba(61,47,31,0.12)]">
       {/* Date strip */}
       <div className="bg-meulen-cream/80 px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="text-center leading-none">
             <span className="block text-2xl font-playfair font-bold text-meulen-dark-brown">
-              {eventDate.getDate()}
+              {day}
             </span>
             <span className="block text-xs text-meulen-brown uppercase tracking-wider mt-0.5">
-              {eventDate.toLocaleDateString(dateLocale[locale], { month: 'short' })}
+              {month}
             </span>
           </div>
           <div className="w-px h-8 bg-meulen-beige"></div>
@@ -30,7 +29,7 @@ export default function EventCard({ event, locale }: { event: Event; locale: Loc
           </span>
         </div>
         <span className="text-xs text-meulen-dark-brown/50">
-          {eventDate.toLocaleTimeString(dateLocale[locale], { hour: '2-digit', minute: '2-digit' })}{t.events.timeSuffix}
+          {time}{t.events.timeSuffix}
         </span>
       </div>
 
