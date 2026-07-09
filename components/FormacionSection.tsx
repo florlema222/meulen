@@ -4,7 +4,7 @@ import { getAllCourses } from '@/lib/courses'
 import Tabs from '@/components/Tabs'
 
 const INTRO =
-  'El proyecto Meulen organiza y sostiene desde hace más de una década espacios variados de formación permanente que se agrupan en distintos seminarios y cursos en donde discutimos nuestras producciones en conjunto a investigadores/as externos nacionales e internacionales, organizaciones no gubernamentales y otros miembros de sociedad civil y de diferentes ámbitos estatales.'
+  'Organizamos y sostenemos desde hace más de una década espacios variados de formación permanente que se agrupan en distintos seminarios y cursos en donde discutimos nuestras producciones en conjunto a investigadores/as externos nacionales e internacionales, organizaciones no gubernamentales y otros miembros de sociedad civil y de diferentes ámbitos estatales.'
 
 function SeminariosPanel({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)

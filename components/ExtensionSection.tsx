@@ -28,7 +28,7 @@ export default function ExtensionSection({ locale }: { locale: Locale }) {
           {t.quehacemos.extension.title}
         </h1>
 
-        <div className="space-y-4 mb-10">
+        <div className="max-w-3xl mx-auto space-y-4 mb-12">
           {INTRO.map((p, i) => (
             <p key={i} className="text-lg text-meulen-dark-brown/80 leading-relaxed">
               {p}

@@ -225,28 +225,28 @@ const es: Dictionary = {
   },
   about: {
     title: 'Quiénes Somos',
-    p1: 'Meulen es un grupo interdisciplinario de investigación con sede en el Centro de Investigaciones de la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral (UNL). Bajo la dirección de la Dra. María Valeria Berros y el Dr. Nicolás Cordini, nuestro equipo ha consolidado una trayectoria dedicada a la renovación y profundización de los aportes jurídicos sobre la crisis ecológica en clave latinoamericana.',
-    p2: 'Nuestro equipo está integrado por profesionales de la antropología, historia, ciencia política, sociología y diversas áreas del derecho, unidos por la necesidad de analizar las innovaciones jurídicas que emergen en nuestra región ante la crisis ambiental global.',
+    p1: 'Somos un grupo interdisciplinario que realiza investigación, extensión y formación universitaria radicado en el Centro de Investigaciones de la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral de la ciudad de Santa Fe, Argentina.',
+    p2: 'Integrado por especialistas en diversas áreas del derecho, la antropología, la historia, la ciencia política, la filosofía y la sociología, Meulen reúne miradas y metodologías complementarias para analizar las transformaciones socio-jurídicas que emergen en América Latina ante los desafíos socioecológicos actuales. Nos enfocamos en las herramientas normativas, institucionales y sociales que permiten fortalecer la protección de derechos y las transiciones ecosociales así como aquellas que permiten comprender y enfrentar los procesos de regresión en la tutela socioambiental y mecanismos que viabilizan el avance de los extractivismos en la región.',
   },
   whatWeDo: {
     title: 'Qué Hacemos',
     intro:
-      'Investigamos las tensiones y diálogos entre tres grandes ejes o «entramados» que definen la realidad ecológica actual:',
+      'Investigamos sobre los diferentes entramados socio-jurídicos sobre la cuestión ecológica a partir de un enfoque situado en el contexto latinoamericano y atento a la relevancia social y política del tema.',
     axes: [
       {
-        title: 'Derechos de la Naturaleza',
+        title: 'Justicia ecológica',
         description:
-          'Analizamos el «giro ecocéntrico» y el reconocimiento de ecosistemas y animales como sujetos de derecho.',
+          'Estudiamos las innovaciones jurídicas que emergen en América Latina, analizando los procesos de ampliación de los derechos de la naturaleza y de los ecosistemas.',
       },
       {
-        title: 'Derecho a un Ambiente Sano',
+        title: 'Derecho a un ambiente sano',
         description:
-          'Estudiamos la implementación del Acuerdo de Escazú y el fortalecimiento del acceso a la justicia ambiental.',
+          'Analizamos los desafíos asociados a la implementación del Acuerdo de Escazú como instrumento clave de democracia ambiental en América Latina y el Caribe.',
       },
       {
-        title: 'Derecho del Extractivismo',
+        title: 'Extractivismos',
         description:
-          'Indagamos en las regulaciones que viabilizan la explotación de recursos y generan resistencias sociales en los territorios.',
+          'Indagamos las dinámicas del extractivismo y su articulación con los marcos jurídicos contemporáneos.',
       },
     ],
   },
@@ -348,28 +348,28 @@ const en: Dictionary = {
   },
   about: {
     title: 'Who We Are',
-    p1: 'Meulen is an interdisciplinary research group based at the Research Centre of the Faculty of Legal and Social Sciences of the Universidad Nacional del Litoral (UNL). Under the direction of Dr. María Valeria Berros and Dr. Nicolás Cordini, our team has built a track record dedicated to renewing and deepening legal contributions on the ecological crisis from a Latin American standpoint.',
-    p2: 'Our team brings together professionals from anthropology, history, political science, sociology and various fields of law, united by the need to analyze the legal innovations emerging in our region in response to the global environmental crisis.',
+    p1: 'We are an interdisciplinary group engaged in university research, outreach and teaching, based at the Research Centre of the Faculty of Legal and Social Sciences of the Universidad Nacional del Litoral in the city of Santa Fe, Argentina.',
+    p2: 'Made up of specialists in various fields of law, anthropology, history, political science, philosophy and sociology, Meulen brings together complementary perspectives and methodologies to analyze the socio-legal transformations emerging in Latin America in response to today’s socio-ecological challenges. We focus on the normative, institutional and social tools that make it possible to strengthen the protection of rights and eco-social transitions, as well as those that help us understand and confront processes of regression in socio-environmental protection and the mechanisms that enable the advance of extractivism in the region.',
   },
   whatWeDo: {
     title: 'What We Do',
     intro:
-      'We study the tensions and dialogues among three major axes, or "frameworks", that define today’s ecological reality:',
+      'We research the different socio-legal frameworks surrounding the ecological question from a perspective situated in the Latin American context and attentive to the social and political relevance of the issue.',
     axes: [
       {
-        title: 'Rights of Nature',
+        title: 'Ecological Justice',
         description:
-          'We analyze the "ecocentric turn" and the recognition of ecosystems and animals as subjects of rights.',
+          'We study the legal innovations emerging in Latin America, analyzing the processes that expand the rights of nature and of ecosystems.',
       },
       {
         title: 'Right to a Healthy Environment',
         description:
-          'We study the implementation of the Escazú Agreement and the strengthening of access to environmental justice.',
+          'We analyze the challenges associated with implementing the Escazú Agreement as a key instrument of environmental democracy in Latin America and the Caribbean.',
       },
       {
-        title: 'Law of Extractivism',
+        title: 'Extractivisms',
         description:
-          'We investigate the regulations that enable resource exploitation and generate social resistance across territories.',
+          'We investigate the dynamics of extractivism and its articulation with contemporary legal frameworks.',
       },
     ],
   },
@@ -489,28 +489,28 @@ const pt: Dictionary = {
   },
   about: {
     title: 'Quem Somos',
-    p1: 'Meulen é um grupo interdisciplinar de pesquisa sediado no Centro de Pesquisas da Faculdade de Ciências Jurídicas e Sociais da Universidad Nacional del Litoral (UNL). Sob a direção da Dra. María Valeria Berros e do Dr. Nicolás Cordini, nossa equipe consolidou uma trajetória dedicada à renovação e ao aprofundamento das contribuições jurídicas sobre a crise ecológica em chave latino-americana.',
-    p2: 'Nossa equipe é integrada por profissionais da antropologia, história, ciência política, sociologia e diversas áreas do direito, unidos pela necessidade de analisar as inovações jurídicas que emergem em nossa região diante da crise ambiental global.',
+    p1: 'Somos um grupo interdisciplinar que realiza pesquisa, extensão e formação universitária, sediado no Centro de Pesquisas da Faculdade de Ciências Jurídicas e Sociais da Universidad Nacional del Litoral, na cidade de Santa Fe, Argentina.',
+    p2: 'Integrado por especialistas em diversas áreas do direito, da antropologia, da história, da ciência política, da filosofia e da sociologia, Meulen reúne olhares e metodologias complementares para analisar as transformações sócio-jurídicas que emergem na América Latina diante dos desafios socioecológicos atuais. Concentramo-nos nas ferramentas normativas, institucionais e sociais que permitem fortalecer a proteção de direitos e as transições ecossociais, assim como naquelas que permitem compreender e enfrentar os processos de regressão na tutela socioambiental e os mecanismos que viabilizam o avanço dos extrativismos na região.',
   },
   whatWeDo: {
     title: 'O Que Fazemos',
     intro:
-      'Investigamos as tensões e diálogos entre três grandes eixos ou «tramas» que definem a realidade ecológica atual:',
+      'Investigamos as diferentes tramas sócio-jurídicas em torno da questão ecológica a partir de um enfoque situado no contexto latino-americano e atento à relevância social e política do tema.',
     axes: [
       {
-        title: 'Direitos da Natureza',
+        title: 'Justiça ecológica',
         description:
-          'Analisamos o «giro ecocêntrico» e o reconhecimento de ecossistemas e animais como sujeitos de direito.',
+          'Estudamos as inovações jurídicas que emergem na América Latina, analisando os processos de ampliação dos direitos da natureza e dos ecossistemas.',
       },
       {
-        title: 'Direito a um Ambiente Saudável',
+        title: 'Direito a um ambiente saudável',
         description:
-          'Estudamos a implementação do Acordo de Escazú e o fortalecimento do acesso à justiça ambiental.',
+          'Analisamos os desafios associados à implementação do Acordo de Escazú como instrumento-chave de democracia ambiental na América Latina e no Caribe.',
       },
       {
-        title: 'Direito do Extrativismo',
+        title: 'Extrativismos',
         description:
-          'Investigamos as regulações que viabilizam a exploração de recursos e geram resistências sociais nos territórios.',
+          'Indagamos as dinâmicas do extrativismo e sua articulação com os marcos jurídicos contemporâneos.',
       },
     ],
   },
