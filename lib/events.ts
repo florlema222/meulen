@@ -5,16 +5,35 @@ import { defaultLocale, pickLocalized, type Locale } from './i18n'
 
 const eventsDirectory = path.join(process.cwd(), 'content/events')
 
+/**
+ * A past activity the group took part in ("we were here"). Everything but the
+ * title is optional: `image` is a flyer or photo, `date` only orders the list
+ * (newest first) and is shown as a month/year caption when present.
+ */
 export interface Event {
   slug: string
   title: string
-  date: string
-  location: string
-  type: string
-  description: string
-  registration_url?: string
+  description?: string
   image?: string
+  date?: string
   content: string
+}
+
+// Newest first. `date` may arrive as a Date (YAML) or string; entries without a
+// valid date sort last, falling back to the date-prefixed slug among themselves.
+function eventTime(e: Event): number | null {
+  if (!e.date) return null
+  const t = new Date(e.date).getTime()
+  return Number.isNaN(t) ? null : t
+}
+
+function compareEvents(a: Event, b: Event): number {
+  const ta = eventTime(a)
+  const tb = eventTime(b)
+  if (ta !== null && tb !== null) return tb - ta
+  if (ta !== null) return -1
+  if (tb !== null) return 1
+  return b.slug.localeCompare(a.slug)
 }
 
 export function getAllEvents(locale: Locale = defaultLocale): Event[] {
@@ -39,29 +58,17 @@ export function getAllEvents(locale: Locale = defaultLocale): Event[] {
           // Translatable fields fall back to Spanish when missing.
           title: pickLocalized(data, 'title', locale),
           description: pickLocalized(data, 'description', locale),
-          location: pickLocalized(data, 'location', locale),
         } as Event
       })
 
-    return allEvents.sort((a, b) => {
-      if (a.date < b.date) {
-        return 1
-      } else {
-        return -1
-      }
-    })
+    return allEvents.sort(compareEvents)
   } catch (error) {
     console.error('Error reading events:', error)
     return []
   }
 }
 
-export function getUpcomingEvents(locale: Locale = defaultLocale): Event[] {
-  const allEvents = getAllEvents(locale)
-  const now = new Date()
-  return allEvents
-    .filter(event => new Date(event.date) >= now)
-    // Soonest upcoming first (getAllEvents is sorted newest-first).
-    .sort((a, b) => (a.date < b.date ? -1 : 1))
-    .slice(0, 4)
+/** Most recent activities, for the home-page "we were here" gallery. */
+export function getRecentEvents(locale: Locale = defaultLocale, limit = 3): Event[] {
+  return getAllEvents(locale).slice(0, limit)
 }

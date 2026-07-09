@@ -1,67 +1,43 @@
 import type { Event } from '@/lib/events'
-import { getDictionary, dateLocale, localizeVocab, siteTimeZone, type Locale } from '@/lib/i18n'
+import { dateLocale, siteTimeZone, type Locale } from '@/lib/i18n'
 
+/**
+ * Retrospective card for a past activity ("we were here"): flyer/photo on top,
+ * title, and an optional description. The date, when present, is shown only as a
+ * month/year caption — formatted against a fixed timezone at build time so
+ * server and client agree (avoids hydration mismatches).
+ */
 export default function EventCard({ event, locale }: { event: Event; locale: Locale }) {
-  const t = getDictionary(locale)
-  const eventDate = new Date(event.date)
-  // Format against a fixed timezone at build time so server and client agree
-  // (avoids hydration mismatches and keeps times consistent across viewers).
-  const day = eventDate.toLocaleDateString(dateLocale[locale], { day: 'numeric', timeZone: siteTimeZone })
-  const month = eventDate.toLocaleDateString(dateLocale[locale], { month: 'short', timeZone: siteTimeZone })
-  const time = eventDate.toLocaleTimeString(dateLocale[locale], { hour: '2-digit', minute: '2-digit', timeZone: siteTimeZone })
+  const label = event.date
+    ? new Date(event.date).toLocaleDateString(dateLocale[locale], {
+        month: 'long',
+        year: 'numeric',
+        timeZone: siteTimeZone,
+      })
+    : null
 
   return (
-    <div className="group relative bg-white/90 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_12px_rgba(61,47,31,0.06)] hover:shadow-[0_8px_30px_rgba(61,47,31,0.12)]">
-      {/* Date strip */}
-      <div className="bg-meulen-cream/80 px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="text-center leading-none">
-            <span className="block text-2xl font-playfair font-bold text-meulen-dark-brown">
-              {day}
-            </span>
-            <span className="block text-xs text-meulen-brown uppercase tracking-wider mt-0.5">
-              {month}
-            </span>
-          </div>
-          <div className="w-px h-8 bg-meulen-beige"></div>
-          <span className="text-xs text-meulen-brown tracking-wide uppercase">
-            {localizeVocab(event.type, t.eventTypes, locale)}
-          </span>
+    <div className="group bg-white/90 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_12px_rgba(61,47,31,0.06)] hover:shadow-[0_8px_30px_rgba(61,47,31,0.12)]">
+      {event.image ? (
+        <div className="aspect-[4/3] bg-meulen-cream/40 flex items-center justify-center overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={event.image} alt={event.title} className="w-full h-full object-contain" />
         </div>
-        <span className="text-xs text-meulen-dark-brown/50">
-          {time}{t.events.timeSuffix}
-        </span>
-      </div>
+      ) : (
+        <div className="aspect-[4/3] bg-gradient-to-br from-meulen-brown to-meulen-brown-light" />
+      )}
 
       <div className="p-6">
+        {label && (
+          <p className="text-xs text-meulen-brown uppercase tracking-wider mb-2">{label}</p>
+        )}
         <h3 className="text-lg font-playfair font-bold text-meulen-dark-brown mb-2 leading-snug">
           {event.title}
         </h3>
-
-        <p className="text-sm text-meulen-brown mb-3 flex items-center gap-1.5">
-          <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          {event.location}
-        </p>
-
-        <div className="text-sm text-meulen-dark-brown/70 mb-4 line-clamp-2 leading-relaxed">
-          {event.description}
-        </div>
-
-        {event.registration_url && (
-          <a
-            href={event.registration_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-meulen-brown/10 text-meulen-brown text-sm rounded-full hover:bg-meulen-brown hover:text-white transition-colors font-medium"
-          >
-            {t.events.register}
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+        {event.description && (
+          <div className="text-sm text-meulen-dark-brown/70 line-clamp-3 leading-relaxed whitespace-pre-line">
+            {event.description}
+          </div>
         )}
       </div>
     </div>

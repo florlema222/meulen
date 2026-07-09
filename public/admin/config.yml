@@ -69,15 +69,12 @@ collections:
     label_singular: "Evento"
     folder: "content/events"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - { label: "Nombre del Evento", name: "title", widget: "string" }
-      - { label: "Fecha y Hora", name: "date", widget: "datetime" }
-      - { label: "Lugar", name: "location", widget: "string" }
-      - { label: "Tipo", name: "type", widget: "select", options: ["Seminario", "Taller", "Conferencia", "Webinar", "Curso", "Otro"] }
-      - { label: "Descripción", name: "description", widget: "markdown" }
-      - { label: "Link de Registro", name: "registration_url", widget: "string", required: false }
-      - { label: "Imagen", name: "image", widget: "image", required: false }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Flyer / Imagen", name: "image", widget: "image", required: false }
+      - { label: "Descripción", name: "description", widget: "markdown", required: false }
+      - { label: "Fecha (opcional, ordena los eventos)", name: "date", widget: "date", required: false }
       - label: "Traducción al inglés (opcional)"
         name: "en"
         widget: "object"
@@ -85,8 +82,7 @@ collections:
         required: false
         hint: "Completar solo si hay versión en inglés. Si se deja vacío, se muestra el español."
         fields:
-          - { label: "Event Name (English)", name: "title", widget: "string", required: false }
-          - { label: "Location (English)", name: "location", widget: "string", required: false }
+          - { label: "Title (English)", name: "title", widget: "string", required: false }
           - { label: "Description (English)", name: "description", widget: "markdown", required: false }
       - label: "Traducción al portugués (opcional)"
         name: "pt"
@@ -95,8 +91,7 @@ collections:
         required: false
         hint: "Completar solo si hay versión en portugués. Si se deja vacío, se muestra el español."
         fields:
-          - { label: "Nome do Evento (Português)", name: "title", widget: "string", required: false }
-          - { label: "Local (Português)", name: "location", widget: "string", required: false }
+          - { label: "Título (Português)", name: "title", widget: "string", required: false }
           - { label: "Descrição (Português)", name: "description", widget: "markdown", required: false }
 
   - name: "noticias"

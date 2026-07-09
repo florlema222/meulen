@@ -142,8 +142,6 @@ export interface Dictionary {
   events: {
     title: string
     empty: string
-    register: string
-    timeSuffix: string
   }
   news: {
     title: string
@@ -275,10 +273,8 @@ const es: Dictionary = {
     view: 'Ver publicación →',
   },
   events: {
-    title: 'Próximos Eventos',
-    empty: 'Próximamente anunciaremos nuestros eventos y actividades.',
-    register: 'Inscribirse',
-    timeSuffix: ' hs',
+    title: 'Eventos',
+    empty: 'Pronto compartiremos las actividades en las que participamos.',
   },
   news: {
     title: 'Noticias',
@@ -397,10 +393,8 @@ const en: Dictionary = {
     view: 'View publication →',
   },
   events: {
-    title: 'Upcoming Events',
-    empty: 'We will announce our events and activities soon.',
-    register: 'Register',
-    timeSuffix: '',
+    title: 'Events',
+    empty: 'Coming soon: the activities we have taken part in.',
   },
   news: {
     title: 'News',
@@ -540,10 +534,8 @@ const pt: Dictionary = {
     view: 'Ver publicação →',
   },
   events: {
-    title: 'Próximos Eventos',
-    empty: 'Em breve anunciaremos nossos eventos e atividades.',
-    register: 'Inscrever-se',
-    timeSuffix: 'h',
+    title: 'Eventos',
+    empty: 'Em breve compartilharemos as atividades das quais participamos.',
   },
   news: {
     title: 'Notícias',
