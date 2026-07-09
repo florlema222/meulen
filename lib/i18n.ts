@@ -16,6 +16,13 @@ export const localeLabels: Record<Locale, string> = {
   pt: 'PT',
 }
 
+/** Full language names, shown in the language dropdown. */
+export const localeNames: Record<Locale, string> = {
+  es: 'Español',
+  en: 'English',
+  pt: 'Português',
+}
+
 /** `Intl` locale used for date/number formatting. */
 export const dateLocale: Record<Locale, string> = {
   es: 'es-AR',
@@ -75,6 +82,7 @@ export interface Dictionary {
     publicaciones: string
     eventos: string
     noticias: string
+    idioma: string
   }
   quehacemos: {
     investigacion: {
@@ -134,8 +142,6 @@ export interface Dictionary {
   events: {
     title: string
     empty: string
-    register: string
-    timeSuffix: string
   }
   news: {
     title: string
@@ -189,6 +195,7 @@ const es: Dictionary = {
     publicaciones: 'Publicaciones',
     eventos: 'Eventos',
     noticias: 'Noticias',
+    idioma: 'Idioma',
   },
   quehacemos: {
     investigacion: {
@@ -266,10 +273,8 @@ const es: Dictionary = {
     view: 'Ver publicación →',
   },
   events: {
-    title: 'Próximos Eventos',
-    empty: 'Próximamente anunciaremos nuestros eventos y actividades.',
-    register: 'Inscribirse',
-    timeSuffix: ' hs',
+    title: 'Eventos',
+    empty: 'Pronto compartiremos las actividades en las que participamos.',
   },
   news: {
     title: 'Noticias',
@@ -312,6 +317,7 @@ const en: Dictionary = {
     publicaciones: 'Publications',
     eventos: 'Events',
     noticias: 'News',
+    idioma: 'Language',
   },
   quehacemos: {
     investigacion: {
@@ -387,10 +393,8 @@ const en: Dictionary = {
     view: 'View publication →',
   },
   events: {
-    title: 'Upcoming Events',
-    empty: 'We will announce our events and activities soon.',
-    register: 'Register',
-    timeSuffix: '',
+    title: 'Events',
+    empty: 'Coming soon: the activities we have taken part in.',
   },
   news: {
     title: 'News',
@@ -453,6 +457,7 @@ const pt: Dictionary = {
     publicaciones: 'Publicações',
     eventos: 'Eventos',
     noticias: 'Notícias',
+    idioma: 'Idioma',
   },
   quehacemos: {
     investigacion: {
@@ -529,10 +534,8 @@ const pt: Dictionary = {
     view: 'Ver publicação →',
   },
   events: {
-    title: 'Próximos Eventos',
-    empty: 'Em breve anunciaremos nossos eventos e atividades.',
-    register: 'Inscrever-se',
-    timeSuffix: 'h',
+    title: 'Eventos',
+    empty: 'Em breve compartilharemos as atividades das quais participamos.',
   },
   news: {
     title: 'Notícias',

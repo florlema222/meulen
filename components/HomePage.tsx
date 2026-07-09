@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { getAllPublications } from '@/lib/publications'
-import { getUpcomingEvents } from '@/lib/events'
+import { getRecentEvents } from '@/lib/events'
 import { getRecentNews } from '@/lib/news'
 import { getAllCarouselSlides } from '@/lib/carousel'
 import { getAllAcampes } from '@/lib/acampes'
@@ -19,7 +19,7 @@ import HtmlLang from '@/components/HtmlLang'
 export default function HomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)
   const publications = getAllPublications(locale)
-  const upcomingEvents = getUpcomingEvents(locale)
+  const recentEvents = getRecentEvents(locale)
   const recentNews = getRecentNews(3, locale)
   const carouselSlides = getAllCarouselSlides()
   const acampes = getAllAcampes(locale)
@@ -117,9 +117,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
             {t.events.title}
           </h2>
 
-          {upcomingEvents.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {upcomingEvents.slice(0, 2).map((event) => (
+          {recentEvents.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentEvents.map((event) => (
                 <EventCard key={event.slug} event={event} locale={locale} />
               ))}
             </div>
