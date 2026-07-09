@@ -82,6 +82,7 @@ export interface Dictionary {
     publicaciones: string
     eventos: string
     noticias: string
+    idioma: string
   }
   quehacemos: {
     investigacion: {
@@ -196,6 +197,7 @@ const es: Dictionary = {
     publicaciones: 'Publicaciones',
     eventos: 'Eventos',
     noticias: 'Noticias',
+    idioma: 'Idioma',
   },
   quehacemos: {
     investigacion: {
@@ -319,6 +321,7 @@ const en: Dictionary = {
     publicaciones: 'Publications',
     eventos: 'Events',
     noticias: 'News',
+    idioma: 'Language',
   },
   quehacemos: {
     investigacion: {
@@ -460,6 +463,7 @@ const pt: Dictionary = {
     publicaciones: 'Publicações',
     eventos: 'Eventos',
     noticias: 'Notícias',
+    idioma: 'Idioma',
   },
   quehacemos: {
     investigacion: {

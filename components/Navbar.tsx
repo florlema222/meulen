@@ -3,7 +3,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getDictionary, localeHref, type Locale } from '@/lib/i18n'
+import {
+  getDictionary,
+  locales,
+  localeLabels,
+  localeNames,
+  localeHref,
+  type Locale,
+} from '@/lib/i18n'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 /**
@@ -111,7 +118,9 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
               </div>
             </div>
 
-            <LanguageSwitcher locale={locale} subpath={subpath} />
+            <div className="hidden md:block">
+              <LanguageSwitcher locale={locale} subpath={subpath} />
+            </div>
 
             {/* Mobile hamburger */}
             <button
@@ -171,6 +180,39 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
                 {item.label}
               </Link>
             ))}
+
+            <div className="pt-2 mt-2 border-t border-meulen-brown/10">
+              <p className="flex items-center gap-2 px-3 pt-2 pb-1 text-sm font-semibold text-meulen-brown">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.5 2.5 3.75 5.5 3.75 9S14.5 18.5 12 21c-2.5-2.5-3.75-5.5-3.75-9S9.5 5.5 12 3z" />
+                </svg>
+                {t.nav.idioma}
+              </p>
+              {locales.map((loc) =>
+                loc === locale ? (
+                  <span
+                    key={loc}
+                    aria-current="true"
+                    className="flex items-center gap-2 px-6 py-2 font-bold text-meulen-dark-brown"
+                  >
+                    <span className="w-6 text-xs">{localeLabels[loc]}</span>
+                    {localeNames[loc]}
+                  </span>
+                ) : (
+                  <Link
+                    key={loc}
+                    href={`${localeHref(loc)}${subpath}`}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 px-6 py-2 rounded-md hover:bg-meulen-brown/10 transition"
+                  >
+                    <span className="w-6 text-xs text-meulen-brown">{localeLabels[loc]}</span>
+                    {localeNames[loc]}
+                  </Link>
+                )
+              )}
+            </div>
           </div>
         </div>
       )}
