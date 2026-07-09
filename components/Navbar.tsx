@@ -27,7 +27,7 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
 
   return (
     <nav className="bg-[#f5e6d34d] text-meulen-dark-brown sticky top-0 z-50 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href={home} className="flex-shrink-0 flex items-center gap-3">
             <Image
