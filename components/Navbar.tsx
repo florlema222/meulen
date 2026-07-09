@@ -10,19 +10,27 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
  * Shared site navigation. Section links point at the home page anchors (with the
  * locale prefix) so they work from any page; "Quiénes Somos" links to the team
  * page and "Qué Hacemos" opens a dropdown to the Investigación / Extensión /
- * Formación pages. `subpath` is forwarded to the language switcher to preserve
- * the current page when switching language.
+ * Formación pages. On small screens the links collapse behind a hamburger menu.
+ * `subpath` is forwarded to the language switcher to preserve the current page
+ * when switching language.
  */
 export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpath?: string }) {
   const t = getDictionary(locale)
   const home = localeHref(locale)
   const team = `${home}equipo/`
   const [openMenu, setOpenMenu] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const queHacemosItems = [
     { label: t.nav.investigacion, href: `${home}investigacion/` },
     { label: t.nav.extension, href: `${home}extension/` },
     { label: t.nav.formacion, href: `${home}formacion/` },
+  ]
+
+  const primaryLinks = [
+    { label: t.nav.publicaciones, href: `${home}#publicaciones` },
+    { label: t.nav.eventos, href: `${home}#eventos` },
+    { label: t.nav.noticias, href: `${home}#noticias` },
   ]
 
   return (
@@ -91,21 +99,81 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
                   </div>
                 </div>
 
-                <Link href={`${home}#publicaciones`} className="hover:text-meulen-brown transition px-3 py-2">
-                  {t.nav.publicaciones}
-                </Link>
-                <Link href={`${home}#eventos`} className="hover:text-meulen-brown transition px-3 py-2">
-                  {t.nav.eventos}
-                </Link>
-                <Link href={`${home}#noticias`} className="hover:text-meulen-brown transition px-3 py-2">
-                  {t.nav.noticias}
-                </Link>
+                {primaryLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="hover:text-meulen-brown transition px-3 py-2"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </div>
+
             <LanguageSwitcher locale={locale} subpath={subpath} />
+
+            {/* Mobile hamburger */}
+            <button
+              type="button"
+              className="md:hidden inline-flex items-center justify-center p-2 text-meulen-dark-brown hover:text-meulen-brown transition"
+              aria-label="Menú"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                {mobileOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile menu panel */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-meulen-brown/10">
+          <div className="px-4 sm:px-6 py-4 space-y-1">
+            <Link
+              href={team}
+              onClick={() => setMobileOpen(false)}
+              className="block px-3 py-2 rounded-md hover:bg-meulen-brown/10 transition"
+            >
+              {t.nav.nosotros}
+            </Link>
+
+            <div className="pt-1">
+              <p className="px-3 pt-2 pb-1 text-sm font-semibold text-meulen-brown">
+                {t.nav.queHacemos}
+              </p>
+              {queHacemosItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-6 py-2 rounded-md hover:bg-meulen-brown/10 transition"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            {primaryLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="block px-3 py-2 rounded-md hover:bg-meulen-brown/10 transition"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
