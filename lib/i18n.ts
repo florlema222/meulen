@@ -16,6 +16,13 @@ export const localeLabels: Record<Locale, string> = {
   pt: 'PT',
 }
 
+/** Full language names, shown in the language dropdown. */
+export const localeNames: Record<Locale, string> = {
+  es: 'Español',
+  en: 'English',
+  pt: 'Português',
+}
+
 /** `Intl` locale used for date/number formatting. */
 export const dateLocale: Record<Locale, string> = {
   es: 'es-AR',
