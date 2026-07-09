@@ -76,7 +76,7 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
                   <div
                     className={`absolute left-0 top-full pt-2 w-56 z-50 group-hover:block ${openMenu ? 'block' : 'hidden'}`}
                   >
-                    <div className="bg-meulen-cream rounded-lg shadow-lg py-2 ring-1 ring-meulen-brown/10">
+                    <div className="bg-[#f5e6d34d] backdrop-blur-sm rounded-lg shadow-lg py-2 ring-1 ring-meulen-brown/10">
                       {queHacemosItems.map((item) => (
                         <Link
                           key={item.href}
