@@ -22,7 +22,7 @@ export default function TeamCarousel({ slides, locale }: { slides: CarouselSlide
   }, [slides.length])
 
   return (
-    <section id="nosotros" className="relative min-h-[600px] overflow-hidden">
+    <section id="nosotros" className="scroll-mt-20 relative min-h-[600px] overflow-hidden">
       {/* Background: carousel images or gradient fallback */}
       {slides.length > 0 ? (
         slides.map((slide, index) => (

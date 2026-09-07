@@ -15,7 +15,7 @@ export default function ResearchAxes({ locale }: { locale: Locale }) {
   }))
 
   return (
-    <section id="que-hacemos" className="py-16 px-4 bg-white/70 section-elevated">
+    <section id="que-hacemos" className="scroll-mt-20 py-16 px-4 bg-white/70 section-elevated">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-playfair font-bold text-meulen-dark-brown mb-4 text-center">
           {t.whatWeDo.title}

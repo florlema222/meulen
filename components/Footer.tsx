@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getDictionary, localeHref, type Locale } from '@/lib/i18n'
 import InstagramIcon from '@/components/InstagramIcon'
+import HashLink from '@/components/HashLink'
 
 export default function Footer({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)
@@ -44,15 +45,15 @@ export default function Footer({ locale }: { locale: Locale }) {
               <Link href={team} className="block text-meulen-brown hover:text-meulen-dark-brown transition">
                 {t.nav.nosotros}
               </Link>
-              <Link href={`${home}#que-hacemos`} className="block text-meulen-brown hover:text-meulen-dark-brown transition">
+              <HashLink href={`${home}#que-hacemos`} className="block text-meulen-brown hover:text-meulen-dark-brown transition">
                 {t.nav.queHacemos}
-              </Link>
-              <Link href={`${home}#publicaciones`} className="block text-meulen-brown hover:text-meulen-dark-brown transition">
+              </HashLink>
+              <HashLink href={`${home}#publicaciones`} className="block text-meulen-brown hover:text-meulen-dark-brown transition">
                 {t.nav.publicaciones}
-              </Link>
-              <Link href={`${home}#eventos`} className="block text-meulen-brown hover:text-meulen-dark-brown transition">
+              </HashLink>
+              <HashLink href={`${home}#eventos`} className="block text-meulen-brown hover:text-meulen-dark-brown transition">
                 {t.nav.eventos}
-              </Link>
+              </HashLink>
             </div>
           </div>
           {/* Contact */}

@@ -6,7 +6,7 @@ import { getRecentNews } from '@/lib/news'
 import { getAllCarouselSlides } from '@/lib/carousel'
 import { getAllAcampes } from '@/lib/acampes'
 import { getDictionary, localeHref, type Locale } from '@/lib/i18n'
-import PublicationCard from '@/components/PublicationCard'
+import PublicationsExplorer from '@/components/PublicationsExplorer'
 import EventCard from '@/components/EventCard'
 import NewsCard from '@/components/NewsCard'
 import StaticHero from '@/components/StaticHero'
@@ -87,28 +87,14 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <div className="section-divider mx-auto max-w-2xl"></div>
 
       {/* Publications Section */}
-      <section id="publicaciones" className="py-16 px-4 bg-white/80 section-elevated">
+      <section id="publicaciones" className="scroll-mt-20 py-16 px-4 bg-white/80 section-elevated">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-playfair font-bold text-meulen-dark-brown mb-8 text-center">
             {t.publications.title}
           </h2>
 
           {publications.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                {publications.slice(0, 4).map((publication) => (
-                  <PublicationCard key={publication.slug} publication={publication} locale={locale} />
-                ))}
-              </div>
-              <div className="text-center">
-                <p className="text-meulen-dark-brown/70 mb-4">
-                  {publications.length > 4 &&
-                    t.publications.showing
-                      .replace('{shown}', '4')
-                      .replace('{total}', String(publications.length))}
-                </p>
-              </div>
-            </>
+            <PublicationsExplorer publications={publications} locale={locale} />
           ) : (
             <div className="text-center text-meulen-dark-brown/60 py-12">
               <p className="text-lg">{t.publications.empty}</p>
@@ -118,7 +104,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Events Section */}
-      <section id="eventos" className="py-16 px-4 bg-meulen-cream/30 section-inset">
+      <section id="eventos" className="scroll-mt-20 py-16 px-4 bg-meulen-cream/30 section-inset">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-playfair font-bold text-meulen-dark-brown mb-8 text-center">
             {t.events.title}
@@ -141,7 +127,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <div className="section-divider mx-auto max-w-2xl"></div>
 
       {/* News Section */}
-      <section id="noticias" className="py-16 px-4 bg-white/80 section-elevated">
+      <section id="noticias" className="scroll-mt-20 py-16 px-4 bg-white/80 section-elevated">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-playfair font-bold text-meulen-dark-brown mb-8 text-center">
             {t.news.title}

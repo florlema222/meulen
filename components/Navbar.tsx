@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import HashLink from '@/components/HashLink'
 import {
   getDictionary,
   locales,
@@ -107,13 +108,13 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
                 </div>
 
                 {primaryLinks.map((item) => (
-                  <Link
+                  <HashLink
                     key={item.href}
                     href={item.href}
                     className="hover:text-meulen-brown transition px-3 py-2"
                   >
                     {item.label}
-                  </Link>
+                  </HashLink>
                 ))}
               </div>
             </div>
@@ -171,14 +172,14 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
             </div>
 
             {primaryLinks.map((item) => (
-              <Link
+              <HashLink
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
                 className="block px-3 py-2 rounded-md hover:bg-meulen-brown/10 transition"
               >
                 {item.label}
-              </Link>
+              </HashLink>
             ))}
 
             <div className="pt-2 mt-2 border-t border-meulen-brown/10">

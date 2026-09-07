@@ -45,6 +45,8 @@ Besides the home page and `/equipo` (team), the navbar "Qué Hacemos" item is a 
 - Navbar uses semi-transparent cream background (`#f5e6d34d`) with `backdrop-blur-sm`
 - TeamCarousel handles empty state (no photos) with gradient fallback
 - Static hero replaced the original rotating carousel; carousel content files remain but are unused
+- Home-page section anchors (`#nosotros`, `#que-hacemos`, `#publicaciones`, `#eventos`, `#noticias`) are linked through `components/HashLink.tsx`, which scrolls the section into view itself when the target is in the current document — `next/link` alone does nothing when the URL already carries that hash. Anchored sections carry `scroll-mt-20` so the sticky navbar doesn't cover their heading
+- The home Publicaciones section (`components/PublicationsExplorer.tsx`) is browsed by thematic sub-axis: pills for the sub-axes that have publications, cards for the selected one. `/investigacion` > Producciones lists the same data grouped by sub-axis, showing every sub-axis including empty ones
 
 ## CMS Auth (Production)
 - Netlify Identity + Git Gateway

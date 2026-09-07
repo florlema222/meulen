@@ -139,6 +139,8 @@ export interface Dictionary {
     showing: string // uses {shown} and {total} placeholders
     featured: string
     view: string
+    /** Pill label for publications with no thematic sub-axis. */
+    otherTheme: string
   }
   events: {
     title: string
@@ -273,6 +275,7 @@ const es: Dictionary = {
     showing: 'Mostrando {shown} de {total} publicaciones',
     featured: 'Destacada',
     view: 'Ver publicación →',
+    otherTheme: 'Otras',
   },
   events: {
     title: 'Eventos',
@@ -394,6 +397,7 @@ const en: Dictionary = {
     showing: 'Showing {shown} of {total} publications',
     featured: 'Featured',
     view: 'View publication →',
+    otherTheme: 'Other',
   },
   events: {
     title: 'Events',
@@ -536,6 +540,7 @@ const pt: Dictionary = {
     showing: 'Exibindo {shown} de {total} publicações',
     featured: 'Destaque',
     view: 'Ver publicação →',
+    otherTheme: 'Outras',
   },
   events: {
     title: 'Eventos',
