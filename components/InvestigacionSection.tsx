@@ -1,12 +1,8 @@
-import {
-  getDictionary,
-  localizeVocab,
-  publicationThemeOrder,
-  type Locale,
-} from '@/lib/i18n'
+import { getDictionary, type Locale } from '@/lib/i18n'
 import { getAllProjects, type Project } from '@/lib/projects'
 import { getAllPublications } from '@/lib/publications'
 import Tabs from '@/components/Tabs'
+import PublicationsExplorer from '@/components/PublicationsExplorer'
 
 // Intro text is content (Spanish) shown on every locale with Spanish fallback,
 // matching the site's "optional content translation" approach.
@@ -80,53 +76,16 @@ function ProjectsPanel({ locale }: { locale: Locale }) {
 
 function ProduccionesPanel({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)
-  const publications = getAllPublications(locale)
 
-  // Group by thematic sub-axis, keeping the canonical order. All sub-axes are
-  // shown even when empty so the intended structure is always visible.
-  const groups = publicationThemeOrder.map((theme) => ({
-    theme,
-    items: publications.filter((p) => p.theme === theme),
-  }))
-
+  // Same presentation as the home page, but every canonical sub-axis keeps a
+  // pill even when it has no publications yet, so the intended structure of the
+  // research line stays visible.
   return (
-    <div className="space-y-10">
-      {groups.map((group) => (
-        <div key={group.theme}>
-          <h3 className="text-xl font-playfair font-bold text-meulen-dark-brown mb-4">
-            {localizeVocab(group.theme, t.publicationThemes, locale)}
-          </h3>
-          {group.items.length > 0 ? (
-            <ul className="space-y-3">
-              {group.items.map((p) => (
-                <li key={p.slug} className="bg-white/85 rounded-lg p-4 shadow-sm">
-                  {p.url ? (
-                    <a
-                      href={p.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium text-meulen-dark-brown hover:text-meulen-brown transition"
-                    >
-                      {p.title}
-                    </a>
-                  ) : (
-                    <span className="font-medium text-meulen-dark-brown">{p.title}</span>
-                  )}
-                  <p className="text-sm text-meulen-dark-brown/70 mt-1">
-                    {p.authors}
-                    {p.publication ? ` · ${p.publication}` : ''}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-sm italic text-meulen-dark-brown/50">
-              {t.quehacemos.investigacion.proximamente}
-            </p>
-          )}
-        </div>
-      ))}
-    </div>
+    <PublicationsExplorer
+      publications={getAllPublications(locale)}
+      locale={locale}
+      emptyThemeMessage={t.quehacemos.investigacion.proximamente}
+    />
   )
 }
 

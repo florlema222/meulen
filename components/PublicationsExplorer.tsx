@@ -15,16 +15,20 @@ const OTHER = '__other__'
 
 /**
  * Publications browsed by thematic sub-axis ("sub-eje"): a row of pills, one per
- * sub-axis that actually has publications, and the cards of the selected one
- * below. Sub-axes without publications are left out so the pills never lead to
- * an empty grid; anything untagged collects under a final "Otras" pill.
+ * sub-axis, and the cards of the selected one below. Sub-axes without
+ * publications are dropped so the pills never lead to an empty grid — unless
+ * `emptyThemeMessage` is given, which keeps every canonical sub-axis visible
+ * (the research page shows the whole structure) and captions the empty ones.
+ * Anything untagged collects under a final "Otras" pill.
  */
 export default function PublicationsExplorer({
   publications,
   locale,
+  emptyThemeMessage,
 }: {
   publications: Publication[]
   locale: Locale
+  emptyThemeMessage?: string
 }) {
   const t = getDictionary(locale)
 
@@ -41,9 +45,12 @@ export default function PublicationsExplorer({
         (p) => !p.theme || !publicationThemeOrder.includes(p.theme as (typeof publicationThemeOrder)[number])
       ),
     },
-  ].filter((group) => group.items.length > 0)
+  ].filter((group) => group.items.length > 0 || (emptyThemeMessage && group.key !== OTHER))
 
-  const [activeKey, setActiveKey] = useState(groups[0]?.key)
+  // Start on a sub-axis that has something to show.
+  const [activeKey, setActiveKey] = useState(
+    (groups.find((group) => group.items.length > 0) ?? groups[0])?.key
+  )
   const active = groups.find((group) => group.key === activeKey) ?? groups[0]
 
   if (!active) {
@@ -67,24 +74,30 @@ export default function PublicationsExplorer({
               onClick={() => setActiveKey(group.key)}
               className={`rounded-full border px-4 py-2 text-sm transition ${
                 isActive
-                  ? 'bg-meulen-brown border-meulen-brown text-white shadow-sm'
-                  : 'bg-white/70 border-meulen-beige text-meulen-dark-brown/80 hover:border-meulen-brown hover:text-meulen-dark-brown'
+                  ? 'bg-meulen-cream border-meulen-brown text-meulen-dark-brown shadow-sm'
+                  : 'bg-meulen-brown border-meulen-brown text-white/90 hover:bg-meulen-dark-brown hover:text-white'
               }`}
             >
               {group.label}
-              <span className={isActive ? 'ml-2 text-white/70' : 'ml-2 text-meulen-dark-brown/40'}>
-                {group.items.length}
-              </span>
+              {group.items.length > 0 && (
+                <span className={isActive ? 'ml-2 text-meulen-dark-brown/40' : 'ml-2 text-white/60'}>
+                  {group.items.length}
+                </span>
+              )}
             </button>
           )
         })}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {active.items.map((publication) => (
-          <PublicationCard key={publication.slug} publication={publication} locale={locale} />
-        ))}
-      </div>
+      {active.items.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {active.items.map((publication) => (
+            <PublicationCard key={publication.slug} publication={publication} locale={locale} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-center text-sm italic text-meulen-dark-brown/50 py-8">{emptyThemeMessage}</p>
+      )}
     </div>
   )
 }
