@@ -130,6 +130,7 @@ export interface Dictionary {
     title: string
     p1: string
     p2: string
+    cta: string
     mapEmpty: string
   }
   publications: {
@@ -259,8 +260,9 @@ const es: Dictionary = {
   },
   extension: {
     title: 'Extensión',
-    p1: 'Realizamos extensión universitaria para robustecer el acceso a la justicia ambiental en localidades de la provincia de Santa Fe.',
+    p1: 'Desarrollamos Acampe por una justicia ecológica, un proyecto de extensión universitaria que, junto con organizaciones sociales, instituciones públicas y comunidades locales, aborda problemas socioambientales, fortalece capacidades locales y promueve procesos de transición hacia prácticas más sostenibles.',
     p2: 'Hacé click en los marcadores del mapa para ver las localidades visitadas y los acampes realizados.',
+    cta: 'Conocé más',
     mapEmpty:
       'Las localidades visitadas aparecerán aquí una vez que se agreguen desde el panel de administración.',
   },
@@ -381,8 +383,9 @@ const en: Dictionary = {
   },
   extension: {
     title: 'Outreach',
-    p1: 'We carry out university outreach to strengthen access to environmental justice in towns across the province of Santa Fe.',
+    p1: 'We run Acampe por una justicia ecológica, a university outreach project that, together with social organisations, public institutions and local communities, addresses socio-environmental problems, strengthens local capacities and fosters transitions towards more sustainable practices.',
     p2: 'Click the map markers to see the towns we have visited and the field camps held.',
+    cta: 'Learn more',
     mapEmpty: 'Visited towns will appear here once they are added from the admin panel.',
   },
   publications: {
@@ -521,8 +524,9 @@ const pt: Dictionary = {
   },
   extension: {
     title: 'Extensão',
-    p1: 'Realizamos extensão universitária para fortalecer o acesso à justiça ambiental em localidades da província de Santa Fe.',
+    p1: 'Desenvolvemos o Acampe por una justicia ecológica, um projeto de extensão universitária que, junto com organizações sociais, instituições públicas e comunidades locais, aborda problemas socioambientais, fortalece capacidades locais e promove processos de transição para práticas mais sustentáveis.',
     p2: 'Clique nos marcadores do mapa para ver as localidades visitadas e os acampamentos realizados.',
+    cta: 'Saiba mais',
     mapEmpty:
       'As localidades visitadas aparecerão aqui assim que forem adicionadas pelo painel de administração.',
   },

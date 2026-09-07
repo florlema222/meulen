@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { getAllPublications } from '@/lib/publications'
 import { getRecentEvents } from '@/lib/events'
 import { getRecentNews } from '@/lib/news'
 import { getAllCarouselSlides } from '@/lib/carousel'
 import { getAllAcampes } from '@/lib/acampes'
-import { getDictionary, type Locale } from '@/lib/i18n'
+import { getDictionary, localeHref, type Locale } from '@/lib/i18n'
 import PublicationCard from '@/components/PublicationCard'
 import EventCard from '@/components/EventCard'
 import NewsCard from '@/components/NewsCard'
@@ -65,9 +66,15 @@ export default function HomePage({ locale }: { locale: Locale }) {
               <p className="text-lg text-meulen-dark-brown/80 leading-relaxed mb-4">
                 {t.extension.p1}
               </p>
-              <p className="text-meulen-dark-brown/60 text-sm">
+              <p className="text-meulen-dark-brown/60 text-sm mb-6">
                 {t.extension.p2}
               </p>
+              <Link
+                href={`${localeHref(locale)}extension/`}
+                className="inline-block bg-meulen-brown text-white px-6 py-3 rounded-md font-medium hover:bg-meulen-dark-brown transition"
+              >
+                {t.extension.cta}
+              </Link>
             </div>
             {/* Right: map */}
             <div>
