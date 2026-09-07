@@ -74,7 +74,15 @@ collections:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Flyer / Imagen", name: "image", widget: "image", required: false }
       - { label: "Descripción", name: "description", widget: "markdown", required: false }
-      - { label: "Fecha (opcional, ordena los eventos)", name: "date", widget: "date", required: false }
+      - label: "Fecha del evento (opcional, ordena los eventos)"
+        name: "date"
+        widget: "datetime"
+        required: false
+        time_format: false
+        date_format: "DD/MM/YYYY"
+        format: "YYYY-MM-DD"
+        picker_utc: true
+        hint: "En la tarjeta solo se muestra el mes y el año."
       - label: "Traducción al inglés (opcional)"
         name: "en"
         widget: "object"

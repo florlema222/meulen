@@ -1,18 +1,21 @@
 import type { Event } from '@/lib/events'
-import { dateLocale, siteTimeZone, type Locale } from '@/lib/i18n'
+import { dateLocale, type Locale } from '@/lib/i18n'
 
 /**
  * Retrospective card for a past activity ("we were here"): flyer/photo on top,
  * title, and an optional description. The date, when present, is shown only as a
- * month/year caption — formatted against a fixed timezone at build time so
- * server and client agree (avoids hydration mismatches).
+ * month/year caption. The CMS stores it as a plain day (`YYYY-MM-DD`), which
+ * parses as UTC midnight, so the caption is formatted in UTC: any timezone
+ * behind it would push a first-of-the-month event into the previous month.
+ * A fixed timezone also keeps server and client output identical (no hydration
+ * mismatch).
  */
 export default function EventCard({ event, locale }: { event: Event; locale: Locale }) {
   const label = event.date
     ? new Date(event.date).toLocaleDateString(dateLocale[locale], {
         month: 'long',
         year: 'numeric',
-        timeZone: siteTimeZone,
+        timeZone: 'UTC',
       })
     : null
 
