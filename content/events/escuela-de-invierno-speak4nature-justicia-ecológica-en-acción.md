@@ -1,6 +1,7 @@
 ---
 title: "Escuela de Invierno Speak4Nature: Justicia Ecológica en acción "
 image: /images/uploads/650316598_935456638850843_4754516007803469712_n.jpg
+date: 2026-09-01
 description: >-
   Se llevará a cabo la ***Escuela de Invierno Speak4Nature: Justicia Ecológica
   en acción*** -*Winter School: Ecological Justice in Action*-, del 1 al 4 de

@@ -43,6 +43,7 @@ Besides the home page and `/equipo` (team), the navbar "Qué Hacemos" item is a 
 - Leaflet CSS loaded via CDN in `layout.tsx` head
 - Leaflet marker icons loaded from unpkg CDN to avoid bundler path issues
 - Navbar uses semi-transparent cream background (`#f5e6d34d`) with `backdrop-blur-sm`
+- Event and news dates are day-only in the CMS (`datetime` widget with `time_format: false`, stored as `YYYY-MM-DD`, UTC picker) because Decap CMS 3 has no `date` widget. `EventCard` and `NewsCard` format them in UTC so the day doesn't shift back under Argentina's timezone
 - TeamCarousel handles empty state (no photos) with gradient fallback
 - Static hero replaced the original rotating carousel; carousel content files remain but are unused
 - Home-page section anchors (`#nosotros`, `#que-hacemos`, `#publicaciones`, `#eventos`, `#noticias`) are linked through `components/HashLink.tsx`, which scrolls the section into view itself when the target is in the current document — `next/link` alone does nothing when the URL already carries that hash. Anchored sections carry `scroll-mt-20` so the sticky navbar doesn't cover their heading

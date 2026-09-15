@@ -1,6 +1,6 @@
 ---
 title: Nuevo encuentro del Speak4Nature Seminar Series
-date: 2026-02-15T18:00:00.000Z
+date: 2026-08-25
 location: Facultad de Ciencias Jurídicas - UNL, Santa Fe
 type: Seminario
 description: Se realizará el martes 25 de agosto a las 18, en el Consejo

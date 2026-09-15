@@ -1,6 +1,8 @@
 import type { NewsItem } from '@/lib/news'
-import { getDictionary, dateLocale, siteTimeZone, type Locale } from '@/lib/i18n'
+import { getDictionary, dateLocale, type Locale } from '@/lib/i18n'
 
+// The CMS stores the news date as a plain day (`YYYY-MM-DD`), which parses as UTC
+// midnight; formatting in UTC keeps the day from shifting back in Argentina's timezone.
 export default function NewsCard({ news, locale }: { news: NewsItem; locale: Locale }) {
   const t = getDictionary(locale)
   return (
@@ -11,7 +13,7 @@ export default function NewsCard({ news, locale }: { news: NewsItem; locale: Loc
             year: 'numeric',
             month: 'long',
             day: 'numeric',
-            timeZone: siteTimeZone,
+            timeZone: 'UTC',
           })}
         </span>
         {news.author && (

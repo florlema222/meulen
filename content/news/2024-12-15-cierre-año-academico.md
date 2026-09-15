@@ -1,6 +1,6 @@
 ---
 title: Presentación de trabajo de investigación de Valeria Berros y Stefano Saluzzo
-date: 2024-12-15T16:00:00.000Z
+date: 2026-09-11
 excerpt: El 11 de septiembre Valeria Berros directora de proyecto meulen en la
   @fcjs_unl y Stefano Saluzzo profesor de @uniupo e investigador externo de
   Meulen presentaron su trabajo de investigación conjunta en el marco de

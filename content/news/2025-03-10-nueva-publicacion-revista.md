@@ -1,6 +1,6 @@
 ---
 title: 'Presentación libro "La izquierda después de la izquierda" '
-date: 2025-03-10T10:00:00.000Z
+date: 2026-08-18
 excerpt: El 18 de agosto y  décimo año de desarrollo del Seminario Permanente de
   Sociología y Derecho @jorgeresinadelafuente presento su libro "La izquierda
   después de la izquierda" coordinado por @dabelfranco y @valberros

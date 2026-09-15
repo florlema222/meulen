@@ -1,7 +1,7 @@
 ---
 title: 'Se presenta el libro: "La izquierda después de la izquierda. Desde
   dónde, a quiénes y cómo hablar"'
-date: 2026-03-20T17:00:00.000Z
+date: 2026-08-18
 location: Auditorio FCJS-UNL, Santa Fe
 type: Seminario
 description: >-
