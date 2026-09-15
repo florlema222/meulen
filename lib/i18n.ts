@@ -145,6 +145,8 @@ export interface Dictionary {
   events: {
     title: string
     empty: string
+    readMore: string
+    showLess: string
   }
   news: {
     title: string
@@ -280,6 +282,8 @@ const es: Dictionary = {
   events: {
     title: 'Eventos',
     empty: 'Pronto compartiremos las actividades en las que participamos.',
+    readMore: 'Leer más',
+    showLess: 'Ver menos',
   },
   news: {
     title: 'Noticias',
@@ -402,6 +406,8 @@ const en: Dictionary = {
   events: {
     title: 'Events',
     empty: 'Coming soon: the activities we have taken part in.',
+    readMore: 'Read more',
+    showLess: 'Show less',
   },
   news: {
     title: 'News',
@@ -545,6 +551,8 @@ const pt: Dictionary = {
   events: {
     title: 'Eventos',
     empty: 'Em breve compartilharemos as atividades das quais participamos.',
+    readMore: 'Ler mais',
+    showLess: 'Ver menos',
   },
   news: {
     title: 'Notícias',

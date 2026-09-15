@@ -1,5 +1,7 @@
+import ReactMarkdown from 'react-markdown'
+import ExpandableText from '@/components/ExpandableText'
 import type { Event } from '@/lib/events'
-import { dateLocale, type Locale } from '@/lib/i18n'
+import { dateLocale, getDictionary, type Locale } from '@/lib/i18n'
 
 /**
  * Retrospective card for a past activity ("we were here"): flyer/photo on top,
@@ -11,6 +13,7 @@ import { dateLocale, type Locale } from '@/lib/i18n'
  * mismatch).
  */
 export default function EventCard({ event, locale }: { event: Event; locale: Locale }) {
+  const t = getDictionary(locale)
   const label = event.date
     ? new Date(event.date).toLocaleDateString(dateLocale[locale], {
         month: 'long',
@@ -38,9 +41,23 @@ export default function EventCard({ event, locale }: { event: Event; locale: Loc
           {event.title}
         </h3>
         {event.description && (
-          <div className="text-sm text-meulen-dark-brown/70 line-clamp-3 leading-relaxed whitespace-pre-line">
-            {event.description}
-          </div>
+          <ExpandableText
+            moreLabel={t.events.readMore}
+            lessLabel={t.events.showLess}
+            className="text-sm text-meulen-dark-brown/70 leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-5"
+          >
+            <ReactMarkdown
+              components={{
+                a: ({ href, children }) => (
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-meulen-brown underline">
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {event.description}
+            </ReactMarkdown>
+          </ExpandableText>
         )}
       </div>
     </div>

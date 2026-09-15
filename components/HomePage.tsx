@@ -111,7 +111,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
           </h2>
 
           {recentEvents.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
               {recentEvents.map((event) => (
                 <EventCard key={event.slug} event={event} locale={locale} />
               ))}
