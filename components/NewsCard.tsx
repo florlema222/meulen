@@ -1,3 +1,5 @@
+import ExpandableText from '@/components/ExpandableText'
+import Markdown from '@/components/Markdown'
 import type { NewsItem } from '@/lib/news'
 import { getDictionary, dateLocale, type Locale } from '@/lib/i18n'
 
@@ -24,20 +26,19 @@ export default function NewsCard({ news, locale }: { news: NewsItem; locale: Loc
         )}
       </div>
 
-      <h3 className="text-lg font-playfair font-bold text-meulen-dark-brown mb-3 leading-snug group-hover:text-meulen-brown transition-colors">
+      <h3 className="text-lg font-playfair font-bold text-meulen-dark-brown mb-3 leading-snug">
         {news.title}
       </h3>
 
-      <p className="text-sm text-meulen-dark-brown/70 mb-4 leading-relaxed line-clamp-3">
-        {news.excerpt}
-      </p>
-
-      <span className="inline-flex items-center gap-1 text-sm text-meulen-brown font-medium group-hover:gap-2 transition-all">
-        {t.news.readMore}
-        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </span>
+      {/* The full body expands in place; news have no page of their own. The body is
+          not translated, so it shows in Spanish on every locale. */}
+      <ExpandableText
+        moreLabel={t.news.readMore}
+        lessLabel={t.news.showLess}
+        className="text-sm text-meulen-dark-brown/70 leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-5"
+      >
+        <Markdown>{news.body.trim() || news.excerpt}</Markdown>
+      </ExpandableText>
     </div>
   )
 }

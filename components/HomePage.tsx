@@ -134,7 +134,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
           </h2>
 
           {recentNews.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
               {recentNews.map((news) => (
                 <NewsCard key={news.slug} news={news} locale={locale} />
               ))}

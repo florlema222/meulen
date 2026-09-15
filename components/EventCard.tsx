@@ -1,5 +1,5 @@
-import ReactMarkdown from 'react-markdown'
 import ExpandableText from '@/components/ExpandableText'
+import Markdown from '@/components/Markdown'
 import type { Event } from '@/lib/events'
 import { dateLocale, getDictionary, type Locale } from '@/lib/i18n'
 
@@ -46,17 +46,7 @@ export default function EventCard({ event, locale }: { event: Event; locale: Loc
             lessLabel={t.events.showLess}
             className="text-sm text-meulen-dark-brown/70 leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-5"
           >
-            <ReactMarkdown
-              components={{
-                a: ({ href, children }) => (
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-meulen-brown underline">
-                    {children}
-                  </a>
-                ),
-              }}
-            >
-              {event.description}
-            </ReactMarkdown>
+            <Markdown>{event.description}</Markdown>
           </ExpandableText>
         )}
       </div>

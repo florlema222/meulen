@@ -152,6 +152,7 @@ export interface Dictionary {
     title: string
     empty: string
     readMore: string
+    showLess: string
     by: string
   }
   team: {
@@ -289,6 +290,7 @@ const es: Dictionary = {
     title: 'Noticias',
     empty: 'Mantente al tanto de las novedades del Proyecto Meulen.',
     readMore: 'Leer más',
+    showLess: 'Ver menos',
     by: 'Por',
   },
   team: {
@@ -413,6 +415,7 @@ const en: Dictionary = {
     title: 'News',
     empty: 'Stay up to date with news from Proyecto Meulen.',
     readMore: 'Read more',
+    showLess: 'Show less',
     by: 'By',
   },
   team: {
@@ -558,6 +561,7 @@ const pt: Dictionary = {
     title: 'Notícias',
     empty: 'Fique por dentro das novidades do Proyecto Meulen.',
     readMore: 'Ler mais',
+    showLess: 'Ver menos',
     by: 'Por',
   },
   team: {
