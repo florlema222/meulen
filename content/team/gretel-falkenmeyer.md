@@ -1,7 +1,7 @@
 ---
-name: "Gretel Falkenmeyer"
+name: Gretel Falkenmeyer
 category: Equipo
-description: "Abogada UNL, Coordinadora de Extensión Universitaria"
-photo: "/images/uploads/equipo/gretel1.jpg"
+description: Abogada UNL, Coordinadora de Extensión Universitaria
+photo: /images/uploads/gretel1.png
 order: 10
 ---
