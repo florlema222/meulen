@@ -1,7 +1,7 @@
 ---
-name: "Cristián Fernández"
+name: Cristián Fernández
 category: Equipo
-description: "Abogado UBA, Profesor de la UBA, Director de Legales FARN"
-photo: "/images/uploads/equipo/cristian-f.jpg"
+description: Abogado UBA, Profesor de la UBA, Director de Legales FARN
+photo: /images/uploads/cristian-f.jpg.png
 order: 11
 ---
