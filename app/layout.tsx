@@ -3,6 +3,7 @@ import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://proyectomeulen.com.ar'),
   title: 'Proyecto Meulen',
   description: 'Investigamos justicias e injusticias socioecológicas con perspectiva latinoamericana e interdisciplinar.',
   icons: {

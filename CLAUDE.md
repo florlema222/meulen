@@ -6,6 +6,7 @@ Next.js 16 static site for a Latin American socio-ecological justice research gr
 - **Framework**: Next.js 16 with static export (`output: 'export'`)
 - **CMS**: Decap CMS (git-based) at `/admin/`, config in `public/admin/config.yml`
 - **Hosting**: Netlify with auto-deploy on push, config in `netlify.toml`
+- **Domain**: `proyectomeulen.com.ar` (registered at NIC Argentina, DNS delegated to Netlify DNS; `www` redirects to the apex). `metadataBase` in `app/layout.tsx` turns the relative canonical/hreflang URLs into absolute ones on this domain
 - **Styling**: Tailwind CSS with custom `meulen` color palette
 - **Content**: Markdown files in `content/` parsed with `gray-matter` at build time
 
@@ -53,7 +54,7 @@ Besides the home page and `/equipo` (team), the navbar "Qué Hacemos" item is a 
 ## CMS Auth (Production)
 - Netlify Identity + Git Gateway
 - Users invited via Netlify Identity dashboard
-- Admin panel at `https://<site>.netlify.app/admin/`
+- Admin panel at `https://proyectomeulen.com.ar/admin/` (also reachable at `https://proyectomeulen.netlify.app/admin/`)
 
 ## Commands
 ```bash
