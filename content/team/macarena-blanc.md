@@ -1,7 +1,7 @@
 ---
-name: "Macarena Blanc"
+name: Macarena Blanc
 category: Equipo
-description: "Abogada UNL, Coordinadora de Extensión Universitaria"
-photo: "/images/uploads/equipo/macarena.jpg"
+description: Abogada UNL, Coordinadora de Extensión Universitaria
+photo: /images/uploads/macarena.png
 order: 6
 ---
