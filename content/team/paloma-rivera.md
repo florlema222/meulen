@@ -1,7 +1,7 @@
 ---
-name: "Paloma Rivera"
+name: Paloma Rivera
 category: Equipo
-description: "Licenciada en Filosofía UNL, Coordinadora de Extensión Universitaria"
-photo: "/images/uploads/equipo/paloma.jpg"
+description: Licenciada en Filosofía UNL, Coordinadora de Extensión Universitaria
+photo: /images/uploads/paloma.png
 order: 22
 ---
