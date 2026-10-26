@@ -5,6 +5,7 @@ year: 2017
 type: Otro
 publication: "RCC Perspectives: Transformations in Environment and Society"
 url: https://www.environmentandsociety.org/perspectives/2017/6/can-nature-have-rights-legal-and-political-insights
+image: /images/uploads/images-3-.jpg
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
