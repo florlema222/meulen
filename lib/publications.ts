@@ -9,7 +9,8 @@ export interface Publication {
   slug: string
   title: string
   authors: string
-  date: string
+  /** Publication year; the only date the CMS asks for. */
+  year?: number
   type: string
   publication?: string
   summary?: string
@@ -17,9 +18,19 @@ export interface Publication {
   doi?: string
   keywords?: string[]
   featured?: boolean
+  /** Cover image shown as a thumbnail on the card. */
+  image?: string
   /** Thematic sub-axis ("sub-eje") used to group publications on the research page. */
   theme?: string
   content: string
+}
+
+/** Reads `year`, falling back to the year of a legacy full `date` field. */
+function publicationYear(data: Record<string, unknown>): number | undefined {
+  const raw = data.year ?? data.date
+  if (raw instanceof Date) return raw.getUTCFullYear()
+  const match = raw != null ? String(raw).match(/\d{4}/) : null
+  return match ? Number(match[0]) : undefined
 }
 
 export function getAllPublications(locale: Locale = defaultLocale): Publication[] {
@@ -41,19 +52,17 @@ export function getAllPublications(locale: Locale = defaultLocale): Publication[
           ...data,
           slug,
           content,
+          year: publicationYear(data),
           // Translatable fields fall back to Spanish when missing.
           title: pickLocalized(data, 'title', locale),
           summary: pickLocalized(data, 'summary', locale),
         } as Publication
       })
 
-    return allPublications.sort((a, b) => {
-      if (a.date < b.date) {
-        return 1
-      } else {
-        return -1
-      }
-    })
+    // Newest year first; same-year publications alphabetically by title.
+    return allPublications.sort(
+      (a, b) => (b.year ?? 0) - (a.year ?? 0) || a.title.localeCompare(b.title, 'es')
+    )
   } catch (error) {
     console.error('Error reading publications:', error)
     return []

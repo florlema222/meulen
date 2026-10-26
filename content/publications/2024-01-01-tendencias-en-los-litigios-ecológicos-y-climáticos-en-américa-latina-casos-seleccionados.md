@@ -2,7 +2,7 @@
 title: "Tendencias en los Litigios Ecológicos y Climáticos en América Latina:
   casos seleccionados"
 authors: Morato Leite, J., Berros, M. V.
-date: 2024-01-01T00:00:00.000-03:00
+year: 2024
 type: Artículo
 publication: Revista Justicia Ambiental
 summary: >-

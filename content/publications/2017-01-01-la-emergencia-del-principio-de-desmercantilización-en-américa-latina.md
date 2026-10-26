@@ -1,7 +1,7 @@
 ---
 title: La emergencia del principio de desmercantilización en América Latina
 authors: Franco, D. L.; Balaudo, C.
-date: 2017-01-01T00:00:00.000-03:00
+year: 2017
 type: Artículo
 publication: "Revista de Derecho Ambiental "
 summary: El presente trabajo pretende realizar una aproximación al principio de

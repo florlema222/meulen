@@ -1,5 +1,5 @@
 import type { Publication } from '@/lib/publications'
-import { getDictionary, dateLocale, localizeVocab, siteTimeZone, type Locale } from '@/lib/i18n'
+import { getDictionary, localizeVocab, type Locale } from '@/lib/i18n'
 
 export default function PublicationCard({ publication, locale }: { publication: Publication; locale: Locale }) {
   const t = getDictionary(locale)
@@ -8,73 +8,77 @@ export default function PublicationCard({ publication, locale }: { publication: 
       {/* Left accent border */}
       <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-meulen-brown-light/50 group-hover:bg-meulen-brown transition-colors rounded-full"></div>
 
-      <div className="pl-4">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-xs font-medium text-meulen-brown tracking-wide uppercase">
-            {localizeVocab(publication.type, t.publicationTypes, locale)}
-          </span>
-          {publication.featured && (
-            <>
-              <span className="text-meulen-beige">·</span>
-              <span className="text-xs font-medium text-meulen-brown-light tracking-wide uppercase">
-                {t.publications.featured}
-              </span>
-            </>
-          )}
-        </div>
-
-        <h3 className="text-lg font-playfair font-bold text-meulen-dark-brown mb-2 leading-snug">
-          {publication.title}
-        </h3>
-
-        <p className="text-sm text-meulen-brown mb-2">
-          {publication.authors}
-        </p>
-
-        {publication.publication && (
-          <p className="text-sm italic text-meulen-dark-brown/50 mb-3">
-            {publication.publication}
-          </p>
+      <div className="pl-4 flex gap-4 sm:gap-5">
+        {publication.image && (
+          <img
+            src={publication.image}
+            alt=""
+            loading="lazy"
+            className="w-20 sm:w-24 aspect-[3/4] shrink-0 self-start object-cover rounded border border-meulen-beige/60 bg-meulen-cream/40"
+          />
         )}
 
-        {publication.summary && (
-          <p className="text-sm text-meulen-dark-brown/70 mb-4 line-clamp-2 leading-relaxed">
-            {publication.summary}
-          </p>
-        )}
-
-        {publication.keywords && publication.keywords.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {publication.keywords.slice(0, 3).map((keyword, index) => (
-              <span
-                key={index}
-                className="text-xs text-meulen-brown/70 border border-meulen-beige px-2 py-0.5 rounded-full"
-              >
-                {keyword}
-              </span>
-            ))}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs font-medium text-meulen-brown tracking-wide uppercase">
+              {localizeVocab(publication.type, t.publicationTypes, locale)}
+            </span>
+            {publication.featured && (
+              <>
+                <span className="text-meulen-beige">·</span>
+                <span className="text-xs font-medium text-meulen-brown-light tracking-wide uppercase">
+                  {t.publications.featured}
+                </span>
+              </>
+            )}
           </div>
-        )}
 
-        <div className="flex items-center justify-between text-sm pt-3 border-t border-meulen-beige/50">
-          <span className="text-meulen-dark-brown/50 text-xs">
-            {new Date(publication.date).toLocaleDateString(dateLocale[locale], {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-              timeZone: siteTimeZone,
-            })}
-          </span>
-          {publication.url && (
-            <a
-              href={publication.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-meulen-brown hover:text-meulen-dark-brown font-medium text-xs tracking-wide uppercase"
-            >
-              {t.publications.view}
-            </a>
+          <h3 className="text-lg font-playfair font-bold text-meulen-dark-brown mb-2 leading-snug">
+            {publication.title}
+          </h3>
+
+          <p className="text-sm text-meulen-brown mb-2">
+            {publication.authors}
+          </p>
+
+          {publication.publication && (
+            <p className="text-sm italic text-meulen-dark-brown/50 mb-3">
+              {publication.publication}
+            </p>
           )}
+
+          {publication.summary && (
+            <p className="text-sm text-meulen-dark-brown/70 mb-4 line-clamp-2 leading-relaxed">
+              {publication.summary}
+            </p>
+          )}
+
+          {publication.keywords && publication.keywords.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {publication.keywords.slice(0, 3).map((keyword, index) => (
+                <span
+                  key={index}
+                  className="text-xs text-meulen-brown/70 border border-meulen-beige px-2 py-0.5 rounded-full"
+                >
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <div className="flex items-center justify-between text-sm pt-3 border-t border-meulen-beige/50">
+            <span className="text-meulen-dark-brown/50 text-xs">{publication.year}</span>
+            {publication.url && (
+              <a
+                href={publication.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-meulen-brown hover:text-meulen-dark-brown font-medium text-xs tracking-wide uppercase"
+              >
+                {t.publications.view}
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

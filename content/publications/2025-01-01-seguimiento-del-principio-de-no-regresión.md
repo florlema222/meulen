@@ -1,7 +1,7 @@
 ---
 title: Seguimiento del principio de no regresión
 authors: Berros, M. V.; Franco, D. L.; Galanzino, M.; Medici-Colombo, G
-date: 2025-01-01T00:00:00.000-03:00
+year: 2025
 type: Artículo
 publication: Coordenadas para una democracia ambiental en Argentina -  Fundación
   Ambiente y Recursos Naturales (FARN)

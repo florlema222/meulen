@@ -2,7 +2,7 @@
 title: Construcción del territorio del Área Metropolitana Santa Fe. Política,
   conflictos y dinámicas multiescalares
 authors: Acebal, A
-date: 2026-07-03T00:00:00.000-03:00
+year: 2026
 type: Otro
 publication: EDICIONES UNL
 summary: "Construcción del territorio del Área Metropolitana Santa Fe: Política,

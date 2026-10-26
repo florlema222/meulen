@@ -3,7 +3,7 @@ title: El derecho de acceso a la justicia ambiental. Un análisis de experiencia
   en cuatro localidades de los Departamentos “Las Colonias” y “La Capital” de la
   Provincia de Santa Fe
 authors: Balaudo, C.G.
-date: 2025-10-06T00:00:00.000-03:00
+year: 2025
 type: Tesis
 summary: Tesina Especialización en Derecho Ambiental y Tutela del Patrimonio
   Cultural- Máster en Derecho Ambiental y Urbanístico

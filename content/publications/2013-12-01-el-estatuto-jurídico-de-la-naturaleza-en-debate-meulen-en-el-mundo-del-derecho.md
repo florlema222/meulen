@@ -2,7 +2,7 @@
 title: " El estatuto jurídico de la naturaleza en debate (meulen en el mundo del
   derecho)"
 authors: Berros, M.V.
-date: 2013-12-01T00:00:00.000-03:00
+year: 2013
 type: Artículo
 publication: Revista de Derecho Ambiental 36
 summary: Este artículo, de Valeria Barros fue publicado en la Revista de Derecho

@@ -2,7 +2,7 @@
 title: " Razonamiento y argumentación jurídica: nuevos enfoques para la tutela
   de la naturaleza"
 authors: Berros, M.V., Perona, R. (Dirs.)
-date: 2024-01-01T00:00:00.000-03:00
+year: 2024
 type: Libro
 publication: "Diálogos Incontri con la cultura giuridica latino-americana,
   Torino: Accademia University Pres"

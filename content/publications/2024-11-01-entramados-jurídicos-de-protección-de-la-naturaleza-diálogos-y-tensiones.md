@@ -1,7 +1,7 @@
 ---
 title: "Entramados jurídicos de protección de la naturaleza: diálogos y tensiones"
 authors: Berros, M. V.
-date: 2024-11-01T00:00:00.000-03:00
+year: 2024
 type: Artículo
 publication: Papeles de relaciones ecosociales y cambio global
 summary: ""

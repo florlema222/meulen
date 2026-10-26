@@ -2,7 +2,7 @@
 title: "Rights of nature, indigenous communities and land property: legal
   perspectives from Latin America"
 authors: Berros, M. V.
-date: 2024-11-13T00:00:00.000-03:00
+year: 2024
 type: Artículo
 publication: Zeitschrift für Rechtssoziologie. The German Journal of Law and Society
 url: https://www.degruyterbrill.com/document/doi/10.1515/zfrs-2024-2005/html

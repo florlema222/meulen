@@ -31,18 +31,18 @@ collections:
     label_singular: "Publicación"
     folder: "content/publications"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Autores", name: "authors", widget: "string", hint: "Separar con comas" }
-      - { label: "Fecha de Publicación", name: "date", widget: "datetime" }
+      - { label: "Año de Publicación", name: "year", widget: "number", value_type: "int", min: 1900, max: 2100, hint: "Ordena las publicaciones: las más recientes aparecen primero." }
       - { label: "Tipo", name: "type", widget: "select", options: ["Artículo", "Libro", "Capítulo de Libro", "Paper", "Tesis", "Otro"] }
       - { label: "Revista/Editorial", name: "publication", widget: "string", required: false }
       - { label: "Resumen", name: "summary", widget: "text", required: false }
       - { label: "Link/URL", name: "url", widget: "string", required: false, hint: "Link al PDF o página de la publicación" }
       - { label: "DOI", name: "doi", widget: "string", required: false }
       - { label: "Palabras Clave", name: "keywords", widget: "list", required: false }
-      - { label: "Imagen de Portada", name: "image", widget: "image", required: false }
+      - { label: "Imagen de Portada", name: "image", widget: "image", required: false, hint: "Se muestra como miniatura en la tarjeta de la publicación" }
       - { label: "Destacada", name: "featured", widget: "boolean", default: false, hint: "Mostrar en la página principal" }
       - { label: "Sub-eje temático", name: "theme", widget: "select", required: false, options: ["Justicia ecológica y derechos de la naturaleza", "Derecho Ambiental", "Extractivismos", "Pueblos Indígenas", "Género y desigualdades territoriales"], hint: "Agrupa la publicación dentro de Investigación > Producciones del equipo" }
       - label: "Traducción al inglés (opcional)"

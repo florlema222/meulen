@@ -1,7 +1,7 @@
 ---
 title: " The two courses to the recognition of the rights of nature in Latin America"
 authors: Berros, M. V., Carman, M
-date: 2026-03-22T00:00:00.000-03:00
+year: 2026
 type: Artículo
 publication: " Revista de Direito Internacional"
 summary: Last years constitutional, legal and jurisprudential experiences point
