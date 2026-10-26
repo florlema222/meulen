@@ -17,6 +17,7 @@ summary: El presente trabajo pretende realizar una aproximación al principio de
   de la esfera legal clásicas y las que emergen dentro de la órbita del buen
   vivir.
 url: https://bicyt.conicet.gov.ar/fichas/produccion/11335470
+image: /images/uploads/captura-de-pantalla-2026-10-26-205647.png
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
