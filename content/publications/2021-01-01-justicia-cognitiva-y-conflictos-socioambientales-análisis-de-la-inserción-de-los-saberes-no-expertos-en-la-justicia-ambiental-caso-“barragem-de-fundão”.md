@@ -6,6 +6,7 @@ authors: "Galanzino, M. L. "
 year: 2021
 type: Otro
 url: http://www.repositorio.ufop.br/jspui/handle/123456789/14170
+image: /images/uploads/captura-de-pantalla-2026-10-26-192618.png
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
