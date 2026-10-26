@@ -17,6 +17,7 @@ summary: Este artículo, de Valeria Barros fue publicado en la Revista de Derech
   un sujeto, lo cual se propone por parte de que se extendió por muchos
   académicos.
 url: https://ri.conicet.gov.ar/handle/11336/22182
+image: /images/uploads/captura-de-pantalla-2026-10-26-205107.png
 featured: true
 theme: Justicia ecológica y derechos de la naturaleza
 ---
