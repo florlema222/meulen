@@ -60,6 +60,7 @@ summary: >-
 
   ción de estructuras de representación y gestión de la naturaleza.
 url: https://www.revistajusticiaambiental.cl/wp-content/uploads/2025/01/estudios-1-v16.pdf
+image: /images/uploads/captura-de-pantalla-2026-10-26-163623.png
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
