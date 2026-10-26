@@ -7,6 +7,7 @@ type: Capítulo de Libro
 publication: Modelos y metodologías interdisciplinarias para evaluar impactos
   socio ecológicos de la Hidrovía Paraguay-Paraná (pp. 26-41) Editorial UNR
 url: https://bicyt.conicet.gov.ar/fichas/produccion/13349654
+image: /images/uploads/images-1-.jpg
 featured: false
 theme: Extractivismos
 ---
