@@ -6,6 +6,7 @@ year: 2024
 type: Artículo
 publication: "Revista de Estudios Políticos "
 url: https://www.cepc.gob.es/sites/default/files/2024-06/40470rep20407berros.html
+image: /images/uploads/captura-de-pantalla-2026-10-26-163016.png
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
