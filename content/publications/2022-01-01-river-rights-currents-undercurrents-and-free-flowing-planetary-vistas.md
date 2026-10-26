@@ -5,6 +5,7 @@ year: 2022
 type: Artículo
 publication: "Global Environment: A Journal of History and Natural and Social Sciences"
 url: https://www.liverpooluniversitypress.co.uk/doi/10.3197/ge.2022.150303
+image: /images/uploads/ge.2022.150303.fp.png
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
