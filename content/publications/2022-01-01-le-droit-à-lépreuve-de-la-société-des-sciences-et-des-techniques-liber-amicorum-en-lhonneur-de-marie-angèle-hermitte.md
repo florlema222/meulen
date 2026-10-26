@@ -7,6 +7,7 @@ type: Otro
 publication: "Diálogos Incontri con la cultura giuridica latino-americana,
   Torino: Accademia University Press"
 url: https://www.aaccademia.it/ita/titolo?ref=1604
+image: /images/uploads/1604.jpg
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
