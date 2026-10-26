@@ -17,6 +17,7 @@ summary: >-
 
   Atiende especialmente a aspectos teóricos y doctrinales vinculados con el reconocimiento de derechos de la naturaleza, a un variado conjunto de estrategias de litigación y solución de conflictos ambientales, así como a experiencias prácticas de tutela de los derechos ambientales con el objetivo de nutrir las discusiones contemporáneas en la materia.
 url: https://www.aaccademia.it/ita/titolo?ref=1720
+image: /images/uploads/captura-de-pantalla-2026-10-26-163149.png
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
