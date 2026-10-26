@@ -6,6 +6,7 @@ year: 2026
 type: Artículo
 publication: Estudios Socioterritoriales. Revista De Geografía
 url: https://ojs2.fch.unicen.edu.ar/ojs-3.1.0/index.php/estudios-socioterritoriales/article/view/3255/2897
+image: /images/uploads/captura-de-pantalla-2026-10-26-201938.png
 featured: false
 theme: Extractivismos
 ---
