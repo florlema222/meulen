@@ -6,6 +6,7 @@ type: Artículo
 publication: Papeles de relaciones ecosociales y cambio global
 summary: ""
 url: https://www.fuhem.es/product/la-tierra-clama-justicia-ecologica/
+image: /images/uploads/papeles-167-justicia-ecologica.webp
 featured: false
 theme: Justicia ecológica y derechos de la naturaleza
 ---
