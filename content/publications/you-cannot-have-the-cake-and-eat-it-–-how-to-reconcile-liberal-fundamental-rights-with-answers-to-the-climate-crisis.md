@@ -8,4 +8,5 @@ publication: Vienna Journal on International Constitutional Law
 url: https://www.degruyter.com/document/doi/10.1515/icl-2022-0018/html
 image: /images/uploads/captura-de-pantalla-2026-10-26-194257.png
 featured: false
+theme: Derecho Ambiental
 ---
