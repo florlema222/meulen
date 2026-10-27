@@ -54,6 +54,9 @@ export default function ExtensionMap({ acampes, locale }: { acampes: Acampe[]; l
               <Popup>
                 <div className="max-w-[250px]">
                   <h4 className="font-bold text-sm mb-1">{acampe.title}</h4>
+                  {acampe.date && (
+                    <p className="text-xs text-gray-500 !mt-0 mb-2">{acampe.date}</p>
+                  )}
                   {acampe.description && (
                     <p className="text-xs text-gray-600 mb-2">{acampe.description}</p>
                   )}
