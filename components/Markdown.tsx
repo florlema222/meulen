@@ -25,8 +25,16 @@ export default function Markdown({ children }: { children: string }) {
   return (
     <ReactMarkdown
       components={{
+        // A link showing its own URL may break at any character: otherwise the
+        // URL jumps whole to the next line and the justified line before it
+        // stretches its word gaps across the card.
         a: ({ href, children }) => (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="text-meulen-brown underline">
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-meulen-brown underline ${children === href ? 'break-all' : ''}`}
+          >
             {children}
           </a>
         ),

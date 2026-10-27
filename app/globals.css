@@ -62,9 +62,8 @@ body {
 
 /* Running text (section intros, descriptions, card summaries) is justified
    site-wide; hyphenation keeps narrow columns from opening wide word gaps.
-   `overflow-wrap: anywhere` lets long URLs break mid-string, so they fill the
-   line they start on instead of jumping whole to the next one and leaving the
-   previous line stretched across the full width. */
+   `overflow-wrap: anywhere` keeps strings with no break point from overflowing
+   the column. URL links get `break-all` in `components/Markdown.tsx`. */
 .text-prose {
   text-align: justify;
   hyphens: auto;
