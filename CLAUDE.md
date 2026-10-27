@@ -32,7 +32,7 @@ Trilingual site with Spanish as default. UI strings are fully translated; per-it
 | Courses | `content/courses/` | `lib/courses.ts` |
 
 ## Secondary Pages
-Besides the home page and `/equipo` (team), the navbar "Qué Hacemos" item is a dropdown to three dedicated pages, each with ES/EN/PT route files and hreflang alternates:
+Besides the home page and `/equipo` (team), the navbar "Qué hacemos" item is a dropdown to three dedicated pages, each with ES/EN/PT route files and hreflang alternates:
 - `/investigacion` (`InvestigacionSection`) — Projects (Nacional/Internacional) + Producciones tabs
 - `/extension` (`ExtensionSection`) — outreach intro, Acampe project, participating institutions, and `AcampesSection` (a "línea histórica" timeline + camp cards, each showing up to 3 photos from the CMS `acampes` collection; the same data feeds the home-page map)
 - `/formacion` (`FormacionSection`) — Seminars + Courses tabs
@@ -43,6 +43,8 @@ Besides the home page and `/equipo` (team), the navbar "Qué Hacemos" item is a 
 - Leaflet map (`components/ExtensionMap.tsx`) requires `ssr: false` via wrapper component (`ExtensionMapWrapper.tsx`) because it accesses `window`
 - Leaflet CSS loaded via CDN in `layout.tsx` head
 - Leaflet marker icons loaded from unpkg CDN to avoid bundler path issues
+- Running text (section intros, axis/project/seminar/course/acampe descriptions, card summaries and expandable card text) uses the `.text-prose` class from `app/globals.css`: justified with `hyphens: auto`, so every section shares one alignment. Headings, captions and short labels (e.g. team member roles) stay centered or left-aligned
+- Section labels use Spanish sentence case ("Quiénes somos", "Qué hacemos"), mirrored in EN/PT
 - Navbar uses semi-transparent cream background (`#f5e6d34d`) with `backdrop-blur-sm`
 - Event and news dates are day-only in the CMS (`datetime` widget with `time_format: false`, stored as `YYYY-MM-DD`, UTC picker) because Decap CMS 3 has no `date` widget. `EventCard` and `NewsCard` format them in UTC so the day doesn't shift back under Argentina's timezone
 - Publications carry only a `year` (CMS `number` widget, required) instead of a full date, since editors rarely know the exact day. They sort by year descending, then title; `lib/publications.ts` still reads the year out of a legacy `date` field if one appears. The CMS slug is `{{slug}}` because Decap's `{{year}}/{{month}}/{{day}}` placeholders read a `date` field, which the collection no longer has. The optional `image` (cover) renders as a 3:4 thumbnail on the left of `PublicationCard`

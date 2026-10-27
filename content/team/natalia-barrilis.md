@@ -1,7 +1,7 @@
 ---
 name: Natalia Barrilis
 category: Equipo
-description: Abogada UCSF, Profesora de UNL, Coordinadora de Extensión Universitaria
+description: Abogada UCSF, Profesora de UNL, Coordinadora de Extensión Universitaria UNL
 photo: /images/uploads/natalia.jpg.png
 order: 5
 ---

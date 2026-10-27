@@ -193,8 +193,8 @@ export const publicationThemeOrder = [
 
 const es: Dictionary = {
   nav: {
-    nosotros: 'Quiénes Somos',
-    queHacemos: 'Qué Hacemos',
+    nosotros: 'Quiénes somos',
+    queHacemos: 'Qué hacemos',
     investigacion: 'Investigación',
     extension: 'Extensión',
     formacion: 'Formación',
@@ -237,14 +237,14 @@ const es: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'Quiénes Somos',
+    title: 'Quiénes somos',
     p1: 'Somos un grupo interdisciplinario que realiza investigación, extensión y formación universitaria radicado en el Centro de Investigaciones de la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral de la ciudad de Santa Fe, Argentina.',
     p2: 'Integrado por especialistas en diversas áreas del derecho, la antropología, la historia, la ciencia política, la filosofía y la sociología, Meulen reúne miradas y metodologías complementarias para analizar las transformaciones socio-jurídicas que emergen en América Latina ante los desafíos socioecológicos actuales. Nos enfocamos en las herramientas normativas, institucionales y sociales que permiten fortalecer la protección de derechos y las transiciones ecosociales así como aquellas que permiten comprender y enfrentar los procesos de regresión en la tutela socioambiental y mecanismos que viabilizan el avance de los extractivismos en la región.',
   },
   whatWeDo: {
-    title: 'Qué Hacemos',
+    title: 'Qué hacemos',
     intro:
-      'Investigamos sobre los diferentes entramados socio-jurídicos sobre la cuestión ecológica a partir de un enfoque situado en el contexto latinoamericano y atento a la relevancia social y política del tema.',
+      'Investigamos los diferentes entramados socio-jurídicos sobre la cuestión ecológica a partir de un enfoque situado en el contexto latinoamericano y atento a la relevancia social y política del tema.',
     axes: [
       {
         title: 'Justicia ecológica',
@@ -294,7 +294,7 @@ const es: Dictionary = {
     by: 'Por',
   },
   team: {
-    title: 'Quiénes Somos',
+    title: 'Quiénes somos',
     leadership: 'Responsables',
     members: 'Equipo',
     cta: 'Conocé al equipo',
@@ -320,8 +320,8 @@ const es: Dictionary = {
 
 const en: Dictionary = {
   nav: {
-    nosotros: 'Who We Are',
-    queHacemos: 'What We Do',
+    nosotros: 'Who we are',
+    queHacemos: 'What we do',
     investigacion: 'Research',
     extension: 'Outreach',
     formacion: 'Training',
@@ -364,12 +364,12 @@ const en: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'Who We Are',
+    title: 'Who we are',
     p1: 'We are an interdisciplinary group engaged in university research, outreach and teaching, based at the Research Centre of the Faculty of Legal and Social Sciences of the Universidad Nacional del Litoral in the city of Santa Fe, Argentina.',
     p2: 'Made up of specialists in various fields of law, anthropology, history, political science, philosophy and sociology, Meulen brings together complementary perspectives and methodologies to analyze the socio-legal transformations emerging in Latin America in response to today’s socio-ecological challenges. We focus on the normative, institutional and social tools that make it possible to strengthen the protection of rights and eco-social transitions, as well as those that help us understand and confront processes of regression in socio-environmental protection and the mechanisms that enable the advance of extractivism in the region.',
   },
   whatWeDo: {
-    title: 'What We Do',
+    title: 'What we do',
     intro:
       'We research the different socio-legal frameworks surrounding the ecological question from a perspective situated in the Latin American context and attentive to the social and political relevance of the issue.',
     axes: [
@@ -419,7 +419,7 @@ const en: Dictionary = {
     by: 'By',
   },
   team: {
-    title: 'Who We Are',
+    title: 'Who we are',
     leadership: 'Leadership',
     members: 'Team',
     cta: 'Meet the team',
@@ -465,8 +465,8 @@ const en: Dictionary = {
 
 const pt: Dictionary = {
   nav: {
-    nosotros: 'Quem Somos',
-    queHacemos: 'O Que Fazemos',
+    nosotros: 'Quem somos',
+    queHacemos: 'O que fazemos',
     investigacion: 'Pesquisa',
     extension: 'Extensão',
     formacion: 'Formação',
@@ -509,12 +509,12 @@ const pt: Dictionary = {
     university: 'Universidad Nacional del Litoral',
   },
   about: {
-    title: 'Quem Somos',
+    title: 'Quem somos',
     p1: 'Somos um grupo interdisciplinar que realiza pesquisa, extensão e formação universitária, sediado no Centro de Pesquisas da Faculdade de Ciências Jurídicas e Sociais da Universidad Nacional del Litoral, na cidade de Santa Fe, Argentina.',
     p2: 'Integrado por especialistas em diversas áreas do direito, da antropologia, da história, da ciência política, da filosofia e da sociologia, Meulen reúne olhares e metodologias complementares para analisar as transformações sócio-jurídicas que emergem na América Latina diante dos desafios socioecológicos atuais. Concentramo-nos nas ferramentas normativas, institucionais e sociais que permitem fortalecer a proteção de direitos e as transições ecossociais, assim como naquelas que permitem compreender e enfrentar os processos de regressão na tutela socioambiental e os mecanismos que viabilizam o avanço dos extrativismos na região.',
   },
   whatWeDo: {
-    title: 'O Que Fazemos',
+    title: 'O que fazemos',
     intro:
       'Investigamos as diferentes tramas sócio-jurídicas em torno da questão ecológica a partir de um enfoque situado no contexto latino-americano e atento à relevância social e política do tema.',
     axes: [
@@ -565,7 +565,7 @@ const pt: Dictionary = {
     by: 'Por',
   },
   team: {
-    title: 'Quem Somos',
+    title: 'Quem somos',
     leadership: 'Responsáveis',
     members: 'Equipe',
     cta: 'Conheça a equipe',

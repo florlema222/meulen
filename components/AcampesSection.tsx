@@ -40,7 +40,7 @@ function CampCard({ camp }: { camp: Acampe }) {
         )}
       </div>
       {camp.description && (
-        <p className="text-sm text-meulen-dark-brown/80 leading-relaxed">
+        <p className="text-sm text-meulen-dark-brown/80 text-prose leading-relaxed">
           {camp.description}
         </p>
       )}

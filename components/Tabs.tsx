@@ -9,7 +9,7 @@ export interface Tab {
 
 /**
  * Accessible client-side tabs. Panels are server-rendered and passed in as
- * `panel` nodes; only the active one is shown. Used by the "Qué Hacemos" pages
+ * `panel` nodes; only the active one is shown. Used by the "Qué hacemos" pages
  * (Investigación / Formación) to fold long content into "solapas".
  */
 export default function Tabs({ tabs }: { tabs: Tab[] }) {

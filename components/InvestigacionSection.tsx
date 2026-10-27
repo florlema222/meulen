@@ -7,7 +7,7 @@ import PublicationsExplorer from '@/components/PublicationsExplorer'
 // Intro text is content (Spanish) shown on every locale with Spanish fallback,
 // matching the site's "optional content translation" approach.
 const INTRO = [
-  'Investigamos sobre los diferentes entramados socio-jurídicos sobre la cuestión ecológica a partir de un enfoque situado en el contexto latinoamericano y atento a la relevancia social y política del tema.',
+  'Investigamos los diferentes entramados socio-jurídicos sobre la cuestión ecológica a partir de un enfoque situado en el contexto latinoamericano y atento a la relevancia social y política del tema.',
   'En particular, nuestra línea de investigación se organiza en torno a tres grandes ejes analíticos: el derecho ecologizado, el derecho a un ambiente sano y el derecho del extractivismo. En este marco, consolidamos el estudio de las innovaciones jurídicas que emergen en América Latina, analizando los procesos de ampliación de los derechos de la naturaleza y de los ecosistemas, el desarrollo creciente de la litigación climática y ecológica, y los desafíos asociados a la implementación del Acuerdo de Escazú como instrumento clave de democracia ambiental. Asimismo, indagamos las dinámicas del extractivismo y su articulación con los marcos jurídicos contemporáneos, prestando especial atención a las tensiones entre la expansión de los proyectos extractivos, el incentivo a grandes inversiones extranjeras y el rol del principio de no regresión ante la profundización de retrocesos en la tutela ambiental.',
 ]
 
@@ -30,7 +30,7 @@ function ProjectCard({ project }: { project: Project }) {
         </p>
       )}
       {project.summary && (
-        <p className="text-sm text-meulen-dark-brown/80 leading-relaxed">
+        <p className="text-sm text-meulen-dark-brown/80 text-prose leading-relaxed">
           {project.summary}
         </p>
       )}
@@ -100,7 +100,7 @@ export default function InvestigacionSection({ locale }: { locale: Locale }) {
         </h1>
         <div className="max-w-3xl mx-auto mb-12 space-y-4">
           {INTRO.map((p, i) => (
-            <p key={i} className="text-lg text-meulen-dark-brown/80 leading-relaxed">
+            <p key={i} className="text-lg text-meulen-dark-brown/80 text-prose leading-relaxed">
               {p}
             </p>
           ))}

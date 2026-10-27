@@ -57,10 +57,10 @@ export default function TeamCarousel({ slides, locale }: { slides: CarouselSlide
           <h2 className="text-4xl font-playfair font-bold text-white mb-8">
             {t.about.title}
           </h2>
-          <p className="text-lg text-white/90 leading-relaxed mb-6">
+          <p className="text-lg text-white/90 text-prose leading-relaxed mb-6">
             {t.about.p1}
           </p>
-          <p className="text-lg text-white/90 leading-relaxed">
+          <p className="text-lg text-white/90 text-prose leading-relaxed">
             {t.about.p2}
           </p>
           <Link

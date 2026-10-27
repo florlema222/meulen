@@ -1,7 +1,5 @@
 ---
-title: "Hacia la construcción colectiva de un aporte socio-jurídico para la
-  tutela de la naturaleza en el norte de Santa Fe: de monumentos naturales a
-  áreas naturales protegidas en la provincia de Santa Fe"
+title: "Hacia la construcción colectiva de un aporte socio-jurídico para la tutela de la naturaleza en el norte de Santa Fe: de monumentos naturales a áreas naturales protegidas"
 scope: Nacional
 period: 2020-2021
 funding: Agencia Santafesina de Ciencia, Tecnología e Innovación de la Provincia

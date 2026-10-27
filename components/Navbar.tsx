@@ -16,8 +16,8 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 /**
  * Shared site navigation. Section links point at the home page anchors (with the
- * locale prefix) so they work from any page; "Quiénes Somos" links to the team
- * page and "Qué Hacemos" opens a dropdown to the Investigación / Extensión /
+ * locale prefix) so they work from any page; "Quiénes somos" links to the team
+ * page and "Qué hacemos" opens a dropdown to the Investigación / Extensión /
  * Formación pages. On small screens the links collapse behind a hamburger menu.
  * `subpath` is forwarded to the language switcher to preserve the current page
  * when switching language.
@@ -63,7 +63,7 @@ export default function Navbar({ locale, subpath = '' }: { locale: Locale; subpa
                   {t.nav.nosotros}
                 </Link>
 
-                {/* Qué Hacemos dropdown — panel is always in the DOM (crawlable,
+                {/* Qué hacemos dropdown — panel is always in the DOM (crawlable,
                     works without JS via hover) and also toggles on click/touch. */}
                 <div
                   className="relative group"

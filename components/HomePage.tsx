@@ -42,10 +42,10 @@ export default function HomePage({ locale }: { locale: Locale }) {
       {/* Hero Section */}
       <StaticHero locale={locale} />
 
-      {/* Quiénes Somos - Team Carousel */}
+      {/* Quiénes somos - Team Carousel */}
       <TeamCarousel slides={carouselSlides} locale={locale} />
 
-      {/* Qué Hacemos - Research Axes + Extension */}
+      {/* Qué hacemos - Research Axes + Extension */}
       <ResearchAxes locale={locale} />
       {/* Extensión Section */}
       <section className="py-16 px-4 section-inset">
@@ -63,7 +63,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
               <h3 className="text-3xl font-playfair font-bold text-meulen-dark-brown mb-4">
                 {t.extension.title}
               </h3>
-              <p className="text-lg text-meulen-dark-brown/80 leading-relaxed mb-4">
+              <p className="text-lg text-meulen-dark-brown/80 text-prose leading-relaxed mb-4">
                 {t.extension.p1}
               </p>
               <p className="text-meulen-dark-brown/60 text-sm mb-6">

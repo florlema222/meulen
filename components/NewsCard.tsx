@@ -35,7 +35,7 @@ export default function NewsCard({ news, locale }: { news: NewsItem; locale: Loc
       <ExpandableText
         moreLabel={t.news.readMore}
         lessLabel={t.news.showLess}
-        className="text-sm text-meulen-dark-brown/70 leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-5"
+        className="text-sm text-meulen-dark-brown/70 text-prose leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-5"
       >
         <Markdown>{news.body.trim() || news.excerpt}</Markdown>
       </ExpandableText>

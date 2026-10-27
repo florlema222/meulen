@@ -44,7 +44,7 @@ export default function EventCard({ event, locale }: { event: Event; locale: Loc
           <ExpandableText
             moreLabel={t.events.readMore}
             lessLabel={t.events.showLess}
-            className="text-sm text-meulen-dark-brown/70 leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-5"
+            className="text-sm text-meulen-dark-brown/70 text-prose leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-5"
           >
             <Markdown>{event.description}</Markdown>
           </ExpandableText>

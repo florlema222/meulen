@@ -4,7 +4,7 @@ import { getAllCourses } from '@/lib/courses'
 import Tabs from '@/components/Tabs'
 
 const INTRO =
-  'Organizamos y sostenemos desde hace más de una década espacios variados de formación permanente que se agrupan en distintos seminarios y cursos en donde discutimos nuestras producciones en conjunto a investigadores/as externos nacionales e internacionales, organizaciones no gubernamentales y otros miembros de sociedad civil y de diferentes ámbitos estatales.'
+  'Organizamos y sostenemos desde hace más de una década espacios variados de formación permanente que se agrupan en distintos seminarios y cursos en donde discutimos nuestras producciones en conjunto con investigadores/as externos nacionales e internacionales, organizaciones no gubernamentales y otros miembros de sociedad civil y de diferentes ámbitos estatales.'
 
 function SeminariosPanel({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)
@@ -25,7 +25,7 @@ function SeminariosPanel({ locale }: { locale: Locale }) {
             )}
           </div>
           {s.description && (
-            <p className="text-sm text-meulen-dark-brown/80 leading-relaxed">
+            <p className="text-sm text-meulen-dark-brown/80 text-prose leading-relaxed">
               {s.description}
             </p>
           )}
@@ -51,7 +51,7 @@ function CursosPanel({ locale }: { locale: Locale }) {
             {c.hours && <span>{c.hours}</span>}
           </div>
           {c.description && (
-            <p className="text-sm text-meulen-dark-brown/80 leading-relaxed">
+            <p className="text-sm text-meulen-dark-brown/80 text-prose leading-relaxed">
               {c.description}
             </p>
           )}
@@ -71,7 +71,7 @@ export default function FormacionSection({ locale }: { locale: Locale }) {
           {t.quehacemos.formacion.title}
         </h1>
         <div className="max-w-3xl mx-auto mb-12">
-          <p className="text-lg text-meulen-dark-brown/80 leading-relaxed">{INTRO}</p>
+          <p className="text-lg text-meulen-dark-brown/80 text-prose leading-relaxed">{INTRO}</p>
         </div>
 
         <Tabs

@@ -59,3 +59,10 @@ body {
   border: 1px solid #C4A57B80;
   background: #F5E6D3;
 }
+
+/* Running text (section intros, descriptions, card summaries) is justified
+   site-wide; hyphenation keeps narrow columns from opening wide word gaps. */
+.text-prose {
+  text-align: justify;
+  hyphens: auto;
+}

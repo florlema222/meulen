@@ -48,7 +48,7 @@ export default function PublicationCard({ publication, locale }: { publication: 
           )}
 
           {publication.summary && (
-            <p className="text-sm text-meulen-dark-brown/70 mb-4 line-clamp-2 leading-relaxed">
+            <p className="text-sm text-meulen-dark-brown/70 mb-4 line-clamp-2 text-prose leading-relaxed">
               {publication.summary}
             </p>
           )}

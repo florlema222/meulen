@@ -30,7 +30,7 @@ export default function ExtensionSection({ locale }: { locale: Locale }) {
 
         <div className="max-w-3xl mx-auto space-y-4 mb-12">
           {INTRO.map((p, i) => (
-            <p key={i} className="text-lg text-meulen-dark-brown/80 leading-relaxed">
+            <p key={i} className="text-lg text-meulen-dark-brown/80 text-prose leading-relaxed">
               {p}
             </p>
           ))}
@@ -42,7 +42,7 @@ export default function ExtensionSection({ locale }: { locale: Locale }) {
           </h2>
           <div className="space-y-4">
             {ACAMPE.map((p, i) => (
-              <p key={i} className="text-meulen-dark-brown/80 leading-relaxed">
+              <p key={i} className="text-meulen-dark-brown/80 text-prose leading-relaxed">
                 {p}
               </p>
             ))}

@@ -20,7 +20,7 @@ export default function ResearchAxes({ locale }: { locale: Locale }) {
         <h2 className="text-4xl font-playfair font-bold text-meulen-dark-brown mb-4 text-center">
           {t.whatWeDo.title}
         </h2>
-        <p className="text-lg text-meulen-dark-brown/80 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
+        <p className="text-lg text-meulen-dark-brown/80 max-w-4xl mx-auto mb-12 text-prose leading-relaxed">
           {t.whatWeDo.intro}
         </p>
 
@@ -37,7 +37,7 @@ export default function ResearchAxes({ locale }: { locale: Locale }) {
               <h3 className="font-playfair text-xl font-bold text-meulen-dark-brown mb-3">
                 {axis.title}
               </h3>
-              <p className="text-meulen-dark-brown/80 leading-relaxed">
+              <p className="text-meulen-dark-brown/80 text-prose leading-relaxed">
                 {axis.description}
               </p>
             </div>
