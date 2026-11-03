@@ -249,17 +249,17 @@ const es: Dictionary = {
       {
         title: 'Justicia ecológica',
         description:
-          'Estudiamos las innovaciones jurídicas que emergen en América Latina, analizando los procesos de ampliación de los derechos de la naturaleza y de los ecosistemas.',
+          'Analizamos las innovaciones jurídicas que emergen en América Latina como la ampliación de los derechos de la naturaleza y de los ecosistemas, el desarrollo creciente de la litigación climática y ecológica, y los desafíos de implementar el Acuerdo de Escazú como instrumento clave de democracia ambiental.',
       },
       {
-        title: 'Derecho a un ambiente sano',
+        title: 'Extractivismo',
         description:
-          'Analizamos los desafíos asociados a la implementación del Acuerdo de Escazú como instrumento clave de democracia ambiental en América Latina y el Caribe.',
+          'Indagamos las dinámicas extractivas y su articulación con los marcos jurídicos contemporáneos, con especial atención a las tensiones entre la expansión de los proyectos extractivos, el incentivo a grandes inversiones extranjeras y el rol del principio de no regresión frente a la profundización de retrocesos en la tutela ambiental.',
       },
       {
-        title: 'Extractivismos',
+        title: 'Transiciones agrícolas',
         description:
-          'Indagamos las dinámicas del extractivismo y su articulación con los marcos jurídicos contemporáneos.',
+          'Examinamos las prácticas y desafíos de la transición agrícola en el Cinturón Hortícola Santafesino desde un abordaje social, jurídico y tecnológico, atendiendo a las condiciones, los actores y las tensiones que atraviesan estos tránsitos en la región.',
       },
     ],
   },
@@ -376,17 +376,17 @@ const en: Dictionary = {
       {
         title: 'Ecological Justice',
         description:
-          'We study the legal innovations emerging in Latin America, analyzing the processes that expand the rights of nature and of ecosystems.',
+          'We analyze the legal innovations emerging in Latin America, such as the expansion of the rights of nature and of ecosystems, the growing development of climate and ecological litigation, and the challenges of implementing the Escazú Agreement as a key instrument of environmental democracy.',
       },
       {
-        title: 'Right to a Healthy Environment',
+        title: 'Extractivism',
         description:
-          'We analyze the challenges associated with implementing the Escazú Agreement as a key instrument of environmental democracy in Latin America and the Caribbean.',
+          'We investigate extractive dynamics and their articulation with contemporary legal frameworks, with particular attention to the tensions between the expansion of extractive projects, incentives for large foreign investments and the role of the principle of non-regression in the face of deepening setbacks in environmental protection.',
       },
       {
-        title: 'Extractivisms',
+        title: 'Agricultural Transitions',
         description:
-          'We investigate the dynamics of extractivism and its articulation with contemporary legal frameworks.',
+          'We examine the practices and challenges of the agricultural transition in the Santa Fe Horticultural Belt from a social, legal and technological approach, considering the conditions, actors and tensions that run through these transitions in the region.',
       },
     ],
   },
@@ -521,17 +521,17 @@ const pt: Dictionary = {
       {
         title: 'Justiça ecológica',
         description:
-          'Estudamos as inovações jurídicas que emergem na América Latina, analisando os processos de ampliação dos direitos da natureza e dos ecossistemas.',
+          'Analisamos as inovações jurídicas que emergem na América Latina, como a ampliação dos direitos da natureza e dos ecossistemas, o desenvolvimento crescente da litigância climática e ecológica e os desafios de implementar o Acordo de Escazú como instrumento-chave de democracia ambiental.',
       },
       {
-        title: 'Direito a um ambiente saudável',
+        title: 'Extrativismo',
         description:
-          'Analisamos os desafios associados à implementação do Acordo de Escazú como instrumento-chave de democracia ambiental na América Latina e no Caribe.',
+          'Indagamos as dinâmicas extrativas e sua articulação com os marcos jurídicos contemporâneos, com especial atenção às tensões entre a expansão dos projetos extrativos, o incentivo a grandes investimentos estrangeiros e o papel do princípio de não regressão diante do aprofundamento dos retrocessos na tutela ambiental.',
       },
       {
-        title: 'Extrativismos',
+        title: 'Transições agrícolas',
         description:
-          'Indagamos as dinâmicas do extrativismo e sua articulação com os marcos jurídicos contemporâneos.',
+          'Examinamos as práticas e os desafios da transição agrícola no Cinturão Hortícola de Santa Fe a partir de uma abordagem social, jurídica e tecnológica, considerando as condições, os atores e as tensões que atravessam essas transições na região.',
       },
     ],
   },

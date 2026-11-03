@@ -2,7 +2,7 @@ import { getDictionary, type Locale } from '@/lib/i18n'
 import AcampesSection from '@/components/AcampesSection'
 
 const INTRO = [
-  'La extensión universitaria es un espacio de encuentro, diálogo y construcción colectiva de conocimientos entre la Universidad y la comunidad. A través del trabajo conjunto con organizaciones sociales, instituciones públicas y comunidades locales, desarrollamos actividades orientadas a promover la justicia ecológica, fortalecer las capacidades locales para el abordaje de problemas socioambientales y acompañar procesos de transición hacia prácticas más sostenibles.',
+  'Desarrollamos actividades de extensión universitaria como un espacio de encuentro, diálogo y construcción colectiva de conocimientos entre la Universidad y la comunidad. A través del trabajo conjunto con organizaciones sociales, instituciones públicas y comunidades locales, realizamos actividades orientadas a promover la justicia ecológica, fortalecer las capacidades locales para el abordaje de problemas socioambientales y acompañar procesos de transición hacia prácticas más sostenibles.',
 ]
 
 const ACAMPE = [

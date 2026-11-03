@@ -3,8 +3,8 @@ import { getDictionary, type Locale } from '@/lib/i18n'
 
 const AXIS_ICONS = [
   '/images/icons/hoja.png',
-  '/images/icons/rio.png',
   '/images/icons/lupa.png',
+  '/images/icons/rio.png',
 ]
 
 export default function ResearchAxes({ locale }: { locale: Locale }) {
